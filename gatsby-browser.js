@@ -8,3 +8,4 @@
 
 // Import global style sheets here
 import styles from './src/global-styles.scss';
+require('gatsby-remark-vscode/styles.css');
