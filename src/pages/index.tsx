@@ -1,15 +1,11 @@
 import { graphql } from 'gatsby'
 import React from "react"
+import BlogListing from '../components/blog/blog-listing/blog-listing'
 import Layout from "../components/layout"
 
 const IndexPage = ({data}: { data: any }) => (
   <Layout>
-    {data.allMarkdownRemark.edges.map(({node}: {node: any}) => (
-      <div key={node.id}>
-        <h3>{node.frontmatter.title}</h3>
-        <p>{node.excerpt}</p>
-      </div>
-    ))}
+    <BlogListing />
   </Layout>
 )
 
