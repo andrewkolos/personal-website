@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from "react"
 import BlogListing from '../components/blog/blog-listing/blog-listing'
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 
 const IndexPage = ({data}: { data: any }) => (
   <Layout>

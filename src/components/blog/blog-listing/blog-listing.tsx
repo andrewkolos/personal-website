@@ -15,7 +15,7 @@ const BlogListing = () => (
                 title
                 date(formatString: "DD MMMM, YYYY")
               }
-              excerpt
+              excerpt(pruneLength: 280)
             }
           }
         }
@@ -25,8 +25,9 @@ const BlogListing = () => (
     render={data => (
       data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
-          <h3 className={Styles.title}>{node.frontmatter.title}{" "}</h3>
-          <span className={Styles.secondaryInfo}> — {node.frontmatter.date}</span>
+          <h3 className={Styles.title}>{node.frontmatter.title}{" "}
+            <span className={Styles.secondaryInfo}> — {node.frontmatter.date}</span>
+          </h3>
           <p className={Styles.excerpt}>{node.excerpt}</p>
         </div>
       ))

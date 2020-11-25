@@ -2,7 +2,6 @@
 
 .container {
   padding: 0.5rem;
-  border: 1px solid #ddd;
   border-radius: 0.25rem;
 }
 
@@ -11,10 +10,10 @@
 }
 
 .title {
-  display: inline;
 }
 
 .secondaryInfo {
+  font-size: 1rem;
   color: $body-text-light;
 }
 

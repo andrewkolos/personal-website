@@ -20,7 +20,7 @@
 
 .title {
   text-decoration: none;
-  color: white;
+  color: $primary-text !important;
 }
 
 .navLinkContainer {
@@ -41,10 +41,10 @@
   padding: 0.8rem;
 }
 
-.navLinkContainer a:hover {
-  background-color: $primary-dark;
+.navLinkContainer a:visited {
+  color: inherit;
 }
 
-.navLinkActive {
-  color: $primary-lighter;
+.navLinkContainer a:hover {
+  background-color: $primary-dark;
 }

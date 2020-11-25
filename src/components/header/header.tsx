@@ -10,11 +10,10 @@ const Header = ({ siteTitle }: { siteTitle: string }) => (
       <h1 className={Styles.titleContainer}>
         <Link to="/" className={Styles.title}>{siteTitle}</Link>
       </h1>
+
       <ul className={Styles.navLinkContainer}>
         <ListLink to='/' className={Styles.navLink}>Blog</ListLink>
         <ListLink to='/projects/' className={Styles.navLink}>Projects</ListLink>
-        <ListLink to='/about/' className={Styles.navLink}>About</ListLink>
-        <ListLink to='/contact/' className={Styles.navLink}>Contact</ListLink>
       </ul>
     </div>
   </header>

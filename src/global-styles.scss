@@ -1,7 +1,17 @@
+@import './variables.scss';
+
 a {
-  color: inherit;
+  color: $primary;
+}
+
+a:visited {
+  color: $primary-light;
 }
 
 * {
   box-sizing: border-box;
+}
+
+h3 {
+  
 }
