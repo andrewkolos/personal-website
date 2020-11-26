@@ -1,4 +1,5 @@
 const path = require('path');
+const githubToken = process.env.GITHUB_TOKEN;
 
 module.exports = {
   siteMetadata: {
@@ -61,7 +62,18 @@ module.exports = {
         }]
       }
     },
-    'gatsby-plugin-typegen'
+    {
+      resolve: 'gatsby-plugin-typegen',
+      options: {
+        outputPath: `src/__generated__/gatsby-types.d.ts`,
+        emitSchema: {
+          'src/__generated__/gatsby-introspection.json': true,
+        },
+        emitPluginDocuments: {
+          'src/__generated__/gatsby-plugin-docments.graphql': true,
+        }
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

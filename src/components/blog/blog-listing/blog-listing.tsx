@@ -3,7 +3,7 @@ import React from "react"
 import Styles from './blog-listing.module.scss';
 
 const BlogListing = () => (
-  <StaticQuery
+  <StaticQuery<GatsbyTypes.Query>
     query={graphql`
       query {
         allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

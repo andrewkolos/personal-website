@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Andrew Kolos' website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Andrew Kolos <andrewrkolos@gmail.com>",
   "dependencies": {
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
@@ -33,6 +33,8 @@
   "devDependencies": {
     "@types/typography": "^0.16.3",
     "prettier": "2.1.2",
+    "source-map-support": "^0.5.19",
+    "ts-node": "^9.0.0",
     "typescript": "^4.1.2"
   },
   "keywords": [
