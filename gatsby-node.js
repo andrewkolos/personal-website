@@ -9,6 +9,7 @@ require("ts-node").register({
     module: "commonjs",
     target: "es2017",
   },
+  files: true,
 })
 
-exports.createPages = require("./create-pages").createPages
+exports.createPages = require("./gatsby-create-pages").createPages

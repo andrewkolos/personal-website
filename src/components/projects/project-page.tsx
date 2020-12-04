@@ -2,22 +2,25 @@ import React from "react";
 import Layout from "../layout/layout"
 import { ProjectDescriptor } from '../../projects';
 import { ProjectListing } from './project-listing';
+import { PageProps } from 'gatsby';
 
 export interface Project extends ProjectDescriptor {
   description: string;
   topics: string[];
   url: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface ProjectListProps {
-  library: Project[];
+  myLibraries: Project[];
   other: Project[];
   contributedTo: Project[];
 }
 
-const ProjectsPage: React.FC<any> = (data) => {
+const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = (data) => {
 
-  const props = data.pathContext;
+  const props = data.pageContext;
   return (
     <Layout>
       <h2>My own projects</h2>
@@ -31,6 +34,6 @@ const ProjectsPage: React.FC<any> = (data) => {
   );
 }
 
-const listProjects = (projects: Project[]) => projects.map(p => <ProjectListing {...p} />);
+const listProjects = (projects: Project[]) => projects.map(p => <ProjectListing {...p} key={p.name} />);
 
 export default ProjectsPage;
