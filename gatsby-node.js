@@ -3,12 +3,12 @@
  *
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
-require('source-map-support').install();
-require('ts-node').register({
+require("source-map-support").install()
+require("ts-node").register({
   compilerOptions: {
-    module: 'commonjs',
-    target: 'es2017',
+    module: "commonjs",
+    target: "es2017",
   },
 })
 
-exports.createPages = require('./create-pages').createPages;
+exports.createPages = require("./create-pages").createPages

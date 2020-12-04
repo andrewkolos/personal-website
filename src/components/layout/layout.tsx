@@ -13,7 +13,7 @@ import Header from "../header/header"
 import "./layout.css"
 
 const Layout: React.FunctionComponent<{children: any}> = (props: { children: any}) => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {

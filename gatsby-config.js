@@ -1,5 +1,5 @@
-const path = require('path');
-const githubToken = process.env.GITHUB_TOKEN;
+const path = require("path")
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
@@ -37,8 +37,8 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    'gatsby-transformer-typescript-css-modules',
-    'gatsby-plugin-sass',
+    "gatsby-transformer-typescript-css-modules",
+    "gatsby-plugin-sass",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,30 +49,31 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [{
-          resolve: `gatsby-remark-vscode`,
-          options: {
-            colorTheme: 'Dark+ (default dark)',
-            injectStyles: true,
-            extensions: [],
-            extensionDataDirectory:
-              path.resolve('extensions'),
-            logLevel: 'error'
-          }
-        }]
-      }
+        plugins: [
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              colorTheme: "Dark+ (default dark)",
+              injectStyles: true,
+              extensions: [],
+              extensionDataDirectory: path.resolve("extensions"),
+              logLevel: "error",
+            },
+          },
+        ],
+      },
     },
     {
-      resolve: 'gatsby-plugin-typegen',
+      resolve: "gatsby-plugin-typegen",
       options: {
         outputPath: `src/__generated__/gatsby-types.d.ts`,
         emitSchema: {
-          'src/__generated__/gatsby-introspection.json': true,
+          "src/__generated__/gatsby-introspection.json": true,
         },
         emitPluginDocuments: {
-          'src/__generated__/gatsby-plugin-docments.graphql': true,
-        }
-      }
+          "src/__generated__/gatsby-plugin-docments.graphql": true,
+        },
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 
 const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
   const { markdownRemark } = data;
@@ -17,18 +16,5 @@ const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
     </div>
   );
 }
-
-export const mdPageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        slug
-        title
-      }
-    }
-  }
-`
 
 export default BlogTemplate;
