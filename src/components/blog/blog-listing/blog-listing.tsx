@@ -2,7 +2,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from "react";
 import Styles from './blog-listing.module.scss';
 
-const BlogListing = () => {
+const BlogListing: React.FunctionComponent<{}> = () => {
   const data = useStaticQuery(graphql`
       query {
         allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

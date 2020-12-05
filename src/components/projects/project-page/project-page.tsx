@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../layout/layout"
-import { ProjectDescriptor } from '../../projects';
-import { ProjectListing } from './project-listing';
+import Layout from "../../layout/layout"
+import { ProjectDescriptor } from '../../../projects';
+import { ProjectListing } from '../project-listing/project-listing';
 import { PageProps } from 'gatsby';
 import Styles from './project-page.module.scss';
 

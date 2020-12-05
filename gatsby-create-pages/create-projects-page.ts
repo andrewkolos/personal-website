@@ -2,14 +2,14 @@ import { CreatePagesArgs } from 'gatsby';
 import { contributedTo, libraryProjects, otherProjects, ProjectDescriptor } from '../src/projects';
 import { Octokit } from '@octokit/rest';
 import { objectPromiseAll } from '@akolos/object-promise-all';
-import { Project } from '../src/components/projects/project-page';
+import { Project } from '../src/components/projects/project-page/project-page';
 
 const octokit = new Octokit({
   auth: process.env['GITHUB_TOKEN'],
 });
 
 export async function createProjectsPage({ actions }: CreatePagesArgs) {
-  const projectList = require.resolve('../src/components/projects/project-page.tsx');
+  const projectList = require.resolve('../src/components/projects/project-page/project-page.tsx');
 
   const repos = await objectPromiseAll({
     myLibraries: libraryProjects.map(p => getProjectInfo(p)),

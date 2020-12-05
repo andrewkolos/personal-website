@@ -4,7 +4,7 @@ import AboutMe from '../components/about-me/about-me'
 import BlogListing from '../components/blog/blog-listing/blog-listing'
 import Layout from "../components/layout/layout"
 
-const IndexPage = ({data}: { data: any }) => (
+const IndexPage: React.FC<{}> = () => (
   <Layout>
     <AboutMe />
     <BlogListing />

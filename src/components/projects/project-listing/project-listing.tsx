@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProjectDescriptor } from '../../projects';
+import { ProjectDescriptor } from '../../../projects';
 import Styles from './project-listing.module.scss';
 
 export interface ProjectListingProps extends ProjectDescriptor {
