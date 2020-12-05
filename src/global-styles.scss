@@ -1,13 +1,12 @@
 @import './variables.scss';
-
 a {
-  color: $primary;
+    color: $primary;
 }
 
 a:visited {
-  color: $primary-light;
+    color: $primary-light;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }

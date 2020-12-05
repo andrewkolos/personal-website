@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-export const ListLink: React.FunctionComponent<any> = (props: {to: string, children: React.ReactNode}) => (
+interface NavLinkProps {
+  to: string;
+  className: string;
+  activeClassName: string;
+}
+
+export const ListLink: React.FunctionComponent<NavLinkProps> = (props) => (
   <li style={{ display: 'inline-block', marginRight: `0.6rem`}}>
-    <Link to={props.to}>{props.children}</Link>
+    <Link to={props.to} className={props.className} activeClassName={props.activeClassName}>{props.children}</Link>
   </li>
 );

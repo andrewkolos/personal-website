@@ -15,9 +15,9 @@ export const ProjectListing: React.FC<ProjectListingProps> = (data) => {
   console.log('data', data);
   return (
     <div className={Styles.container} key={data.name}>
-      <a href={data.url}><h3 className={Styles.title}>{data.name}{" "}</h3></a>
+      <a href={data.url} className={Styles.titleLink}><h3 className={Styles.title}>{data.name}{" "}</h3></a>
       <p>Last updated: {formatMMDDYYYY(new Date(data.updatedAt))}. Created: {formatMMDDYYYY(new Date(data.createdAt))}.</p>
-      <p className={Styles.excerpt}>{data.description}</p>
+      <p className={Styles.remarks}>{data.description}</p>
     </div>
   );
 }

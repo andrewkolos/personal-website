@@ -1,4 +1,5 @@
 @import '../../variables.scss';
+@import '../../shared-styles.scss';
 
 .portrait {
   border-radius: 50%;
@@ -11,9 +12,9 @@
 }
 
 .content {
-
+  margin-bottom: 0;
 }
 
 .container {
-
+  @extend .card;
 }

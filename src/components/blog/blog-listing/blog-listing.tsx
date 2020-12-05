@@ -24,15 +24,17 @@ const BlogListing = () => {
     `);
 
   return (
-    data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
-      <div className={Styles.container} key={node.id}>
-        <Link className={Styles.titleLink} href={node.frontmatter.slug}><h2 className={Styles.title}>{node.frontmatter.title}</h2></Link>
-        <h4 className={Styles.subtitle}>{node.frontmatter.subtitle}</h4>
-        <p className={Styles.excerpt}>{node.excerpt}</p>
-        <p className={Styles.secondaryInfo}>{node.frontmatter.date}</p>
-        <hr className={Styles.listingDivider} />
-      </div>
-    ))
+
+    <div>
+      {data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
+        <div className={Styles.container} key={node.id}>
+          <Link className={Styles.titleLink} href={node.frontmatter.slug}><h2 className={Styles.title}>{node.frontmatter.title}</h2></Link>
+          <h4 className={Styles.subtitle}>{node.frontmatter.subtitle}</h4>
+          <p className={Styles.excerpt}>{node.excerpt}</p>
+          <p className={Styles.secondaryInfo}>{node.frontmatter.date}</p>
+        </div>
+      ))}
+    </div>
   );
 }
 

@@ -1,10 +1,12 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import Layout from '../layout/layout';
 
 const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
   return (
+    <Layout>
     <div className="blog-post-container">
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
@@ -15,6 +17,7 @@ const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
         />
       </div>
     </div>
+    </Layout>
   );
 }
 

@@ -39,6 +39,7 @@
 .navLinkContainer a {
   text-decoration: none;
   padding: 0.8rem;
+  transition: 0.1s;
 }
 
 .navLinkContainer a:visited {
@@ -46,5 +47,9 @@
 }
 
 .navLinkContainer a:hover {
+  background-color: $primary-dark;
+}
+
+.navLinkActive {
   background-color: $primary-dark;
 }

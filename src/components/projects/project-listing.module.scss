@@ -1,22 +1,45 @@
 @import '../../variables.scss';
+@import '../../shared-styles.scss';
 
 .container {
-  padding: 0.5rem;
-  border-radius: 0.25rem;
+    @extend .card;
 }
 
-.header {
+.titleLink {
+    margin-top: 0;
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    transition: 0.1s;
+}
 
+.titleLink:hover {
+    color: $primary;
 }
 
 .title {
+    display: inline;
+}
+
+.subtitle {
+    font-weight: 300;
 }
 
 .secondaryInfo {
-  font-size: 1rem;
-  color: $body-text-light;
+    font-size: 1rem;
+    color: $body-text-light;
 }
 
-.excerpt {
+.remarks {
+    margin-bottom: 0;
+}
 
+.secondaryInfo {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #868e98;
 }
