@@ -1,22 +1,51 @@
 @import '../../../variables.scss';
-
 .container {
-  padding: 0.5rem;
-  border-radius: 0.25rem;
+    padding: 0rem 0.5rem 0 0.5rem;
+    border-radius: 0.25rem;
 }
 
-.header {
+.titleLink {
+    margin-top: 30px;
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    transition: 0.1s;
+}
 
+.titleLink:hover {
+    color: $primary;
 }
 
 .title {
+    display: inline;
+}
+
+.subtitle {
+    font-weight: 300;
 }
 
 .secondaryInfo {
-  font-size: 1rem;
-  color: $body-text-light;
+    font-size: 1rem;
+    color: $body-text-light;
 }
 
 .excerpt {
+    margin-bottom: 10px;
+}
 
+.secondaryInfo {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #868e98;
+}
+
+.listingDivider {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, .1);
 }

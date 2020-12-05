@@ -708,6 +708,7 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
   childMarkdownRemark___frontmatter___slug = 'childMarkdownRemark.frontmatter.slug',
   childMarkdownRemark___frontmatter___date = 'childMarkdownRemark.frontmatter.date',
+  childMarkdownRemark___frontmatter___subtitle = 'childMarkdownRemark.frontmatter.subtitle',
   childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
   childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
   childMarkdownRemark___fileAbsolutePath = 'childMarkdownRemark.fileAbsolutePath',
@@ -759,7 +760,46 @@ enum FileFieldsEnum {
   childMarkdownRemark___internal___ignoreType = 'childMarkdownRemark.internal.ignoreType',
   childMarkdownRemark___internal___mediaType = 'childMarkdownRemark.internal.mediaType',
   childMarkdownRemark___internal___owner = 'childMarkdownRemark.internal.owner',
-  childMarkdownRemark___internal___type = 'childMarkdownRemark.internal.type'
+  childMarkdownRemark___internal___type = 'childMarkdownRemark.internal.type',
+  childMarkdownRemark___childGrvscCodeBlock___index = 'childMarkdownRemark.childGrvscCodeBlock.index',
+  childMarkdownRemark___childGrvscCodeBlock___html = 'childMarkdownRemark.childGrvscCodeBlock.html',
+  childMarkdownRemark___childGrvscCodeBlock___text = 'childMarkdownRemark.childGrvscCodeBlock.text',
+  childMarkdownRemark___childGrvscCodeBlock___preClassName = 'childMarkdownRemark.childGrvscCodeBlock.preClassName',
+  childMarkdownRemark___childGrvscCodeBlock___codeClassName = 'childMarkdownRemark.childGrvscCodeBlock.codeClassName',
+  childMarkdownRemark___childGrvscCodeBlock___language = 'childMarkdownRemark.childGrvscCodeBlock.language',
+  childMarkdownRemark___childGrvscCodeBlock___meta = 'childMarkdownRemark.childGrvscCodeBlock.meta',
+  childMarkdownRemark___childGrvscCodeBlock___defaultTheme___path = 'childMarkdownRemark.childGrvscCodeBlock.defaultTheme.path',
+  childMarkdownRemark___childGrvscCodeBlock___defaultTheme___identifier = 'childMarkdownRemark.childGrvscCodeBlock.defaultTheme.identifier',
+  childMarkdownRemark___childGrvscCodeBlock___defaultTheme___conditions = 'childMarkdownRemark.childGrvscCodeBlock.defaultTheme.conditions',
+  childMarkdownRemark___childGrvscCodeBlock___additionalThemes = 'childMarkdownRemark.childGrvscCodeBlock.additionalThemes',
+  childMarkdownRemark___childGrvscCodeBlock___additionalThemes___path = 'childMarkdownRemark.childGrvscCodeBlock.additionalThemes.path',
+  childMarkdownRemark___childGrvscCodeBlock___additionalThemes___identifier = 'childMarkdownRemark.childGrvscCodeBlock.additionalThemes.identifier',
+  childMarkdownRemark___childGrvscCodeBlock___additionalThemes___conditions = 'childMarkdownRemark.childGrvscCodeBlock.additionalThemes.conditions',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___tokens = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.tokens',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___gutterCells = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.gutterCells',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___text = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.text',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___html = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.html',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___attrs = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.attrs',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___className = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.className',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___data = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.data',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___isHighlighted = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.isHighlighted',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___lineNumber = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.lineNumber',
+  childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___diff = 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.diff',
+  childMarkdownRemark___childGrvscCodeBlock___id = 'childMarkdownRemark.childGrvscCodeBlock.id',
+  childMarkdownRemark___childGrvscCodeBlock___parent___id = 'childMarkdownRemark.childGrvscCodeBlock.parent.id',
+  childMarkdownRemark___childGrvscCodeBlock___parent___children = 'childMarkdownRemark.childGrvscCodeBlock.parent.children',
+  childMarkdownRemark___childGrvscCodeBlock___children = 'childMarkdownRemark.childGrvscCodeBlock.children',
+  childMarkdownRemark___childGrvscCodeBlock___children___id = 'childMarkdownRemark.childGrvscCodeBlock.children.id',
+  childMarkdownRemark___childGrvscCodeBlock___children___children = 'childMarkdownRemark.childGrvscCodeBlock.children.children',
+  childMarkdownRemark___childGrvscCodeBlock___internal___content = 'childMarkdownRemark.childGrvscCodeBlock.internal.content',
+  childMarkdownRemark___childGrvscCodeBlock___internal___contentDigest = 'childMarkdownRemark.childGrvscCodeBlock.internal.contentDigest',
+  childMarkdownRemark___childGrvscCodeBlock___internal___description = 'childMarkdownRemark.childGrvscCodeBlock.internal.description',
+  childMarkdownRemark___childGrvscCodeBlock___internal___fieldOwners = 'childMarkdownRemark.childGrvscCodeBlock.internal.fieldOwners',
+  childMarkdownRemark___childGrvscCodeBlock___internal___ignoreType = 'childMarkdownRemark.childGrvscCodeBlock.internal.ignoreType',
+  childMarkdownRemark___childGrvscCodeBlock___internal___mediaType = 'childMarkdownRemark.childGrvscCodeBlock.internal.mediaType',
+  childMarkdownRemark___childGrvscCodeBlock___internal___owner = 'childMarkdownRemark.childGrvscCodeBlock.internal.owner',
+  childMarkdownRemark___childGrvscCodeBlock___internal___type = 'childMarkdownRemark.childGrvscCodeBlock.internal.type'
 }
 
 type FileFilterInput = {
@@ -2179,6 +2219,7 @@ type MarkdownRemark = Node & {
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
+  readonly childGrvscCodeBlock: Maybe<GRVSCCodeBlock>;
   readonly grvscCodeBlocks: Maybe<ReadonlyArray<Maybe<GRVSCCodeBlock>>>;
   readonly grvscCodeSpans: Maybe<ReadonlyArray<Maybe<GRVSCCodeSpan>>>;
 };
@@ -2241,6 +2282,7 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___title = 'frontmatter.title',
   frontmatter___slug = 'frontmatter.slug',
   frontmatter___date = 'frontmatter.date',
+  frontmatter___subtitle = 'frontmatter.subtitle',
   excerpt = 'excerpt',
   rawMarkdownBody = 'rawMarkdownBody',
   fileAbsolutePath = 'fileAbsolutePath',
@@ -2340,7 +2382,83 @@ enum MarkdownRemarkFieldsEnum {
   internal___ignoreType = 'internal.ignoreType',
   internal___mediaType = 'internal.mediaType',
   internal___owner = 'internal.owner',
-  internal___type = 'internal.type'
+  internal___type = 'internal.type',
+  childGrvscCodeBlock___index = 'childGrvscCodeBlock.index',
+  childGrvscCodeBlock___html = 'childGrvscCodeBlock.html',
+  childGrvscCodeBlock___text = 'childGrvscCodeBlock.text',
+  childGrvscCodeBlock___preClassName = 'childGrvscCodeBlock.preClassName',
+  childGrvscCodeBlock___codeClassName = 'childGrvscCodeBlock.codeClassName',
+  childGrvscCodeBlock___language = 'childGrvscCodeBlock.language',
+  childGrvscCodeBlock___meta = 'childGrvscCodeBlock.meta',
+  childGrvscCodeBlock___defaultTheme___path = 'childGrvscCodeBlock.defaultTheme.path',
+  childGrvscCodeBlock___defaultTheme___identifier = 'childGrvscCodeBlock.defaultTheme.identifier',
+  childGrvscCodeBlock___defaultTheme___conditions = 'childGrvscCodeBlock.defaultTheme.conditions',
+  childGrvscCodeBlock___defaultTheme___conditions___condition = 'childGrvscCodeBlock.defaultTheme.conditions.condition',
+  childGrvscCodeBlock___defaultTheme___conditions___value = 'childGrvscCodeBlock.defaultTheme.conditions.value',
+  childGrvscCodeBlock___additionalThemes = 'childGrvscCodeBlock.additionalThemes',
+  childGrvscCodeBlock___additionalThemes___path = 'childGrvscCodeBlock.additionalThemes.path',
+  childGrvscCodeBlock___additionalThemes___identifier = 'childGrvscCodeBlock.additionalThemes.identifier',
+  childGrvscCodeBlock___additionalThemes___conditions = 'childGrvscCodeBlock.additionalThemes.conditions',
+  childGrvscCodeBlock___additionalThemes___conditions___condition = 'childGrvscCodeBlock.additionalThemes.conditions.condition',
+  childGrvscCodeBlock___additionalThemes___conditions___value = 'childGrvscCodeBlock.additionalThemes.conditions.value',
+  childGrvscCodeBlock___tokenizedLines = 'childGrvscCodeBlock.tokenizedLines',
+  childGrvscCodeBlock___tokenizedLines___tokens = 'childGrvscCodeBlock.tokenizedLines.tokens',
+  childGrvscCodeBlock___tokenizedLines___tokens___text = 'childGrvscCodeBlock.tokenizedLines.tokens.text',
+  childGrvscCodeBlock___tokenizedLines___tokens___startIndex = 'childGrvscCodeBlock.tokenizedLines.tokens.startIndex',
+  childGrvscCodeBlock___tokenizedLines___tokens___endIndex = 'childGrvscCodeBlock.tokenizedLines.tokens.endIndex',
+  childGrvscCodeBlock___tokenizedLines___tokens___scopes = 'childGrvscCodeBlock.tokenizedLines.tokens.scopes',
+  childGrvscCodeBlock___tokenizedLines___tokens___html = 'childGrvscCodeBlock.tokenizedLines.tokens.html',
+  childGrvscCodeBlock___tokenizedLines___tokens___className = 'childGrvscCodeBlock.tokenizedLines.tokens.className',
+  childGrvscCodeBlock___tokenizedLines___tokens___additionalThemeTokenData = 'childGrvscCodeBlock.tokenizedLines.tokens.additionalThemeTokenData',
+  childGrvscCodeBlock___tokenizedLines___gutterCells = 'childGrvscCodeBlock.tokenizedLines.gutterCells',
+  childGrvscCodeBlock___tokenizedLines___gutterCells___className = 'childGrvscCodeBlock.tokenizedLines.gutterCells.className',
+  childGrvscCodeBlock___tokenizedLines___gutterCells___text = 'childGrvscCodeBlock.tokenizedLines.gutterCells.text',
+  childGrvscCodeBlock___tokenizedLines___text = 'childGrvscCodeBlock.tokenizedLines.text',
+  childGrvscCodeBlock___tokenizedLines___html = 'childGrvscCodeBlock.tokenizedLines.html',
+  childGrvscCodeBlock___tokenizedLines___attrs = 'childGrvscCodeBlock.tokenizedLines.attrs',
+  childGrvscCodeBlock___tokenizedLines___className = 'childGrvscCodeBlock.tokenizedLines.className',
+  childGrvscCodeBlock___tokenizedLines___data = 'childGrvscCodeBlock.tokenizedLines.data',
+  childGrvscCodeBlock___tokenizedLines___isHighlighted = 'childGrvscCodeBlock.tokenizedLines.isHighlighted',
+  childGrvscCodeBlock___tokenizedLines___lineNumber = 'childGrvscCodeBlock.tokenizedLines.lineNumber',
+  childGrvscCodeBlock___tokenizedLines___diff = 'childGrvscCodeBlock.tokenizedLines.diff',
+  childGrvscCodeBlock___id = 'childGrvscCodeBlock.id',
+  childGrvscCodeBlock___parent___id = 'childGrvscCodeBlock.parent.id',
+  childGrvscCodeBlock___parent___parent___id = 'childGrvscCodeBlock.parent.parent.id',
+  childGrvscCodeBlock___parent___parent___children = 'childGrvscCodeBlock.parent.parent.children',
+  childGrvscCodeBlock___parent___children = 'childGrvscCodeBlock.parent.children',
+  childGrvscCodeBlock___parent___children___id = 'childGrvscCodeBlock.parent.children.id',
+  childGrvscCodeBlock___parent___children___children = 'childGrvscCodeBlock.parent.children.children',
+  childGrvscCodeBlock___parent___internal___content = 'childGrvscCodeBlock.parent.internal.content',
+  childGrvscCodeBlock___parent___internal___contentDigest = 'childGrvscCodeBlock.parent.internal.contentDigest',
+  childGrvscCodeBlock___parent___internal___description = 'childGrvscCodeBlock.parent.internal.description',
+  childGrvscCodeBlock___parent___internal___fieldOwners = 'childGrvscCodeBlock.parent.internal.fieldOwners',
+  childGrvscCodeBlock___parent___internal___ignoreType = 'childGrvscCodeBlock.parent.internal.ignoreType',
+  childGrvscCodeBlock___parent___internal___mediaType = 'childGrvscCodeBlock.parent.internal.mediaType',
+  childGrvscCodeBlock___parent___internal___owner = 'childGrvscCodeBlock.parent.internal.owner',
+  childGrvscCodeBlock___parent___internal___type = 'childGrvscCodeBlock.parent.internal.type',
+  childGrvscCodeBlock___children = 'childGrvscCodeBlock.children',
+  childGrvscCodeBlock___children___id = 'childGrvscCodeBlock.children.id',
+  childGrvscCodeBlock___children___parent___id = 'childGrvscCodeBlock.children.parent.id',
+  childGrvscCodeBlock___children___parent___children = 'childGrvscCodeBlock.children.parent.children',
+  childGrvscCodeBlock___children___children = 'childGrvscCodeBlock.children.children',
+  childGrvscCodeBlock___children___children___id = 'childGrvscCodeBlock.children.children.id',
+  childGrvscCodeBlock___children___children___children = 'childGrvscCodeBlock.children.children.children',
+  childGrvscCodeBlock___children___internal___content = 'childGrvscCodeBlock.children.internal.content',
+  childGrvscCodeBlock___children___internal___contentDigest = 'childGrvscCodeBlock.children.internal.contentDigest',
+  childGrvscCodeBlock___children___internal___description = 'childGrvscCodeBlock.children.internal.description',
+  childGrvscCodeBlock___children___internal___fieldOwners = 'childGrvscCodeBlock.children.internal.fieldOwners',
+  childGrvscCodeBlock___children___internal___ignoreType = 'childGrvscCodeBlock.children.internal.ignoreType',
+  childGrvscCodeBlock___children___internal___mediaType = 'childGrvscCodeBlock.children.internal.mediaType',
+  childGrvscCodeBlock___children___internal___owner = 'childGrvscCodeBlock.children.internal.owner',
+  childGrvscCodeBlock___children___internal___type = 'childGrvscCodeBlock.children.internal.type',
+  childGrvscCodeBlock___internal___content = 'childGrvscCodeBlock.internal.content',
+  childGrvscCodeBlock___internal___contentDigest = 'childGrvscCodeBlock.internal.contentDigest',
+  childGrvscCodeBlock___internal___description = 'childGrvscCodeBlock.internal.description',
+  childGrvscCodeBlock___internal___fieldOwners = 'childGrvscCodeBlock.internal.fieldOwners',
+  childGrvscCodeBlock___internal___ignoreType = 'childGrvscCodeBlock.internal.ignoreType',
+  childGrvscCodeBlock___internal___mediaType = 'childGrvscCodeBlock.internal.mediaType',
+  childGrvscCodeBlock___internal___owner = 'childGrvscCodeBlock.internal.owner',
+  childGrvscCodeBlock___internal___type = 'childGrvscCodeBlock.internal.type'
 }
 
 type MarkdownRemarkFilterInput = {
@@ -2359,12 +2477,14 @@ type MarkdownRemarkFilterInput = {
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
+  readonly childGrvscCodeBlock: Maybe<GRVSCCodeBlockFilterInput>;
 };
 
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
+  readonly subtitle: Maybe<Scalars['String']>;
 };
 
 
@@ -2379,6 +2499,7 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly slug: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
+  readonly subtitle: Maybe<StringQueryOperatorInput>;
 };
 
 type MarkdownRemarkGroupConnection = {
@@ -2677,6 +2798,7 @@ type Query_markdownRemarkArgs = {
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
+  childGrvscCodeBlock: Maybe<GRVSCCodeBlockFilterInput>;
 };
 
 
@@ -3433,7 +3555,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___isTSX = 'pluginCreator.pluginOptions.isTSX',
   pluginCreator___pluginOptions___jsxPragma = 'pluginCreator.pluginOptions.jsxPragma',
   pluginCreator___pluginOptions___allExtensions = 'pluginCreator.pluginOptions.allExtensions',
-  pluginCreator___pluginOptions___pathToConfigModule = 'pluginCreator.pluginOptions.pathToConfigModule',
   pluginCreator___pluginOptions___indentedSyntax = 'pluginCreator.pluginOptions.indentedSyntax',
   pluginCreator___pluginOptions___indentType = 'pluginCreator.pluginOptions.indentType',
   pluginCreator___pluginOptions___indentWidth = 'pluginCreator.pluginOptions.indentWidth',
@@ -3670,7 +3791,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___isTSX = 'pluginOptions.isTSX',
   pluginOptions___jsxPragma = 'pluginOptions.jsxPragma',
   pluginOptions___allExtensions = 'pluginOptions.allExtensions',
-  pluginOptions___pathToConfigModule = 'pluginOptions.pathToConfigModule',
   pluginOptions___indentedSyntax = 'pluginOptions.indentedSyntax',
   pluginOptions___indentType = 'pluginOptions.indentType',
   pluginOptions___indentWidth = 'pluginOptions.indentWidth',
@@ -3823,7 +3943,6 @@ type SitePluginPluginOptions = {
   readonly isTSX: Maybe<Scalars['Boolean']>;
   readonly jsxPragma: Maybe<Scalars['String']>;
   readonly allExtensions: Maybe<Scalars['Boolean']>;
-  readonly pathToConfigModule: Maybe<Scalars['String']>;
   readonly indentedSyntax: Maybe<Scalars['Boolean']>;
   readonly indentType: Maybe<Scalars['String']>;
   readonly indentWidth: Maybe<Scalars['Int']>;
@@ -3882,7 +4001,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly isTSX: Maybe<BooleanQueryOperatorInput>;
   readonly jsxPragma: Maybe<StringQueryOperatorInput>;
   readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
-  readonly pathToConfigModule: Maybe<StringQueryOperatorInput>;
   readonly indentedSyntax: Maybe<BooleanQueryOperatorInput>;
   readonly indentType: Maybe<StringQueryOperatorInput>;
   readonly indentWidth: Maybe<IntQueryOperatorInput>;
@@ -3989,6 +4107,16 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
+type cUsersAndrewDesktoppersonalWebsitesrccomponentsblogblogTemplateTsx1569184130QueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type cUsersAndrewDesktoppersonalWebsitesrccomponentsblogblogTemplateTsx1569184130Query = { readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'html'>
+    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'slug' | 'title'>> }
+  )> };
+
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4009,40 +4137,5 @@ type cUsersAndrewDesktoppersonalWebsitesrcpagesusingTypescriptTsx2907560070Query
 
 
 type cUsersAndrewDesktoppersonalWebsitesrcpagesusingTypescriptTsx2907560070Query = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
-
-type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsaboutMeaboutMeTsx2769515273QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsaboutMeaboutMeTsx2769515273Query = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }> };
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsblogblogListingblogListingTsx954031359QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsblogblogListingblogListingTsx954031359Query = { readonly allMarkdownRemark: (
-    Pick<MarkdownRemarkConnection, 'totalCount'>
-    & { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MarkdownRemark, 'id' | 'excerpt'>
-        & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'date'>> }
-      ) }> }
-  ) };
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsimageTsx1132682437QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsimageTsx1132682437Query = { readonly placeholderImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
-type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SiteTitleQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsseoTsx63159454QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsseoTsx63159454Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 }

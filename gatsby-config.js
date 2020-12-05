@@ -31,12 +31,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     "gatsby-transformer-typescript-css-modules",
     "gatsby-plugin-sass",
     {
