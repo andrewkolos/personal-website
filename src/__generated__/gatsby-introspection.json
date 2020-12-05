@@ -1634,16 +1634,6 @@
                   "ofType": null
                 },
                 "defaultValue": null
-              },
-              {
-                "name": "childGrvscCodeBlock",
-                "description": "",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "GRVSCCodeBlockFilterInput",
-                  "ofType": null
-                },
-                "defaultValue": null
               }
             ],
             "type": {
@@ -4229,16 +4219,6 @@
               "ofType": null
             },
             "defaultValue": null
-          },
-          {
-            "name": "childGrvscCodeBlock",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCCodeBlockFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -4387,839 +4367,6 @@
         ],
         "interfaces": null,
         "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCCodeBlockFilterInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "index",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "IntQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "html",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "text",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "preClassName",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "codeClassName",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "language",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "meta",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "JSONQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "defaultTheme",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "additionalThemes",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeFilterListInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "tokenizedLines",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCTokenizedLineFilterListInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "id",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "parent",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "NodeFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "children",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "NodeFilterListInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "internal",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "InternalFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCThemeFilterInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "path",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "identifier",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "conditions",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeConditionFilterListInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCThemeConditionFilterListInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "elemMatch",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeConditionFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCThemeConditionFilterInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "condition",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeConditionKindQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "value",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCThemeConditionKindQueryOperatorInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "eq",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "GRVSCThemeConditionKind",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "ne",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "GRVSCThemeConditionKind",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "in",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "GRVSCThemeConditionKind",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "nin",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "GRVSCThemeConditionKind",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "GRVSCThemeConditionKind",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "default",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "matchMedia",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "parentSelector",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCThemeFilterListInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "elemMatch",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCTokenizedLineFilterListInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "elemMatch",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCTokenizedLineFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCTokenizedLineFilterInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "tokens",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCTokenFilterListInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "gutterCells",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCGutterCellFilterListInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "text",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "html",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "attrs",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "JSONQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "className",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "data",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "JSONQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "isHighlighted",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BooleanQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "lineNumber",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "IntQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "diff",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCDiffQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCTokenFilterListInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "elemMatch",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCTokenFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCTokenFilterInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "text",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "startIndex",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "IntQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "endIndex",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "IntQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "scopes",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "html",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "className",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "defaultThemeTokenData",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeTokenDataFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "additionalThemeTokenData",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeTokenDataFilterListInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCThemeTokenDataFilterInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "themeIdentifier",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "className",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "meta",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "IntQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "color",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "bold",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BooleanQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "italic",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BooleanQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "underline",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BooleanQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCThemeTokenDataFilterListInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "elemMatch",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCThemeTokenDataFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCGutterCellFilterListInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "elemMatch",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "GRVSCGutterCellFilterInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCGutterCellFilterInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "className",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "text",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "GRVSCDiffQueryOperatorInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "eq",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "GRVSCDiff",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "ne",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "GRVSCDiff",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "in",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "GRVSCDiff",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "nin",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "GRVSCDiff",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "GRVSCDiff",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "ADD",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "DEL",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
         "possibleTypes": null
       },
       {
@@ -9466,18 +8613,6 @@
             "deprecationReason": null
           },
           {
-            "name": "childGrvscCodeBlock",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "GRVSCCodeBlock",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "grvscCodeBlocks",
             "description": null,
             "args": [],
@@ -10135,6 +9270,35 @@
         "possibleTypes": null
       },
       {
+        "kind": "ENUM",
+        "name": "GRVSCThemeConditionKind",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "default",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "matchMedia",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parentSelector",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "GRVSCTokenizedLine",
         "description": null,
@@ -10612,6 +9776,29 @@
         "inputFields": null,
         "interfaces": [],
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "GRVSCDiff",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "ADD",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "DEL",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
@@ -12897,240 +12084,6 @@
           },
           {
             "name": "childMarkdownRemark___internal___type",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___index",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___html",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___text",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___preClassName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___codeClassName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___language",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___meta",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___defaultTheme___path",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___defaultTheme___identifier",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___defaultTheme___conditions",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___additionalThemes",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___additionalThemes___path",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___additionalThemes___identifier",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___additionalThemes___conditions",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___tokens",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___gutterCells",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___text",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___html",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___attrs",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___className",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___data",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___isHighlighted",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___lineNumber",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___tokenizedLines___diff",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___parent___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___parent___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___children___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___children___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___internal___content",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___internal___contentDigest",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___internal___description",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___internal___ignoreType",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___internal___mediaType",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___internal___owner",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childMarkdownRemark___childGrvscCodeBlock___internal___type",
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
@@ -24224,462 +23177,6 @@
             "description": null,
             "isDeprecated": true,
             "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___index",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___html",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___text",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___preClassName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___codeClassName",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___language",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___meta",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___defaultTheme___path",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___defaultTheme___identifier",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___defaultTheme___conditions",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___defaultTheme___conditions___condition",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___defaultTheme___conditions___value",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___additionalThemes",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___additionalThemes___path",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___additionalThemes___identifier",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___additionalThemes___conditions",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___additionalThemes___conditions___condition",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___additionalThemes___conditions___value",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___tokens",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___tokens___text",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___tokens___startIndex",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___tokens___endIndex",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___tokens___scopes",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___tokens___html",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___tokens___className",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___tokens___additionalThemeTokenData",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___gutterCells",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___gutterCells___className",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___gutterCells___text",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___text",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___html",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___attrs",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___className",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___data",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___isHighlighted",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___lineNumber",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___tokenizedLines___diff",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___parent___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___parent___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___children___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___children___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___internal___content",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___internal___contentDigest",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___internal___description",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___internal___ignoreType",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___internal___mediaType",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___internal___owner",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___parent___internal___type",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___parent___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___parent___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___children___id",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___children___children",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___internal___content",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___internal___contentDigest",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___internal___description",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___internal___ignoreType",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___internal___mediaType",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___internal___owner",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___children___internal___type",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___internal___content",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___internal___contentDigest",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___internal___description",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___internal___fieldOwners",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___internal___ignoreType",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___internal___mediaType",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___internal___owner",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
-          },
-          {
-            "name": "childGrvscCodeBlock___internal___type",
-            "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
           }
         ],
         "possibleTypes": null
@@ -25040,6 +23537,787 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCThemeFilterInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "path",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "identifier",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "conditions",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeConditionFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCThemeConditionFilterListInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "elemMatch",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeConditionFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCThemeConditionFilterInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "condition",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeConditionKindQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "value",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCThemeConditionKindQueryOperatorInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "eq",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "GRVSCThemeConditionKind",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "ne",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "GRVSCThemeConditionKind",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "in",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "GRVSCThemeConditionKind",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "nin",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "GRVSCThemeConditionKind",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCThemeFilterListInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "elemMatch",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCTokenizedLineFilterListInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "elemMatch",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCTokenizedLineFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCTokenizedLineFilterInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "tokens",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCTokenFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "gutterCells",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCGutterCellFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "text",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "html",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "attrs",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "JSONQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "className",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "data",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "JSONQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "isHighlighted",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BooleanQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "lineNumber",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "IntQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "diff",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCDiffQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCTokenFilterListInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "elemMatch",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCTokenFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCTokenFilterInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "text",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "startIndex",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "IntQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "endIndex",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "IntQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "scopes",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "html",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "className",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "defaultThemeTokenData",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeTokenDataFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "additionalThemeTokenData",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeTokenDataFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCThemeTokenDataFilterInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "themeIdentifier",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "className",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "meta",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "IntQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "color",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "bold",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BooleanQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "italic",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BooleanQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "underline",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BooleanQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCThemeTokenDataFilterListInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "elemMatch",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeTokenDataFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCGutterCellFilterListInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "elemMatch",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCGutterCellFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCGutterCellFilterInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "className",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "text",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCDiffQueryOperatorInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "eq",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "GRVSCDiff",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "ne",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "GRVSCDiff",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "in",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "GRVSCDiff",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "nin",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "GRVSCDiff",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "GRVSCCodeBlockFilterInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "index",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "IntQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "html",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "text",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "preClassName",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "codeClassName",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "language",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "meta",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "JSONQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "defaultTheme",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "additionalThemes",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCThemeFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "tokenizedLines",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "GRVSCTokenizedLineFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "id",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "parent",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "NodeFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "children",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "NodeFilterListInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "internal",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "InternalFilterInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },

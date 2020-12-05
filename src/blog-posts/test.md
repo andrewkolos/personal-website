@@ -1,6 +1,6 @@
 ---
 slug: "/blog/test"
-title: "Test post"
+title: "Creating another type-safe event emitter in TypeScript. Super asbestos long title testing time."
 date: "2020-11-25"
 --- 
 
