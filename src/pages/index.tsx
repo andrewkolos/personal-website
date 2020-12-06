@@ -1,13 +1,13 @@
 import { graphql } from 'gatsby'
 import React from "react"
 import AboutMe from '../components/about-me/about-me'
-import BlogListing from '../components/blog/blog-listing/blog-listing'
+import BlogList from '../components/blog/blog-listing/blog-listing'
 import Layout from "../components/layout/layout"
 
 const IndexPage: React.FC<{}> = () => (
   <Layout>
     <AboutMe />
-    <BlogListing />
+    <BlogList />
   </Layout>
 )
 

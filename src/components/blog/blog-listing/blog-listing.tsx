@@ -1,8 +1,9 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from "react";
 import Styles from './blog-listing.module.scss';
+import SharedStyles from '../../../shared-styles.module.scss';
 
-const BlogListing: React.FunctionComponent<{}> = () => {
+const BlogList: React.FunctionComponent<{}> = () => {
   const data = useStaticQuery(graphql`
       query {
         allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -23,9 +24,10 @@ const BlogListing: React.FunctionComponent<{}> = () => {
       }
     `);
 
-  return (
+  console.log('sharedStyles', SharedStyles);
 
-    <div>
+  return (
+    <div className={SharedStyles.outerCard}>
       {data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
           <Link className={Styles.titleLink} href={node.frontmatter.slug}><h2 className={Styles.title}>{node.frontmatter.title}</h2></Link>
@@ -38,4 +40,4 @@ const BlogListing: React.FunctionComponent<{}> = () => {
   );
 }
 
-export default BlogListing;
+export default BlogList;

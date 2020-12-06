@@ -4,6 +4,7 @@ import { ProjectDescriptor } from '../../../projects';
 import { ProjectListing } from '../project-listing/project-listing';
 import { PageProps } from 'gatsby';
 import Styles from './project-page.module.scss';
+import SharedStyles from '../../../../src/shared-styles.module.scss';
 
 export interface Project extends ProjectDescriptor {
   description: string;
@@ -24,19 +25,25 @@ const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = (data) => {
   const props = data.pageContext;
   return (
     <Layout>
-      <h2>Libraries</h2>
-      {listProjects(props.myLibraries)}
-      <h2 className={Styles.sectionHeading}>Other stuff</h2>
-      {listProjects(props.other)}
-      <h2 className={Styles.sectionHeading}>OSS I have contributed to</h2>
-      {listProjects(props.contributedTo)}
+      <div className={SharedStyles.outerCard}>
+        <h2>Libraries</h2>
+        {listProjects(props.myLibraries)}
+      </div>
+      <div className={SharedStyles.outerCard}>
+        <h2 className={Styles.sectionHeading}>Other stuff</h2>
+        {listProjects(props.other)}
+      </div>
+      <div className={SharedStyles.outerCard}>
+        <h2 className={Styles.sectionHeading}>OSS I have contributed to</h2>
+        {listProjects(props.contributedTo)}
+      </div>
     </Layout>
   );
 }
 
 const listProjects = (projects: Project[]) => projects.map((p, i) => {
   return (
-      <ProjectListing {...p} key={p.name} />
+    <ProjectListing {...p} key={p.name} />
   );
 });
 

@@ -1,5 +1,5 @@
 @import '../../../variables.scss';
-@import '../../../shared-styles.scss';
+@import '../../../shared-styles.module.scss';
 
 .container {
     @extend .card;
