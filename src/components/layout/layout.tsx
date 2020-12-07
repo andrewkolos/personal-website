@@ -11,8 +11,9 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "../header/header"
 import "./layout.css"
+import { SocialLinks } from './social-links/social-links';
 
-const Layout: React.FunctionComponent<{children: any}> = (props: { children: any}) => {
+const Layout: React.FunctionComponent<{ children: any }> = (props: { children: any }) => {
   const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(graphql`
     query SiteTitleQuery {
       site {
@@ -24,7 +25,7 @@ const Layout: React.FunctionComponent<{children: any}> = (props: { children: any
   `)
 
   return (
-    <div style={{margin: 'auto'}}>
+    <div style={{ margin: 'auto' }}>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
@@ -34,11 +35,13 @@ const Layout: React.FunctionComponent<{children: any}> = (props: { children: any
         }}
       >
         <main>{props.children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-        </footer>
       </div>
+      <footer style={{
+        marginTop: `3.45rem`
+      }}>
+        <hr />
+        <SocialLinks />
+      </footer>
     </div>
   )
 }

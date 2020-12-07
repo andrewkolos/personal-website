@@ -4272,21 +4272,21 @@
             "defaultValue": null
           },
           {
-            "name": "date",
-            "description": "",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "DateQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "subtitle",
             "description": "",
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "date",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "DateQueryOperatorInput",
               "ofType": null
             },
             "defaultValue": null
@@ -9561,6 +9561,18 @@
             "deprecationReason": null
           },
           {
+            "name": "subtitle",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "date",
             "description": null,
             "args": [
@@ -9608,18 +9620,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "subtitle",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -12606,13 +12606,13 @@
             "deprecationReason": null
           },
           {
-            "name": "childMarkdownRemark___frontmatter___date",
+            "name": "childMarkdownRemark___frontmatter___subtitle",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "childMarkdownRemark___frontmatter___subtitle",
+            "name": "childMarkdownRemark___frontmatter___date",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -23620,13 +23620,13 @@
             "deprecationReason": null
           },
           {
-            "name": "frontmatter___date",
+            "name": "frontmatter___subtitle",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "frontmatter___subtitle",
+            "name": "frontmatter___date",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

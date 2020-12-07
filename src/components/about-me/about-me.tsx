@@ -20,6 +20,7 @@ export const AboutMe: React.FC<unknown> = () => {
 
   return (
     <div className={Styles.container}>
+      <h2>About me</h2>
       <div className={Styles.portraitContainer}>
         <Img className={Styles.portrait} fixed={imgData.file?.childImageSharp?.fixed!} />
       </div>

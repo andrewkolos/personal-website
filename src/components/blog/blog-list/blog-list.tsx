@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from "react";
-import Styles from './blog-listing.module.scss';
+import Styles from './blog-list.module.scss';
 import SharedStyles from '../../../shared-styles.module.scss';
 
 const BlogList: React.FunctionComponent<{}> = () => {
@@ -27,7 +27,8 @@ const BlogList: React.FunctionComponent<{}> = () => {
   console.log('sharedStyles', SharedStyles);
 
   return (
-    <div className={SharedStyles.outerCard}>
+    <div className={SharedStyles.card}>
+      <h2>Blog posts</h2>
       {data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
           <Link className={Styles.titleLink} href={node.frontmatter.slug}><h2 className={Styles.title}>{node.frontmatter.title}</h2></Link>

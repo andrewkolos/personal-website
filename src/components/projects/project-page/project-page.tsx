@@ -25,15 +25,15 @@ const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = (data) => {
   const props = data.pageContext;
   return (
     <Layout>
-      <div className={SharedStyles.outerCard}>
-        <h2>Libraries</h2>
+      <div className={SharedStyles.card}>
+        <h2 className={Styles.sectionHeading}>Libraries</h2>
         {listProjects(props.myLibraries)}
       </div>
-      <div className={SharedStyles.outerCard}>
+      <div className={SharedStyles.card}>
         <h2 className={Styles.sectionHeading}>Other stuff</h2>
         {listProjects(props.other)}
       </div>
-      <div className={SharedStyles.outerCard}>
+      <div className={SharedStyles.card}>
         <h2 className={Styles.sectionHeading}>OSS I have contributed to</h2>
         {listProjects(props.contributedTo)}
       </div>

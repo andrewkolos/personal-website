@@ -707,8 +707,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___id = 'childMarkdownRemark.id',
   childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
   childMarkdownRemark___frontmatter___slug = 'childMarkdownRemark.frontmatter.slug',
-  childMarkdownRemark___frontmatter___date = 'childMarkdownRemark.frontmatter.date',
   childMarkdownRemark___frontmatter___subtitle = 'childMarkdownRemark.frontmatter.subtitle',
+  childMarkdownRemark___frontmatter___date = 'childMarkdownRemark.frontmatter.date',
   childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
   childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
   childMarkdownRemark___fileAbsolutePath = 'childMarkdownRemark.fileAbsolutePath',
@@ -2281,8 +2281,8 @@ enum MarkdownRemarkFieldsEnum {
   id = 'id',
   frontmatter___title = 'frontmatter.title',
   frontmatter___slug = 'frontmatter.slug',
-  frontmatter___date = 'frontmatter.date',
   frontmatter___subtitle = 'frontmatter.subtitle',
+  frontmatter___date = 'frontmatter.date',
   excerpt = 'excerpt',
   rawMarkdownBody = 'rawMarkdownBody',
   fileAbsolutePath = 'fileAbsolutePath',
@@ -2483,8 +2483,8 @@ type MarkdownRemarkFilterInput = {
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly slug: Maybe<Scalars['String']>;
-  readonly date: Maybe<Scalars['Date']>;
   readonly subtitle: Maybe<Scalars['String']>;
+  readonly date: Maybe<Scalars['Date']>;
 };
 
 
@@ -2498,8 +2498,8 @@ type MarkdownRemarkFrontmatter_dateArgs = {
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly slug: Maybe<StringQueryOperatorInput>;
-  readonly date: Maybe<DateQueryOperatorInput>;
   readonly subtitle: Maybe<StringQueryOperatorInput>;
+  readonly date: Maybe<DateQueryOperatorInput>;
 };
 
 type MarkdownRemarkGroupConnection = {

@@ -2,7 +2,7 @@
 @import '../../../shared-styles.module.scss';
 
 .container {
-    @extend .card;
+    @extend .innerCard;
 }
 
 .titleLink {
