@@ -5,7 +5,7 @@ import Styles from './about-me.module.scss';
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "portrait.png" }) {
+    file(relativePath: { eq: "portrait.jpg" }) {
       childImageSharp {
         fixed(width: 128) {
           ...GatsbyImageSharpFixed
