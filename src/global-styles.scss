@@ -1,10 +1,15 @@
 @import './variables.scss';
 a {
     color: $primary;
+    transition: 0.2s linear;
 }
 
 a:visited {
     color: $primary-light;
+}
+
+a:hover {
+    $color: $primary;
 }
 
 * {

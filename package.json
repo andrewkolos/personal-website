@@ -7,6 +7,7 @@
   "dependencies": {
     "@akolos/object-promise-all": "0.0.5",
     "@octokit/rest": "^18.0.9",
+    "disqus-react": "^1.0.10",
     "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",

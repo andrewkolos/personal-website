@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .innerCard {
     padding: 20px;
     margin-top: 20px;
@@ -8,4 +10,12 @@
     padding: 20px;
     margin-top: 20px;
     background-color: white;
+}
+
+.iconLink {
+    color: $primary;
+}
+
+.iconLink:hover {
+    color: $primary-lightest;
 }

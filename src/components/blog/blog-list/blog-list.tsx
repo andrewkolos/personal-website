@@ -13,7 +13,6 @@ const BlogList: React.FunctionComponent<{}> = () => {
               id
               frontmatter {
                 title
-                subtitle
                 date(formatString: "DD MMMM, YYYY")
                 slug
               }
@@ -24,15 +23,12 @@ const BlogList: React.FunctionComponent<{}> = () => {
       }
     `);
 
-  console.log('sharedStyles', SharedStyles);
-
   return (
     <div className={SharedStyles.card}>
       <h2>Blog posts</h2>
       {data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
           <Link className={Styles.titleLink} href={node.frontmatter.slug}><h2 className={Styles.title}>{node.frontmatter.title}</h2></Link>
-          <h4 className={Styles.subtitle}>{node.frontmatter.subtitle}</h4>
           <p className={Styles.excerpt}>{node.excerpt}</p>
           <p className={Styles.secondaryInfo}>{node.frontmatter.date}</p>
         </div>
