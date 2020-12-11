@@ -6,12 +6,25 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "../header/header"
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import Header from '../header/header';
 import "./layout.css"
 import { SocialLinks } from './social-links/social-links';
+
+const Meta: React.FunctionComponent<{}> = () => {
+
+  return (
+    <Helmet>
+      <html lang="en" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Andrew Kolos</title>
+      <meta name="description" content="Andrew Kolos' personal website" />
+      <meta name="author" content="Andrew Kolos" />
+    </Helmet>
+  )
+}
 
 const Layout: React.FunctionComponent<{ children: any }> = (props: { children: any }) => {
   const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(graphql`
@@ -26,6 +39,7 @@ const Layout: React.FunctionComponent<{ children: any }> = (props: { children: a
 
   return (
     <div style={{ margin: 'auto' }}>
+      <Meta />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
