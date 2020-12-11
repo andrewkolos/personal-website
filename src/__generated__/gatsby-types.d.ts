@@ -4140,11 +4140,4 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsaboutMeaboutMeTsx2213317937QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type cUsersAndrewDesktoppersonalWebsitesrccomponentsaboutMeaboutMeTsx2213317937Query = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }> };
-
 }
