@@ -13,6 +13,7 @@ const BlogList: React.FunctionComponent<{}> = () => {
               id
               frontmatter {
                 title
+                subtitle
                 date(formatString: "DD MMMM, YYYY")
                 slug
               }
@@ -29,6 +30,7 @@ const BlogList: React.FunctionComponent<{}> = () => {
       {data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
           <Link className={Styles.titleLink} href={node.frontmatter.slug}><h2 className={Styles.title}>{node.frontmatter.title}</h2></Link>
+          <h3 className={Styles.subtitle}>{node.frontmatter.subtitle}</h3>
           <p className={Styles.excerpt}>{node.excerpt}</p>
           <p className={Styles.secondaryInfo}>{node.frontmatter.date}</p>
         </div>

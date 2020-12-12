@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .blogPostContainer {
 
 }
@@ -8,4 +10,18 @@
 
 .blogPostContent pre code {
   font-size: 0.65rem;
+}
+
+.date {
+  font-size: 1rem;
+  color: $body-text-light;
+  margin-bottom: 1.45rem;
+}
+
+.subtitle {
+  margin-bottom: 0.725rem;
+}
+
+.title {
+  margin-bottom: 0.725rem;
 }

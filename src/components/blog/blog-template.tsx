@@ -24,8 +24,9 @@ const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
     <Layout>
       <div className={Styles.blogPostContainer}>
         <div className={Styles.blogPost}>
-          <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.date}</h2>
+          <h1 className={Styles.title}>{frontmatter.title}</h1>
+          {frontmatter.subtitle && <h2 className={Styles.subtitle}>{frontmatter.subtitle}</h2>}
+          <div className={Styles.date}>{frontmatter.date}</div>
           <div
             className={Styles.blogPostContent}
             dangerouslySetInnerHTML={{ __html: html }}
@@ -45,6 +46,7 @@ export const mdPageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        subtitle
       }
     }
   }
