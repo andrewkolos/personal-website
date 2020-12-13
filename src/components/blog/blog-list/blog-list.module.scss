@@ -5,23 +5,37 @@
     @extend .innerCard;
 }
 
-.titleLink {
+
+.titleContainer:hover {
+    color: $primary;
+}
+
+.titleContainer {
     margin-top: 0;
     font-size: 36px;
     margin-bottom: 10px;
     text-decoration: none;
     display: block;
     color: inherit;
-    transition: 0.1s;
 }
 
 .title {
     margin-top: 0;
     display: inline;
+    transition: 0.1s;
+    color: inherit;
 }
 
 .subtitle {
-    font-weight: 300;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-rendering: optimizeLegibility;
+    line-height: 1.1;
+    display: block;
+    font-size: 1.38316rem;
+    transition: 0.1s;
+    color: inherit;
 }
 
 .secondaryInfo {

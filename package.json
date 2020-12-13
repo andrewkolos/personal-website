@@ -4,9 +4,20 @@
   "description": "Andrew Kolos' website",
   "version": "0.1.0",
   "author": "Andrew Kolos <andrewrkolos@gmail.com>",
+    "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "eslint . --ext .ts",
+    "postinstall": "cross-env GATSBY_EXPERIMENTAL_QUERY_CONCURRENCY=20"
+  },
   "dependencies": {
     "@akolos/object-promise-all": "0.0.5",
     "@octokit/rest": "^18.0.9",
+    "@types/react-helmet": "^6.1.0",
     "disqus-react": "^1.0.10",
     "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",
@@ -16,7 +27,6 @@
     "gatsby-plugin-react-helmet": "^3.6.0",
     "gatsby-plugin-sass": "^2.6.0",
     "gatsby-plugin-sharp": "^2.8.0",
-    "gatsby-plugin-typegen": "^2.2.1",
     "gatsby-plugin-typescript": "^2.7.0",
     "gatsby-remark-vscode": "^3.2.0",
     "gatsby-source-filesystem": "^2.6.1",
@@ -35,7 +45,10 @@
   "devDependencies": {
     "@types/react-icons": "^3.0.0",
     "@types/typography": "^0.16.3",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
     "cross-env": "^7.0.3",
+    "eslint": "^7.15.0",
     "prettier": "2.1.2",
     "source-map-support": "^0.5.19",
     "ts-node": "^9.0.0",
@@ -45,16 +58,6 @@
     "gatsby"
   ],
   "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "postinstall": "cross-env GATSBY_EXPERIMENTAL_QUERY_CONCURRENCY=20"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"

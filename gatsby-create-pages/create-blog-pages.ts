@@ -15,7 +15,7 @@ interface MarkDownQueryResult {
   };
 }
 
-export async function createBlogPages({ actions, graphql, reporter }: CreatePagesArgs) {
+export async function createBlogPages({ actions, graphql, reporter }: CreatePagesArgs): Promise<void> {
   const { createPage } = actions;
   const blogPostTemplate = require.resolve(`../src/components/blog/blog-template.tsx`);
   const result = await graphql<MarkDownQueryResult>(`

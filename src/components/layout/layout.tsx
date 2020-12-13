@@ -27,7 +27,7 @@ const Meta: React.FunctionComponent<{}> = () => {
 }
 
 const Layout: React.FunctionComponent<{ children: any }> = (props: { children: any }) => {
-  const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(graphql`
+  const data = useStaticQuery<any>(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
