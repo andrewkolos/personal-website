@@ -1,7 +1,7 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
-import React from "react"
-import Styles from "./blog-list.module.scss"
-import SharedStyles from "../../../shared-styles.module.scss"
+import { graphql, Link, useStaticQuery } from "gatsby";
+import React from "react";
+import Styles from "./blog-list.module.scss";
+import SharedStyles from "../../../shared-styles.module.scss";
 
 const BlogList: React.FunctionComponent<{}> = () => {
   const data = useStaticQuery(graphql`

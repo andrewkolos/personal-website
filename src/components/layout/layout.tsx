@@ -20,8 +20,14 @@ const Meta: React.FunctionComponent<{}> = () => {
       <html lang="en" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>Andrew Kolos</title>
-      <meta name="description" content="Andrew Kolos' personal website" />
+      <meta name="description" content="Andrew Kolos' personal website." />
       <meta name="author" content="Andrew Kolos" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Andrew Kolos" />
+      <meta property="og:description" content="Andrew Kolos' personal website." />
+      <meta property="og:url" content="https://www.andrewkolos.com" />
+      <meta property="og:image" content="https://www.andrewkolos.com/icons/icon-512x512.png" />
     </Helmet>
   )
 }
