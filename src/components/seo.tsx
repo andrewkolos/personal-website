@@ -63,6 +63,14 @@ function Seo({
   const coalescedMeta = meta ?? [];
   const coalescedImage = ogImageSrc ?? file.childImageSharp.fixed.src;
 
+  const currentUrl = `${site.siteMetadata.siteUrl}${pathName}`;
+  if (pathName) {
+    coalescedMeta.push({
+      property: 'og:url',
+      content: currentUrl,
+    });
+  }
+
   return (
     <Helmet
       htmlAttributes={{
@@ -92,7 +100,11 @@ function Seo({
         },
         {
           property: "og:image",
-          content: site.siteMetadata.siteUrl + "/" + coalescedImage,
+          content: site.siteMetadata.siteUrl + coalescedImage,
+        },
+        {
+          property: 'og:url',
+          content: currentUrl,
         },
         {
           name: `twitter:card`,
@@ -114,7 +126,7 @@ function Seo({
     >
       {pathName && <link
         rel="canonical"
-        href={`${site.siteMetadata.siteUrl}${pathName}`}
+        href={currentUrl}
       />}
     </Helmet>
   );

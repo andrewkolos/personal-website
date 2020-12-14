@@ -1,4 +1,4 @@
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import React from "react";
 import Layout from "../layout/layout";
 import { DiscussionEmbed } from "disqus-react";
@@ -6,16 +6,9 @@ import Seo from "../seo";
 
 import Styles from "./blog-template.module.scss";
 
-interface BlogTemplateProps {
-  data: any;
-  pathName: string;
-}
+const BlogTemplate: React.FunctionComponent<any> = (props) => {
 
-const BlogTemplate: React.FunctionComponent<BlogTemplateProps> = ({
-  data,
-  pathName,
-}) => {
-  const { markdownRemark } = data;
+  const { markdownRemark } = props.data;
   const { frontmatter, html, excerpt } = markdownRemark;
 
   const gatsbyName = process.env.GATSBY_DISQUS_NAME;
@@ -30,7 +23,7 @@ const BlogTemplate: React.FunctionComponent<BlogTemplateProps> = ({
   };
 
   return (
-    <Layout pathName={pathName}>
+    <Layout pathName={props.location.pathname}>
       <Seo
         title={`${frontmatter.title} | Andrew Kolos`}
         description={excerpt}
