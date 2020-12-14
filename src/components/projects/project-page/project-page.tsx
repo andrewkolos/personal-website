@@ -1,5 +1,5 @@
-import React from "react";
-import Layout from "../../layout/layout"
+import React from 'react';
+import Layout from '../../../layout/layout';
 import { ProjectDescriptor } from '../../../projects';
 import { ProjectListing } from '../project-listing/project-listing';
 import { PageProps } from 'gatsby';
@@ -21,8 +21,7 @@ interface ProjectListProps {
   contributedTo: Project[];
 }
 
-const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = (data) => {
-
+const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = data => {
   const props = data.pageContext;
   return (
     <Layout pathName={data.location.pathname}>
@@ -41,12 +40,11 @@ const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = (data) => {
       </div>
     </Layout>
   );
-}
+};
 
-const listProjects = (projects: Project[]) => projects.map((p, i) => {
-  return (
-    <ProjectListing {...p} key={p.name} />
-  );
-});
+const listProjects = (projects: Project[]) =>
+  projects.map((p, i) => {
+    return <ProjectListing {...p} key={p.name} />;
+  });
 
 export default ProjectsPage;

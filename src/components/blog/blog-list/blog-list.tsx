@@ -29,7 +29,7 @@ const BlogList: React.FunctionComponent<{}> = () => {
       <h2>Blog posts</h2>
       {data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
-          <Link className={Styles.titleContainer} href={node.frontmatter.slug}>
+          <Link className={Styles.titleContainer} to={node.frontmatter.slug}>
             <h2 className={Styles.title}>{node.frontmatter.title}</h2>
             <span className={Styles.subtitle}>{node.frontmatter.subtitle}</span>
           </Link>

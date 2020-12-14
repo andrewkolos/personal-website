@@ -10,21 +10,23 @@ export interface ProjectListingProps extends ProjectDescriptor {
   updatedAt: string;
 }
 
-export const ProjectListing: React.FC<ProjectListingProps> = (data) => {
-
+export const ProjectListing: React.FC<ProjectListingProps> = data => {
   return (
     <div className={Styles.container} key={data.name}>
-      <a href={data.url} className={Styles.titleLink}><h3 className={Styles.title}>{data.name}{" "}</h3></a>
-      <p>Last updated: {formatMMDDYYYY(new Date(data.updatedAt))}. Created: {formatMMDDYYYY(new Date(data.createdAt))}.</p>
+      <a href={data.url} className={Styles.titleLink}>
+        <h3 className={Styles.title}>{data.name} </h3>
+      </a>
+      <p>
+        Last updated: {formatMMDDYYYY(new Date(data.updatedAt))}. Created:{' '}
+        {formatMMDDYYYY(new Date(data.createdAt))}.
+      </p>
       <p className={Styles.remarks}>{data.description}</p>
     </div>
   );
-}
+};
 
 export default ProjectListing;
 
 function formatMMDDYYYY(date: Date): string {
-  return (date.getMonth() + 1) +
-    "/" + date.getDate() +
-    "/" + date.getFullYear();
+  return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
 }

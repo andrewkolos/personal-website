@@ -5,9 +5,9 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 export interface SeoProps {
   description?: string;
@@ -57,7 +57,7 @@ function Seo({
     `
   );
 
-  const coalescedLang = lang ?? "en";
+  const coalescedLang = lang ?? 'en';
   const metaDescription = description ?? site.siteMetadata.description;
   const coalescedTitle = title ?? site.siteMetadata.title;
   const coalescedMeta = meta ?? [];
@@ -79,12 +79,16 @@ function Seo({
       title={coalescedTitle}
       meta={[
         {
-          name: "author",
-          content: "Andrew Kolos",
+          name: 'author',
+          content: 'Andrew Kolos',
         },
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: 'keywords',
+          content: 'software, blog',
         },
         {
           property: `og:title`,
@@ -99,7 +103,7 @@ function Seo({
           content: `website`,
         },
         {
-          property: "og:image",
+          property: 'og:image',
           content: site.siteMetadata.siteUrl + coalescedImage,
         },
         {
@@ -124,10 +128,7 @@ function Seo({
         },
       ].concat(coalescedMeta)}
     >
-      {pathName && <link
-        rel="canonical"
-        href={currentUrl}
-      />}
+      {pathName && <link rel="canonical" href={currentUrl} />}
     </Helmet>
   );
 }

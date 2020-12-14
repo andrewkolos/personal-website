@@ -2,44 +2,44 @@
 @import '../../../shared-styles.module.scss';
 
 .container {
-    @extend .innerCard;
+  @extend .innerCard;
 }
 
 .titleLink {
-    margin-top: 0;
-    font-size: 36px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    display: block;
-    color: inherit;
-    transition: 0.1s;
+  margin-top: 0;
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  transition: 0.1s;
 }
 
 .titleLink:hover {
-    color: $primary;
+  color: $primary;
 }
 
 .title {
-    display: inline;
+  display: inline;
 }
 
 .subtitle {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .secondaryInfo {
-    font-size: 1rem;
-    color: $body-text-light;
+  font-size: 1rem;
+  color: $body-text-light;
 }
 
 .remarks {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .secondaryInfo {
-    font-size: 18px;
-    font-style: italic;
-    margin-top: 0;
-    margin-bottom: 30px;
-    color: #868e98;
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #868e98;
 }

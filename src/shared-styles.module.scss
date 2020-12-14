@@ -1,26 +1,26 @@
 @import './variables.scss';
 
 .innerCard {
-    padding: 20px;
-    margin-top: 20px;
-    border: 1px solid #f0f0f0;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #f0f0f0;
 }
 
 .card {
-    padding: 20px;
-    margin-top: 20px;
-    background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: white;
 }
 
 .iconLink {
-    color: $primary;
-    animation: 0.1s linear;
+  color: $primary;
+  animation: 0.1s linear;
 }
 
 .iconLink:visited {
-    color: $primary;
+  color: $primary;
 }
 
 .iconLink:hover {
-    color: $accent;
+  color: $accent;
 }

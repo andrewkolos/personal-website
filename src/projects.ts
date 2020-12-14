@@ -14,17 +14,17 @@ export const libraryProjects: ProjectDescriptor[] = [
   {
     owner: me,
     name: 'tiny-node-packages',
-  }
-]
+  },
+];
 
 export const otherProjects: ProjectDescriptor[] = [
   {
     owner: me,
-    name: 'hybot-discord-elo-bot'
+    name: 'hybot-discord-elo-bot',
   },
   {
     owner: me,
-    name: 'simple-personal-gradebook'
+    name: 'simple-personal-gradebook',
   },
   {
     owner: me,
@@ -36,17 +36,17 @@ export const otherProjects: ProjectDescriptor[] = [
   },
   {
     owner: me,
-    name: 'synchronized-pong-3d'
+    name: 'synchronized-pong-3d',
   },
   {
     owner: me,
     name: 'PowerPlanToggler',
-  }
-]
+  },
+];
 
 export const contributedTo: ProjectDescriptor[] = [
   {
     owner: 'Tyrrrz',
-    name: 'DiscordChatExporter'
-  }
-]
+    name: 'DiscordChatExporter',
+  },
+];
