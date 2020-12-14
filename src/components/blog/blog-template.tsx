@@ -1,31 +1,35 @@
-import { graphql } from 'gatsby';
-import React from 'react';
-import Layout from '../layout/layout';
-import { DiscussionEmbed } from 'disqus-react';
+import { graphql } from "gatsby"
+import React from "react"
+import Layout from "../layout/layout"
+import { DiscussionEmbed } from "disqus-react"
 
-import Styles from './blog-template.module.scss';
+import Styles from "./blog-template.module.scss"
+import Seo from "../seo"
 
 const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { markdownRemark } = data
+  const { frontmatter, html } = markdownRemark
 
-  const gatsbyName = process.env.GATSBY_DISQUS_NAME;
+  const gatsbyName = process.env.GATSBY_DISQUS_NAME
 
   if (!gatsbyName) {
-    throw Error('Disqus name was empty/undefined.');
+    throw Error("Disqus name was empty/undefined.")
   }
 
   const disqusConfig = {
     shortname: gatsbyName,
     config: { identifier: frontmatter.slug, title: frontmatter.title },
-  };
+  }
 
   return (
     <Layout>
+      <Seo title={`${frontmatter.title} | Andrew Kolos`} />
       <div className={Styles.blogPostContainer}>
         <div className={Styles.blogPost}>
           <h1 className={Styles.title}>{frontmatter.title}</h1>
-          {frontmatter.subtitle && <h2 className={Styles.subtitle}>{frontmatter.subtitle}</h2>}
+          {frontmatter.subtitle && (
+            <h2 className={Styles.subtitle}>{frontmatter.subtitle}</h2>
+          )}
           <div className={Styles.date}>{frontmatter.date}</div>
           <div
             className={Styles.blogPostContent}
@@ -35,7 +39,7 @@ const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
 export const mdPageQuery = graphql`
@@ -52,4 +56,4 @@ export const mdPageQuery = graphql`
   }
 `
 
-export default BlogTemplate;
+export default BlogTemplate

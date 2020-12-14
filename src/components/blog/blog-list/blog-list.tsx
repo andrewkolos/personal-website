@@ -35,7 +35,6 @@ const BlogList: React.FunctionComponent<{}> = () => {
           </Link>
           <p className={Styles.excerpt}>
             {node.excerpt}&nbsp;
-            <Link href={node.frontmatter.slug}>read more</Link>
           </p>
           <p className={Styles.secondaryInfo}>{node.frontmatter.date}</p>
         </div>

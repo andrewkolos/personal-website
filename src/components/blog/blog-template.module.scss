@@ -1,11 +1,12 @@
 @import '../../variables.scss';
+@import '../../shared-styles.module.scss';
 
 .blogPostContainer {
 
 }
 
 .blogPost {
-
+  margin: 0 1rem;
 }
 
 .blogPostContent pre code {

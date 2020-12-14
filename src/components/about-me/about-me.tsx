@@ -22,7 +22,7 @@ export const AboutMe: React.FC<unknown> = () => {
     <div className={Styles.container}>
       <h2>About me</h2>
       <div className={Styles.portraitContainer}>
-        <Img className={Styles.portrait} fixed={imgData.file?.childImageSharp?.fixed!} />
+        <Img className={Styles.portrait} fixed={imgData.file.childImageSharp.fixed} />
       </div>
       <p className={Styles.content}>
         Hello, I enjoy programming. I am most experienced in full-stack dev.
