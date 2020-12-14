@@ -58,7 +58,7 @@ function Seo({ description, lang, meta, title, ogImageSrc }: SeoProps): React.Re
       htmlAttributes={{
         lang: coalescedLang,
       }}
-      title={title}
+      title={coalescedTitle}
       meta={[
         {
           name: "author",
