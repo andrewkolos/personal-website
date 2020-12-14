@@ -12,7 +12,6 @@ export interface ProjectListingProps extends ProjectDescriptor {
 
 export const ProjectListing: React.FC<ProjectListingProps> = (data) => {
 
-  console.log('data', data);
   return (
     <div className={Styles.container} key={data.name}>
       <a href={data.url} className={Styles.titleLink}><h3 className={Styles.title}>{data.name}{" "}</h3></a>

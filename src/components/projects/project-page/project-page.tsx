@@ -5,6 +5,7 @@ import { ProjectListing } from '../project-listing/project-listing';
 import { PageProps } from 'gatsby';
 import Styles from './project-page.module.scss';
 import SharedStyles from '../../../../src/shared-styles.module.scss';
+import Seo from '../../seo';
 
 export interface Project extends ProjectDescriptor {
   description: string;
@@ -25,6 +26,7 @@ const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = (data) => {
   const props = data.pageContext;
   return (
     <Layout>
+      <Seo description="A list of Andrew Kolos' personal/hobby software projects." />
       <div className={SharedStyles.card}>
         <h2 className={Styles.sectionHeading}>Libraries</h2>
         {listProjects(props.myLibraries)}

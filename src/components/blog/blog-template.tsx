@@ -1,10 +1,10 @@
-import { graphql } from "gatsby"
-import React from "react"
-import Layout from "../layout/layout"
-import { DiscussionEmbed } from "disqus-react"
+import { graphql } from "gatsby";
+import React from "react";
+import Layout from "../layout/layout";
+import { DiscussionEmbed } from "disqus-react";
 
-import Styles from "./blog-template.module.scss"
-import Seo from "../seo"
+import Styles from "./blog-template.module.scss";
+import Seo from "../seo";
 
 const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
   const { markdownRemark } = data;
@@ -52,8 +52,9 @@ export const mdPageQuery = graphql`
         title
         subtitle
       }
+      excerpt(pruneLength: 280)
     }
   }
-`
+`;
 
-export default BlogTemplate
+export default BlogTemplate;
