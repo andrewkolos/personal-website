@@ -7,10 +7,10 @@ import Styles from "./blog-template.module.scss"
 import Seo from "../seo"
 
 const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { markdownRemark } = data;
+  const { frontmatter, html, excerpt } = markdownRemark;
 
-  const gatsbyName = process.env.GATSBY_DISQUS_NAME
+  const gatsbyName = process.env.GATSBY_DISQUS_NAME;
 
   if (!gatsbyName) {
     throw Error("Disqus name was empty/undefined.")
@@ -23,7 +23,7 @@ const BlogTemplate: React.FunctionComponent<any> = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title={`${frontmatter.title} | Andrew Kolos`} />
+      <Seo title={`${frontmatter.title} | Andrew Kolos`} description={excerpt}/>
       <div className={Styles.blogPostContainer}>
         <div className={Styles.blogPost}>
           <h1 className={Styles.title}>{frontmatter.title}</h1>
