@@ -13,8 +13,13 @@ import "./layout.css"
 import { SocialLinks } from './social-links/social-links';
 import Seo from '../seo';
 
-const Layout: React.FunctionComponent<{ children: any }> = (props: { children: any }) => {
-  const data = useStaticQuery<any>(graphql`
+interface LayoutProps {
+  children: any;
+  pathName: string;
+}
+
+const Layout: React.FC<LayoutProps> = (props) => {
+  const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -26,7 +31,7 @@ const Layout: React.FunctionComponent<{ children: any }> = (props: { children: a
 
   return (
     <div style={{ margin: "auto" }}>
-      <Seo />
+      <Seo pathName={props.pathName} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div

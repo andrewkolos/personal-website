@@ -25,7 +25,7 @@ const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = (data) => {
 
   const props = data.pageContext;
   return (
-    <Layout>
+    <Layout pathName={data.location.pathname}>
       <Seo description="A list of Andrew Kolos' personal/hobby software projects." />
       <div className={SharedStyles.card}>
         <h2 className={Styles.sectionHeading}>Libraries</h2>

@@ -12,21 +12,30 @@ import { useStaticQuery, graphql } from "gatsby";
 export interface SeoProps {
   description?: string;
   lang?: string;
-  meta?: Array<{
-    property: string;
-    content: string;
-  } | {
-    name: string;
-    content: string;
-  }>;
+  meta?: Array<
+    | {
+        property: string;
+        content: string;
+      }
+    | {
+        name: string;
+        content: string;
+      }
+  >;
   title?: string;
   ogImageSrc?: string;
+  pathName?: string;
 }
 
-function Seo({ description, lang, meta, title, ogImageSrc }: SeoProps): React.ReactElement {
-
-
-  const { site, file} = useStaticQuery(
+function Seo({
+  description,
+  lang,
+  meta,
+  title,
+  ogImageSrc,
+  pathName,
+}: SeoProps): React.ReactElement {
+  const { site, file } = useStaticQuery(
     graphql`
       query {
         site {
@@ -34,6 +43,7 @@ function Seo({ description, lang, meta, title, ogImageSrc }: SeoProps): React.Re
             title
             description
             author
+            siteUrl
           }
         }
         file(relativePath: { eq: "portrait.jpg" }) {
@@ -45,9 +55,9 @@ function Seo({ description, lang, meta, title, ogImageSrc }: SeoProps): React.Re
         }
       }
     `
-  )
+  );
 
-  const coalescedLang = lang ?? 'en';
+  const coalescedLang = lang ?? "en";
   const metaDescription = description ?? site.siteMetadata.description;
   const coalescedTitle = title ?? site.siteMetadata.title;
   const coalescedMeta = meta ?? [];
@@ -82,7 +92,7 @@ function Seo({ description, lang, meta, title, ogImageSrc }: SeoProps): React.Re
         },
         {
           property: "og:image",
-          content: coalescedImage,
+          content: site.siteMetadata.siteUrl + "/" + coalescedImage,
         },
         {
           name: `twitter:card`,
@@ -101,8 +111,13 @@ function Seo({ description, lang, meta, title, ogImageSrc }: SeoProps): React.Re
           content: metaDescription,
         },
       ].concat(coalescedMeta)}
-    />
-  )
+    >
+      {pathName && <link
+        rel="canonical"
+        href={`${site.siteMetadata.siteUrl}${pathName}`}
+      />}
+    </Helmet>
+  );
 }
 
 export default Seo;

@@ -1,11 +1,11 @@
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import React from "react"
 import AboutMe from '../components/about-me/about-me'
 import BlogList from '../components/blog/blog-list/blog-list';
 import Layout from "../components/layout/layout"
 
-const IndexPage: React.FC<{}> = () => (
-  <Layout>
+const IndexPage: React.FC<PageProps> = (props) => (
+  <Layout pathName={props.location.pathname}>
     <AboutMe />
     <BlogList />
   </Layout>
