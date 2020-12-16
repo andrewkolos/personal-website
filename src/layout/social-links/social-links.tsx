@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail} from 'react-icons/fi';
 import Styles from './social-links.module.scss';
 
 export const SocialLinks: React.FC = () => {
@@ -19,6 +19,13 @@ export const SocialLinks: React.FC = () => {
           aria-label="Link to Andrew Kolos' LinkedIn profile"
         >
           <FiLinkedin />
+        </a>
+        <a
+          className={Styles.link}
+          href="mailto:andrewrkolos@gmail.com"
+          aria-label="Mail link for andrewrkolos@gmail.com"
+        >
+          <FiMail />
         </a>
       </div>
     </div>
