@@ -60,11 +60,13 @@ template {
 
 a {
   background-color: transparent;
+  text-decoration: none;
   -webkit-text-decoration-skip: objects;
 }
 
 a:active,
 a:hover {
+  text-decoration: underline;
   outline-width: 0;
 }
 

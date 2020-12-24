@@ -5,6 +5,10 @@
   @extend .innerCard;
 }
 
+.container :last-child {
+  margin-bottom: 0;
+}
+
 .titleLink {
   margin-top: 0;
   font-size: 36px;
@@ -30,10 +34,6 @@
 .secondaryInfo {
   font-size: 1rem;
   color: $body-text-light;
-}
-
-.remarks {
-  margin-bottom: 0;
 }
 
 .secondaryInfo {

@@ -21,6 +21,16 @@ export const ProjectListing: React.FC<ProjectListingProps> = data => {
         {formatMMDDYYYY(new Date(data.createdAt))}.
       </p>
       <p className={Styles.remarks}>{data.description}</p>
+      {data.owner !== 'andrewkolos' && (
+        <p>
+          <a
+            aria-label={`Andrew Kolos' pull requests for ${data.name}`}
+            href={`https://github.com/${data.owner}/${data.name}/pulls?q=author%3Aandrewkolos`}
+          >
+            Pull Requests
+          </a>
+        </p>
+      )}
     </div>
   );
 };

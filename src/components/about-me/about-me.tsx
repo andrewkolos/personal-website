@@ -25,7 +25,7 @@ export const AboutMe: React.FC<unknown> = () => {
         <Img className={Styles.portrait} fixed={imgData.file.childImageSharp.fixed} alt="Portrait of Andrew Kolos" />
       </div>
       <p className={Styles.content}>
-        Hello, I enjoy programming. I am most experienced in full-stack dev.
+        Hello, I enjoy programming and am most experienced in full-stack dev.
         I like to <strike>bikeshed</strike> think about application and code architecture/design.
         I also enjoy developing features for applications. Outside of programming, I spend most of
         my time playing videogames, particularly indie titles.
