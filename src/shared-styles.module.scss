@@ -7,9 +7,13 @@
 }
 
 .card {
+  @extend .boxShadow;
   padding: 20px;
   margin-top: 20px;
   background-color: white;
+}
+
+.boxShadow {
   box-shadow: 0 1.6px 3.6px 0 hsla(0,0%,0%,.132), 0 0.3px 0.9px 0 hsla(0,0%,0%,.108);
 }
 

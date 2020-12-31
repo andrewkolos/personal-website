@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = props => {
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
-          margin: `3rem auto`,
+          margin: `2rem auto`,
           maxWidth: 960,
         }}
       >

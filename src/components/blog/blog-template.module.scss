@@ -2,6 +2,7 @@
 @import '../../shared-styles.module.scss';
 
 .blogPostContainer {
+  @extend .card;
 }
 
 .blogPost {
