@@ -6,28 +6,26 @@ import SharedStyles from "../../../shared-styles.module.scss";
 const BlogList: React.FunctionComponent<{}> = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-        totalCount
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              subtitle
-              date(formatString: "DD MMMM, YYYY")
-              slug
-            }
-            excerpt(pruneLength: 280)
+    allMdx {
+      edges {
+        node {
+          frontmatter {
+            title
+            slug
+            subtitle
+            date(formatString: "MMMM DD, YYYY")
           }
+          excerpt(pruneLength: 280)
         }
       }
     }
+  }
   `)
 
   return (
     <div className={SharedStyles.card}>
       <h2>Blog posts</h2>
-      {data.allMarkdownRemark.edges.map(({ node }: { node: any }) => (
+      {data.allMdx.edges.map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
           <Link className={Styles.titleContainer} to={node.frontmatter.slug}>
             <h2 className={Styles.title}>{node.frontmatter.title}</h2>

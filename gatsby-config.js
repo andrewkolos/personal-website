@@ -42,22 +42,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              colorTheme: "Dark+ (default dark)",
-              injectStyles: true,
-              extensions: [],
-              extensionDataDirectory: path.resolve("extensions"),
-              logLevel: "error",
-            },
-          },
-        ],
       },
     },
+    'gatsby-plugin-mdx-prismjs',
     `gatsby-plugin-offline`,
   ],
 }

@@ -4,10 +4,17 @@ import Layout from '../../layout/layout';
 import { DiscussionEmbed } from 'disqus-react';
 import Seo from '../seo';
 import Styles from './blog-template.module.scss';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXProvider } from '@mdx-js/react';
+import codeBlock from '../code-block/code-block';
+
+const components = {
+  pre: codeBlock,
+}
 
 const BlogTemplate: React.FunctionComponent<any> = props => {
-  const { markdownRemark } = props.data;
-  const { frontmatter, html, excerpt } = markdownRemark;
+  const { mdx } = props.data;
+  const { frontmatter, body, excerpt } = mdx;
 
   const gatsbyName = process.env.GATSBY_DISQUS_NAME;
 
@@ -33,10 +40,11 @@ const BlogTemplate: React.FunctionComponent<any> = props => {
             <h2 className={Styles.subtitle}>{frontmatter.subtitle}</h2>
           )}
           <div className={Styles.date}>{frontmatter.date}</div>
-          <div
-            className={Styles.blogPostContent}
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <div className={Styles.blogPostContent}>
+            <MDXProvider components={components}>
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
+          </div>
           <DiscussionEmbed {...disqusConfig} />
         </div>
       </div>
@@ -46,15 +54,14 @@ const BlogTemplate: React.FunctionComponent<any> = props => {
 
 export const mdPageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         slug
         title
         subtitle
       }
-      excerpt(pruneLength: 280)
     }
   }
 `;

@@ -4,7 +4,7 @@
   "description": "Andrew Kolos' website",
   "version": "0.1.0",
   "author": "Andrew Kolos <andrewrkolos@gmail.com>",
-    "scripts": {
+  "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@akolos/object-promise-all": "0.0.5",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "@octokit/rest": "^18.0.9",
     "@types/react-helmet": "^6.1.0",
     "disqus-react": "^1.0.10",
@@ -23,6 +25,8 @@
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-manifest": "^2.6.1",
+    "gatsby-plugin-mdx": "^1.7.1",
+    "gatsby-plugin-mdx-prismjs": "^1.0.4",
     "gatsby-plugin-offline": "^3.6.0",
     "gatsby-plugin-react-helmet": "^3.6.0",
     "gatsby-plugin-sass": "^2.6.0",
@@ -30,10 +34,10 @@
     "gatsby-plugin-typescript": "^2.7.0",
     "gatsby-remark-vscode": "^3.2.0",
     "gatsby-source-filesystem": "^2.6.1",
-    "gatsby-transformer-remark": "^2.11.1",
     "gatsby-transformer-sharp": "^2.6.0",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "node-sass": "^4.14.1",
+    "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.22.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -43,6 +47,7 @@
     "react-typography": "^0.16.19"
   },
   "devDependencies": {
+    "@types/mdx-js__react": "^1.5.3",
     "@types/react-icons": "^3.0.0",
     "@types/typography": "^0.16.3",
     "@typescript-eslint/eslint-plugin": "^4.9.1",

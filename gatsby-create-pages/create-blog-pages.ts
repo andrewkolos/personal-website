@@ -8,7 +8,7 @@ interface Node {
 }
 
 interface MarkDownQueryResult {
-  allMarkdownRemark: {
+  allMdx: {
     edges: {
       node: Node;
     }[];
@@ -20,20 +20,21 @@ export async function createBlogPages({ actions, graphql, reporter }: CreatePage
   const blogPostTemplate = require.resolve(`../src/components/blog/blog-template.tsx`);
   const result = await graphql<MarkDownQueryResult>(`
     query BlogIndex {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMdx {
         edges {
           node {
             frontmatter {
+              title
               slug
+              subtitle
+              date(formatString: "MMMM DD, YYYY")
             }
+            excerpt(pruneLength: 280)
           }
         }
       }
-    }
-  `);
+    }`
+  );
   // Handle errors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
@@ -44,7 +45,7 @@ export async function createBlogPages({ actions, graphql, reporter }: CreatePage
     throw Error('Could not fetch blog posts on build.');
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }: { node: any; }) => {
+  result.data.allMdx.edges.forEach(({ node }: { node: any; }) => {
     createPage({
       path: node.frontmatter.slug,
       component: blogPostTemplate,
