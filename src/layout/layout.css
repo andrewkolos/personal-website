@@ -454,6 +454,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1.45rem;
   line-height: 1.42;
+  padding: 20px;
   background: hsla(0, 0%, 0%, 0.04);
   border-radius: 2px;
   overflow: auto;

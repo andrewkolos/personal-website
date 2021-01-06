@@ -1,10 +1,10 @@
 import React from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/github'
+import theme from 'prism-react-renderer/themes/nightOwlLight'
 //@ts-ignore
-import Prism from "prism-react-renderer/prism";
+import Prism from 'prism-react-renderer/prism';
 
-export default (props: any) => {
+export const CodeBlock: React.FC<any> = (props) => {
   const className = props.children.props.className || ''
   const matches = className.match(/language-(?<lang>.*)/)
   return (
@@ -15,7 +15,7 @@ export default (props: any) => {
     }
       theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, padding: '20px' }}>
+        <pre className={className} style={{ ...style }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (

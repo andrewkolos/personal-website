@@ -6,11 +6,11 @@ import Seo from '../seo';
 import Styles from './blog-template.module.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
-import codeBlock from '../code-block/code-block';
+import { CodeBlock } from '../code-block/code-block';
 
 const components = {
-  pre: codeBlock,
-}
+  pre: CodeBlock,
+};
 
 const BlogTemplate: React.FunctionComponent<any> = props => {
   const { mdx } = props.data;
