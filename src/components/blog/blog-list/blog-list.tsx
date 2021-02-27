@@ -13,7 +13,7 @@ const BlogList: React.FunctionComponent<{}> = () => {
             title
             slug
             subtitle
-            date(formatString: "MMMM DD, YYYY")
+            date
           }
           excerpt(pruneLength: 280)
         }
@@ -25,7 +25,7 @@ const BlogList: React.FunctionComponent<{}> = () => {
   return (
     <div className={SharedStyles.card}>
       <h2>Blog posts</h2>
-      {data.allMdx.edges.map(({ node }: { node: any }) => (
+      {data.allMdx.edges.reverse().map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
           <Link className={Styles.titleContainer} to={node.frontmatter.slug}>
             <h2 className={Styles.title}>{node.frontmatter.title}</h2>

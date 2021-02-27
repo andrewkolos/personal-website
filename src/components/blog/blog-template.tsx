@@ -57,7 +57,7 @@ export const mdPageQuery = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       body
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date
         slug
         title
         subtitle

@@ -44,6 +44,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        root: __dirname,
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 500,
+              linkImagesToOriginal: false,
+            }
+          },
+          'gatsby-remark-copy-linked-files',
+        ]
       },
     },
     'gatsby-plugin-mdx-prismjs',

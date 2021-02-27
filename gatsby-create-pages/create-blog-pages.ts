@@ -27,7 +27,7 @@ export async function createBlogPages({ actions, graphql, reporter }: CreatePage
               title
               slug
               subtitle
-              date(formatString: "MMMM DD, YYYY")
+              date
             }
             excerpt(pruneLength: 280)
           }
