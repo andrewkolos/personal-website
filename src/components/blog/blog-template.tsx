@@ -32,6 +32,7 @@ const BlogTemplate: React.FunctionComponent<any> = props => {
       <Seo
         title={`${frontmatter.title} | Andrew Kolos`}
         description={excerpt}
+        keywords={frontmatter.tags}
       />
       <div className={Styles.blogPostContainer}>
         <div className={Styles.blogPost}>
@@ -61,6 +62,7 @@ export const mdPageQuery = graphql`
         slug
         title
         subtitle
+        tags
       }
     }
   }

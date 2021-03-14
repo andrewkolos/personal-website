@@ -25,6 +25,7 @@ export interface SeoProps {
   title?: string;
   ogImageSrc?: string;
   pathName?: string;
+  keywords?: string[];
 }
 
 function Seo({
@@ -34,6 +35,7 @@ function Seo({
   title,
   ogImageSrc,
   pathName,
+  keywords
 }: SeoProps): React.ReactElement {
   const { site, file } = useStaticQuery(
     graphql`
@@ -88,7 +90,7 @@ function Seo({
         },
         {
           name: 'keywords',
-          content: 'software, blog',
+          content: 'andrew kolos, software, developer, blog' + (keywords ? ', ' + keywords?.join(', ') : ''),
         },
         {
           property: `og:title`,
