@@ -7,14 +7,15 @@ import Styles from './header.module.scss';
 const Header = ({ siteTitle }: { siteTitle: string }) => (
   <header className={Styles.header}>
     <div className={Styles.container}>
-      <h1 className={Styles.titleContainer}>
+      <span className={Styles.titleContainer}>
         <Link to="/" className={Styles.title}>{siteTitle}</Link>
-      </h1>
-
-      <ul className={Styles.navLinkContainer}>
-        <ListLink to='/' className={Styles.navLink} activeClassName={Styles.navLinkActive}>Blog</ListLink>
-        <ListLink to='/projects/' className={Styles.navLink} activeClassName={Styles.navLinkActive}>Projects</ListLink>
-      </ul>
+      </span>
+      <nav>
+        <ul className={Styles.navLinkContainer}>
+          <ListLink to='/' className={Styles.navLink} activeClassName={Styles.navLinkActive}>Blog</ListLink>
+          <ListLink to='/projects/' className={Styles.navLink} activeClassName={Styles.navLinkActive}>Projects</ListLink>
+        </ul>
+      </nav>
     </div>
   </header>
 )

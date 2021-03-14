@@ -37,7 +37,7 @@ const BlogTemplate: React.FunctionComponent<any> = props => {
         <div className={Styles.blogPost}>
           <h1 className={Styles.title}>{frontmatter.title}</h1>
           {frontmatter.subtitle && (
-            <h2 className={Styles.subtitle}>{frontmatter.subtitle}</h2>
+            <span className={Styles.subtitle}>{frontmatter.subtitle}</span>
           )}
           <div className={Styles.date}>{frontmatter.date}</div>
           <div className={Styles.blogPostContent}>

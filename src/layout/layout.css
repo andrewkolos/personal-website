@@ -86,23 +86,6 @@ dfn {
   font-style: italic;
 }
 
-h1 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
-  line-height: 1.1;
-}
-
 mark {
   background-color: #ff0;
   color: #000;
@@ -294,7 +277,7 @@ textarea {
   box-sizing: inherit;
 }
 
-h2 {
+h1 {
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -311,6 +294,23 @@ h2 {
   line-height: 1.1;
 }
 
+h2 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+  color: inherit;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  font-size: 1.38316rem;
+  line-height: 1.1;
+}
+
 h3 {
   margin-left: 0;
   margin-right: 0;
@@ -323,7 +323,7 @@ h3 {
   color: inherit;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 1.38316rem;
+  font-size: 1rem;
   line-height: 1.1;
 }
 
@@ -340,8 +340,8 @@ h4 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1rem;
   line-height: 1.1;
+  font-size: 0.85028rem;
 }
 
 h5 {
@@ -357,7 +357,7 @@ h5 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 0.85028rem;
+  font-size: 0.78405rem;
   line-height: 1.1;
 }
 
@@ -374,7 +374,7 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 0.78405rem;
+  font-size: 0.722978rem;
   line-height: 1.1;
 }
 

@@ -27,15 +27,15 @@ const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = data => {
     <Layout pathName={data.location.pathname}>
       <Seo description="A list of Andrew Kolos' personal/hobby software projects." />
       <div className={SharedStyles.card}>
-        <h2 className={Styles.sectionHeading}>Libraries</h2>
+        <h1 className={Styles.sectionHeading}>Libraries</h1>
         {listProjects(props.myLibraries)}
       </div>
       <div className={SharedStyles.card}>
-        <h2 className={Styles.sectionHeading}>Other stuff</h2>
+        <h1 className={Styles.sectionHeading}>Other stuff</h1>
         {listProjects(props.other)}
       </div>
       <div className={SharedStyles.card}>
-        <h2 className={Styles.sectionHeading}>OSS I have contributed to</h2>
+        <h1 className={Styles.sectionHeading}>OSS I have contributed to</h1>
         {listProjects(props.contributedTo)}
       </div>
     </Layout>

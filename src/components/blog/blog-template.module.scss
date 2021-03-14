@@ -1,5 +1,5 @@
-@import '../../variables.scss';
-@import '../../shared-styles.module.scss';
+@import "../../variables.scss";
+@import "../../shared-styles.module.scss";
 
 .blogPostContainer {
   @extend .card;
@@ -17,9 +17,23 @@
   font-size: 1rem;
   color: $body-text-light;
   margin-bottom: 1.45rem;
+  margin-top: 0.45rem;
 }
 
 .subtitle {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+  color: inherit;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  font-size: 1.38316rem;
+  line-height: 1.1;
   margin-bottom: 0.725rem;
 }
 

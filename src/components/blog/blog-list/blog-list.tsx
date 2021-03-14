@@ -24,7 +24,7 @@ const BlogList: React.FunctionComponent<{}> = () => {
 
   return (
     <div className={SharedStyles.card}>
-      <h2>Blog posts</h2>
+      <h1>Blog posts</h1>
       {data.allMdx.edges.reverse().map(({ node }: { node: any }) => (
         <div className={Styles.container} key={node.id}>
           <Link className={Styles.titleContainer} to={node.frontmatter.slug}>
