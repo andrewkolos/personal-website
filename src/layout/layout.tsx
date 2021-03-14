@@ -30,9 +30,10 @@ const Layout: React.FC<LayoutProps> = props => {
   `);
 
   return (
-    <div style={{ margin: 'auto' }}>
+    <div style={{ margin: "auto" }}>
       <Seo pathName={props.pathName} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <a className="skip-link" href="#main">Skip to content</a>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
@@ -40,7 +41,7 @@ const Layout: React.FC<LayoutProps> = props => {
           maxWidth: 960,
         }}
       >
-        <main>{props.children}</main>
+        <main id="main">{props.children}</main>
       </div>
       <footer
         style={{
