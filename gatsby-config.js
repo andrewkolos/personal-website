@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `Andrew Kolos`,
     description: `Andrew Kolos is a software developer.`,
-    author: `@gatsbyjs`,
+    author: `Andrew Kolos`,
     siteUrl: 'https://andrewkolos.com',
   },
   plugins: [

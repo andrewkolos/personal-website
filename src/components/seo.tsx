@@ -112,7 +112,7 @@ function Seo({
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `Andrew Kolos is a software engineer.`,
         },
         {
           name: `twitter:creator`,
