@@ -6,8 +6,9 @@ const descriptor: EmbeddedAppDescriptor = {
   copyFrom: 'demos/game',
   source: async (): Promise<void> => {
     await cloneGitRepo(`https://github.com/andrewkolos/synchronized-pong-3d`);
-    exec('npm i && npm run build:game-demo');
+    await exec('npm i && npm run build:game-demo');
   },
+  urlName: 'pong-3d',
 }
 
 export default descriptor;
