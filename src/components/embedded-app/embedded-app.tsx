@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { PageProps } from 'gatsby';
+import { Link, PageProps } from 'gatsby';
 import Styles from './embedded-app.module.scss';
+import { FiArrowLeft } from 'react-icons/fi';
 
 export interface EmbeddedAppContext {
   demoUrl: string;
@@ -41,7 +42,7 @@ const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => 
 
   return (
 
-    <React.Fragment>
+    <div className={Styles.container}>
       <div ref={loadingEl} className={Styles.loadingContainer}>
         <div className={Styles.loading}>
           <div className={Styles.ldsEllipsisContainer}>
@@ -58,13 +59,17 @@ const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => 
         </div>
       </div>
 
+      <div className={Styles.returnToSiteContainer}>
+        <Link className={Styles.returnToSiteLink} to={"/demos"}><FiArrowLeft size="14" style={{paddingLeft: '-2px', marginRight: '2px'}}/>Return to site</Link>
+      </div>
+
       <iframe src={props.pageContext.demoUrl}
         tabIndex={0}
         allowFullScreen={true}
         ref={iframeEl}
         scrolling='no'
         className={Styles.embeddedIframe} />
-    </React.Fragment>
+    </div>
   )
 }
 

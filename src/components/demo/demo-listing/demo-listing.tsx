@@ -2,7 +2,6 @@ import { Link } from 'gatsby';
 import { FixedObject } from 'gatsby-image';
 import React from 'react';
 import Styles from "./demo-listing.module.scss";
-//import SharedStyles from "../../../shared-styles.module.scss";
 import Img from 'gatsby-image';
 import { FiGithub } from 'react-icons/fi';
 
@@ -30,7 +29,6 @@ const DemoListing: React.FunctionComponent<DemoListingProps> = (props) => {
           {props.description}&nbsp;
           </p>
         <a href={props.repoUrl}><FiGithub className={Styles.gitHubIcon} size="14"/>GitHub</a>
-
       </div>
     </div>
   )
