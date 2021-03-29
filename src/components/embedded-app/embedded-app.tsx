@@ -9,15 +9,8 @@ export interface EmbeddedAppContext {
 
 const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => {
   const [appLoaded, setAppLoaded] = useState(false);
+  const loadingEl = useRef<HTMLDivElement>(null);
   const iframeEl = useRef<HTMLIFrameElement>(null);
-
-  const onIframeLoaded = () => {
-    if (!iframeEl.current) {
-      throw Error('iframe loaded but is also null');
-    }
-    iframeEl.current.focus();
-    setAppLoaded(true);
-  };
 
   useEffect(() => {
     // Hides scrollbar.
@@ -31,31 +24,44 @@ const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => 
     }
   });
 
+  useEffect(() => {
+    const el = loadingEl.current;
+    if (!el) return;
+    if (appLoaded) el.classList.add(Styles.hide);
+  });
+
+  useEffect(() => {
+    const el = iframeEl.current;
+    if (!el) return;
+    el.onload = () => {
+      el.focus();
+      setAppLoaded(true);
+    }
+  });
+
   return (
 
     <React.Fragment>
-      {!appLoaded &&
-        <div className={Styles.loadingContainer}>
-          <div className={Styles.loading}>
-            <div className={Styles.ldsEllipsisContainer}>
-              <div className={Styles.ldsEllipsis}>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
+      <div ref={loadingEl} className={Styles.loadingContainer}>
+        <div className={Styles.loading}>
+          <div className={Styles.ldsEllipsisContainer}>
+            <div className={Styles.ldsEllipsis}>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
+          </div>
           Hello! The server is being rehydrated.
           <br />
           This could take up to 15 seconds.
         </div>
-        </div>}
+      </div>
 
       <iframe src={props.pageContext.demoUrl}
         tabIndex={0}
         allowFullScreen={true}
         ref={iframeEl}
-        onLoad={onIframeLoaded}
         scrolling='no'
         className={Styles.embeddedIframe} />
     </React.Fragment>
