@@ -11,18 +11,22 @@ export interface DemoListingProps {
   thumbnail: FixedObject;
   demoUrl: string;
   repoUrl: string;
-  urlName: string;
+  urlName?: string;
 }
 
 const DemoListing: React.FunctionComponent<DemoListingProps> = (props) => {
 
+  const img = <Img fixed={props.thumbnail} alt={`${props.name} Demo`} className={Styles.demoThumbnail} />;
   return (
     <div className={Styles.container} key={props.name}>
-      <Link to={props.urlName}>
-        <Img fixed={props.thumbnail} alt={`${props.name} Demo`} className={Styles.demoThumbnail} />
-      </Link>
+      {props.urlName && <Link to={props.urlName}>
+        {img}
+      </Link>}
+      {!props.urlName && <a href={props.demoUrl}>
+        {img}
+      </a>}
       <div className={Styles.textContent}>
-        <Link className={Styles.titleContainer} to={props.urlName}>
+        <Link className={Styles.titleContainer} to={props.urlName || props.demoUrl}>
           <h2 className={Styles.title}>{props.name}</h2>
         </Link>
         <p className={Styles.excerpt}>

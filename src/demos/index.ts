@@ -1,13 +1,18 @@
+
+
 export interface Demo {
   name: string;
-  urlName: string;
   description: string;
   thumbnailName: string;
   repoUrl: string;
   demoUrl: string;
 }
 
-export const demos: Demo[] = [
+export interface EmbeddedDemo extends Demo {
+  urlName: string;
+}
+
+export const embeddedDemos: EmbeddedDemo[] = [
   {
     name: 'Bastion Breach 3D',
     urlName: 'bastion-breach-3d',
@@ -24,7 +29,7 @@ export const demos: Demo[] = [
     repoUrl: 'https://github.com/andrewkolos/synchronized-pong-3d',
     demoUrl: 'https://andrew-pong-3d.herokuapp.com/',
   },
-  { 
+    { 
     name: 'Swoocebooks Lite',
     urlName: 'swoocebooks-lite',
     thumbnailName: 'swoocebooks-lite',
@@ -33,3 +38,20 @@ export const demos: Demo[] = [
     demoUrl: 'https://swoocebooks-lite.herokuapp.com/index.html',
   },
 ]
+
+export const noninteractiveDemos: Demo[] = [
+  {
+    name: 'Hybot Discord Elo Bot',
+    thumbnailName: 'hybot',
+    demoUrl: 'https://github.com/andrewkolos/hybot-discord-elo-bot',
+    repoUrl: 'https://github.com/andrewkolos/hybot-discord-elo-bot',
+    description: 'Discord bot that calculates and keeps track of Elo scores amongst a community of players.'
+  },
+  {
+    name: 'Swoocebooks',
+    thumbnailName: 'swoocebooks',
+    demoUrl: 'https://github.com/andrewkolos/simple-personal-gradebook',
+    repoUrl: 'https://github.com/andrewkolos/simple-personal-gradebook',
+    description: 'A persistent web app application that helps students keep track of and experiment with their grades.',
+  }
+];

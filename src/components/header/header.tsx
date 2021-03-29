@@ -14,7 +14,7 @@ const Header = ({ siteTitle }: { siteTitle: string }) => (
         <ul className={Styles.navLinkContainer}>
           <ListLink to='/' className={Styles.navLink} activeClassName={Styles.navLinkActive}>Blog</ListLink>
           <ListLink to='/projects/' className={Styles.navLink} activeClassName={Styles.navLinkActive}>Projects</ListLink>
-          <ListLink to='/demos/' className={Styles.navLink} activeClassName={Styles.navLinkActive}>Demos/Games</ListLink>
+          <ListLink to='/demos/' className={Styles.navLink} activeClassName={Styles.navLinkActive}>Games/Demos</ListLink>
         </ul>
       </nav>
     </div>
