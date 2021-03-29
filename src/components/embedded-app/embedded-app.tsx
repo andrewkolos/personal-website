@@ -68,6 +68,7 @@ const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => 
         allowFullScreen={true}
         ref={iframeEl}
         scrolling='no'
+        onMouseEnter={() => {iframeEl.current?.focus();}}
         className={Styles.embeddedIframe} />
     </div>
   )

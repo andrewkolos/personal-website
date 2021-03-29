@@ -28,7 +28,7 @@ const BlogList: React.FunctionComponent<unknown> = () => {
       {data.allMdx.edges
         .sort((a: any, b: any) => Date.parse(b.node.frontmatter.date) - Date.parse(a.node.frontmatter.date))
         .map(({ node }: { node: any }) => (
-          <div className={Styles.container} key={node.id}>
+          <div className={Styles.container} key={node.frontmatter.slug}>
             <Link className={Styles.titleContainer} to={node.frontmatter.slug}>
               <h2 className={Styles.title}>{node.frontmatter.title}</h2>
               <span className={Styles.subtitle}>{node.frontmatter.subtitle}</span>
