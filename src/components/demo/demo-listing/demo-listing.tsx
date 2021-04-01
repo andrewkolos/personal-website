@@ -16,7 +16,12 @@ export interface DemoListingProps {
 
 const DemoListing: React.FunctionComponent<DemoListingProps> = (props) => {
 
-  const img = <Img fixed={props.thumbnail} alt={`${props.name} Demo`} className={Styles.demoThumbnail} />;
+  const img = (
+    <div className={Styles.demoThumbnailContainer}>
+      <Img fixed={props.thumbnail} alt={`${props.name} Demo`} className={Styles.demoThumbnail} />
+    </div>
+  );
+  
   return (
     <div className={Styles.container} key={props.name}>
       {props.urlName && <Link to={props.urlName}>
@@ -32,7 +37,7 @@ const DemoListing: React.FunctionComponent<DemoListingProps> = (props) => {
         <p className={Styles.excerpt}>
           {props.description}&nbsp;
           </p>
-        <a href={props.repoUrl}><FiGithub className={Styles.gitHubIcon} size="14"/>GitHub</a>
+        <a href={props.repoUrl}><FiGithub className={Styles.gitHubIcon} size="14" />GitHub</a>
       </div>
     </div>
   )

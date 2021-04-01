@@ -1,10 +1,10 @@
 import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import { FixedObject } from 'gatsby-image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import DemoList from '../components/demo/demo-list/demo-list';
 import { DemoListingProps } from '../components/demo/demo-listing/demo-listing';
 import Seo from '../components/seo';
-import { EmbeddedDemo, embeddedDemos, noninteractiveDemos } from '../demos';
+import { embeddedDemos, noninteractiveDemos } from '../demos';
 import Layout from '../layout/layout';
 import SharedStyles from "../shared-styles.module.scss";
 
@@ -43,6 +43,14 @@ const DemosPage: React.FC<PageProps> = props => {
       urlName: d.urlName
     };
   });
+
+  useEffect(() => {
+    embeddedDemoListings.forEach(edl => {
+      fetch(edl.demoUrl, {
+        mode: 'no-cors',
+      }); // Hack to rehydrate any Heroku servers.
+    });
+  }, []);
 
   const noninteractiveDemoListings: DemoListingProps[] = noninteractiveDemos.map((d) => {
     const thumbnail = getThumbnailObject(imagesByName, d.thumbnailName);
