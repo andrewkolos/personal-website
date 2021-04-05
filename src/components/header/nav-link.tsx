@@ -7,7 +7,7 @@ interface NavLinkProps {
   activeClassName: string;
 }
 
-export const ListLink: React.FunctionComponent<NavLinkProps> = (props) => (
+export const NavLink: React.FunctionComponent<NavLinkProps> = (props) => (
   <li style={{ display: 'inline-block', marginRight: `0.6rem`}}>
     <Link to={props.to} className={props.className} activeClassName={props.activeClassName}>{props.children}</Link>
   </li>

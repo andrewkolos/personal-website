@@ -38,8 +38,15 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blogs`,
-        path: `${__dirname}/src/blog-posts`,
+        path: `${__dirname}/src/data/blog-posts`,
       },
+    },
+    {
+      resolve: 'gatsby-transformer-json',
+      options: {
+        name: 'readinglist',
+        path: './src/data'
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,

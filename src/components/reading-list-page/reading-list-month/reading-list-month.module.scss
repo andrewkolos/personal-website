@@ -1,0 +1,34 @@
+.container {
+  margin-top: 20px;
+  border: 1px solid #d0d0d0;
+}
+
+.title {
+  margin: 10px;
+  flex-grow: 1;
+}
+
+.titleWrapper {
+  border-bottom: 1px solid #d0d0d0;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+}
+
+.entries {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.25s linear;
+}
+
+.expandIcon {
+  font-size: 1.38316rem;
+  line-height: 1.1;
+  margin-top: 10px;
+  padding-right: 10px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

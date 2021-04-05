@@ -37,6 +37,7 @@
     "gatsby-remark-images": "^3.11.1",
     "gatsby-remark-vscode": "^3.2.0",
     "gatsby-source-filesystem": "^2.6.1",
+    "gatsby-transformer-json": "^3.2.0",
     "gatsby-transformer-sharp": "^2.6.0",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "node-sass": "^4.14.1",
