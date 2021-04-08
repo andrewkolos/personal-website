@@ -20,7 +20,7 @@ const ReadingList: React.FC<ReadingListProps> = (props) => {
       return map;
     }, new Map<string, ReadingListEntry[]>())
 
-  const months = Array.from(byMonth.entries()).sort((e, o) => e[0].localeCompare(o[0]));
+  const months = Array.from(byMonth.entries()).sort((e, o) => o[0].localeCompare(e[0]));
 
   return (
     <div className={SharedStyles.card}>
