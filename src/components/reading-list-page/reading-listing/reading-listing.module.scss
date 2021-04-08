@@ -1,4 +1,62 @@
+@import '../../../variables.scss';
+@import '../../../shared-styles.module.scss';
+
+$containerPadding: 20px;
+$imageWidth: 128px;
+
 .container {
   border-top: 1px solid #f0f0f0;
-  padding: 20px;
+  padding: $containerPadding;
+  overflow: hidden;
+  min-height: $containerPadding * 2 + $imageWidth;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.image {
+  height: $imageWidth;
+  width: $imageWidth;
+  object-fit: cover;
+}
+
+.imageContainer {
+  height: $imageWidth;
+  width: $imageWidth;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .imageContainer {
+    display: none;
+  }
+}
+
+.container h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.titleWrapper {
+  display: flex;
+}
+.title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.textContent {
+  max-height: $imageWidth;
+  min-width: 0;
 }

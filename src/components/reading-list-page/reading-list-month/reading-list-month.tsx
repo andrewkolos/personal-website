@@ -1,5 +1,5 @@
 import React, { Ref, useEffect, useRef, useState } from 'react';
-import { ReadingListEntry } from '../reading-list/reading-list';
+import { ReadingListEntry } from "../reading-list-entry";
 import SharedStyles from '../../../shared-styles.module.scss';
 import ReadingListing from '../reading-listing/reading-listing';
 import Styles from './reading-list-month.module.scss';
@@ -14,8 +14,9 @@ const ReadingListMonth: React.FC<ReadingListMonthProps> = (props) => {
   const [expanded, setExpanded] = useState(props.expanded);
   const entriesDiv: Ref<HTMLDivElement> = useRef(null);
 
-  const month = props.entries[0].date.toLocaleString('default', { month: 'long' });
-  const year = props.entries[0].date.getFullYear();
+  const date = new Date(props.entries[0].date);
+  const month = date.toLocaleString('default', { month: 'long' });
+  const year = date.getFullYear();
 
   useEffect(() => {
     const { current } = entriesDiv;
@@ -29,7 +30,7 @@ const ReadingListMonth: React.FC<ReadingListMonthProps> = (props) => {
   }, [expanded]);
 
   return (
-    <div className={Styles.container} >
+    <div className={Styles.container}>
       <button className={Styles.titleWrapper} onClick={() => setExpanded(!expanded)}>
         <h2 className={Styles.title}> {month} {year} </h2>
         <span className={Styles.expandIcon}>{expanded ? '−' : '+'}</span>

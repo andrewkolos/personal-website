@@ -12,9 +12,7 @@
   padding: 18px;
 }
 
-.titleContainer:hover {
-  color: $primary;
-}
+
 .gitHubIcon {
   margin-right: 4px;
 }
@@ -25,14 +23,11 @@
   margin-bottom: 10px;
   text-decoration: none;
   display: block;
-  color: inherit;
 }
 
 .title {
   margin-top: 0;
   display: inline;
-  transition: 0.1s;
-  color: inherit;
 }
 
 .demoThumbnailContainer {
@@ -61,7 +56,6 @@
   line-height: 1.1;
   display: block;
   font-size: 1.38316rem;
-  transition: 0.1s;
   color: inherit;
 }
 

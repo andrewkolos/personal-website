@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReadingListEntry } from '../reading-list/reading-list';
-import SharedStyles from '../../../shared-styles.module.scss'; 
+import { ReadingListEntry } from "../reading-list-entry";
+import SharedStyles from '../../../shared-styles.module.scss';
 import Styles from './reading-listing.module.scss';
 
 export interface ReadingListingProps {
@@ -8,12 +8,23 @@ export interface ReadingListingProps {
 }
 
 const ReadingList: React.FC<ReadingListingProps> = (props) => {
-  const { date, url } = props.entry;
+  const { url, description, imgUrl, title } = props.entry;
 
   return (
     <div className={Styles.container}>
-      {date.toString()}
-      {url}
+      <div className={Styles.content}>
+        <a href={url}>
+          <div className={Styles.imageContainer}>
+            <img src={imgUrl} className={Styles.image} ></img>
+          </div>
+        </a>
+        <div className={Styles.textContent}>
+            <a className={Styles.titleWrapper} href={url}>
+              <h2 className={Styles.title}>{title}</h2>
+            </a>
+          <span className={Styles.description}>{description}</span>
+        </div>
+      </div>
     </div>
   );
 }

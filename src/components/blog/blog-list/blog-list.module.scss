@@ -6,7 +6,6 @@
 }
 
 .titleContainer:hover {
-  color: $primary;
 }
 
 .titleContainer {
@@ -15,14 +14,11 @@
   margin-bottom: 10px;
   text-decoration: none;
   display: block;
-  color: inherit;
 }
 
 .title {
   margin-top: 0;
   display: inline;
-  transition: 0.1s;
-  color: inherit;
 }
 
 .subtitle {
@@ -33,8 +29,6 @@
   line-height: 1.1;
   display: block;
   font-size: 1.38316rem;
-  transition: 0.1s;
-  color: inherit;
 }
 
 .secondaryInfo {
