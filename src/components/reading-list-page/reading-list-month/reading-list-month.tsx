@@ -30,13 +30,13 @@ const ReadingListMonth: React.FC<ReadingListMonthProps> = (props) => {
   }, [expanded]);
 
   return (
-    <div className={Styles.container}>
+    <div className={Styles.container} key={month + year}>
       <button className={Styles.titleWrapper} onClick={() => setExpanded(!expanded)}>
         <h2 className={Styles.title}> {month} {year} </h2>
         <span className={Styles.expandIcon}>{expanded ? '−' : '+'}</span>
       </button>
       <div ref={entriesDiv} className={Styles.entries}>
-        {props.entries.map(e => <ReadingListing entry={e} />)}
+        {props.entries.map(e => <ReadingListing key={e.url} entry={e} />)}
       </div>
     </div>
   );
