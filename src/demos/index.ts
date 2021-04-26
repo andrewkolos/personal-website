@@ -29,7 +29,7 @@ export const embeddedDemos: EmbeddedDemo[] = [
     repoUrl: 'https://github.com/andrewkolos/synchronized-pong-3d',
     demoUrl: 'https://andrew-pong-3d.herokuapp.com/',
   },
-    { 
+  {
     name: 'Swoocebooks Lite',
     urlName: 'swoocebooks-lite',
     thumbnailName: 'swoocebooks-lite',
@@ -37,6 +37,14 @@ export const embeddedDemos: EmbeddedDemo[] = [
     repoUrl: 'https://github.com/andrewkolos/swoocebooks-lite',
     demoUrl: 'https://swoocebooks-lite.herokuapp.com/index.html',
   },
+  {
+    name: 'Online Game Synchronization Framework',
+    urlName: 'online-game-synchronization-framework',
+    thumbnailName: 'game-sync',
+    description: 'Framework for smoothly synchronizing online games.',
+    repoUrl: 'https://github.com/andrewkolos/simple-online-game-syncrhonization-framework',
+    demoUrl: 'https://game-synchronization-framework.herokuapp.com/',
+  }
 ]
 
 export const noninteractiveDemos: Demo[] = [
