@@ -5,10 +5,10 @@ import { createProjectsPage } from './create-projects-page';
 import { createReadingListPage } from './create-reading-list-page';
 
 export const createPages: GatsbyNode['createPages'] = async (params) => {
-  await Promise.all([createBlogPages(params), 
-    createProjectsPage(params), 
-    createDemoPages(params), 
-    createReadingListPage(params)
+  await Promise.all([createBlogPages(params),
+  createProjectsPage(params),
+  createDemoPages(params),
+  createReadingListPage(params)
   ]);
 };
 

@@ -3,7 +3,7 @@ import { CreatePagesArgs } from 'gatsby';
 import { getLinkPreview } from 'link-preview-js';
 import { ReadingListEntry } from '../src/components/reading-list-page/reading-list-entry';
 import { ReadingListPageContext } from '../src/components/reading-list-page/reading-list-page';
-import ReadingListData from '../src/data/readinglist.json';
+import rawReadingListData from '../src/data/readinglist.json';
 
 type UnionToIntersection<T> =
   (T extends any ? (x: T) => any : never) extends
@@ -12,16 +12,13 @@ type UnionToIntersection<T> =
 export async function createReadingListPage({ actions }: CreatePagesArgs): Promise<void> {
   const readingList = require.resolve('../src/components/reading-list-page/reading-list-page.tsx');
 
-  const data: ReadingListEntry[] = (await objectPromiseAll(
-    ReadingListData.map(d => ({
-      date: new Date(d.date),
-      url: d.url
-    })).map(d => ({
-      linkPreviewData: getLinkPreview(d.url),
-      date: d.date.toString(),
-    }))
-  )).map(d => {
-    const pd = d.linkPreviewData as UnionToIntersection<typeof d.linkPreviewData>; 
+  const readingListDataWithLinkPreviewInfo = await objectPromiseAll(rawReadingListData.map(d => ({
+    linkPreviewInfo: getLinkPreview(d.url),
+    date: new Date(d.date).toString(),
+  })));
+
+  const entries: ReadingListEntry[] = readingListDataWithLinkPreviewInfo.map(d => {
+    const pd = d.linkPreviewInfo as UnionToIntersection<typeof d.linkPreviewInfo>; // Need this assertion because the library has ackward non-discriminated union typings.
     return {
       title: pd.title,
       date: d.date,
@@ -32,7 +29,7 @@ export async function createReadingListPage({ actions }: CreatePagesArgs): Promi
   });
 
   const context: ReadingListPageContext = {
-    entries: data,
+    entries,
   }
 
   actions.createPage({
