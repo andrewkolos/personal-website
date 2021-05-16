@@ -15,16 +15,18 @@ export async function createReadingListPage({ actions }: CreatePagesArgs): Promi
   const readingListDataWithLinkPreviewInfo = await objectPromiseAll(rawReadingListData.map(d => ({
     linkPreviewInfo: getLinkPreview(d.url),
     date: new Date(d.date).toString(),
+    blurb: d.blurb,
   })));
 
   const entries: ReadingListEntry[] = readingListDataWithLinkPreviewInfo.map(d => {
-    const pd = d.linkPreviewInfo as UnionToIntersection<typeof d.linkPreviewInfo>; // Need this assertion because the library has ackward non-discriminated union typings.
+    const linkPreviewInfo = d.linkPreviewInfo as UnionToIntersection<typeof d.linkPreviewInfo>; // Need this assertion because the library has ackward non-discriminated union typings.
     return {
-      title: pd.title,
+      title: linkPreviewInfo.title,
+      blurb: d.blurb,
       date: d.date,
-      description: pd.description,
-      url: pd.url,
-      imgUrl: pd.images[0] ? pd.images[0] : undefined,
+      description: linkPreviewInfo.description,
+      url: linkPreviewInfo.url,
+      imgUrl: linkPreviewInfo.images ? linkPreviewInfo.images[0] : undefined,
     };
   });
 

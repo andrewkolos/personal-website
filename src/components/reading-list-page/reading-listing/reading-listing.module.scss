@@ -52,11 +52,19 @@ $imageWidth: 128px;
 .description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   overflow: hidden;
+  color: $body-text-light;
 }
 
 .textContent {
   max-height: $imageWidth;
   min-width: 0;
+}
+
+.blurb {
+}
+
+.blurbContainer {
+  margin-top: 20px;
 }

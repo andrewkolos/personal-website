@@ -1,5 +1,10 @@
 [
   {
+    "date": "2021/05/15",
+    "url": "https://blog.discord.com/how-discord-stores-billions-of-messages-7fa6ec7ee4c7#.dzqq7q4o7",
+    "blurb": "A nice case study that walks through the considerations and process of choosing a DB for Discord's scenario."
+  },
+  {
     "date": "2021/04/09",
     "url": "https://tyrrrz.me/blog/return-type-inference"
   },
