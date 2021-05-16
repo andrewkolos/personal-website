@@ -12,7 +12,6 @@ const ReadingListPage: React.FC<PageProps<
   unknown,
   ReadingListPageContext
 >> = props => {
-  console.log('props.pageContext.entries', props.pageContext.entries);
   return (
     <Layout pathName={props.location.pathname}>
       <ReadingListComponent entries={props.pageContext.entries} />

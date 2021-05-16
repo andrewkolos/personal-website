@@ -10,8 +10,6 @@ export interface ReadingListingProps {
 const ReadingList: React.FC<ReadingListingProps> = props => {
   const { url, description, imgUrl, title, blurb } = props.entry;
 
-  console.log(props.entry);
-
   return (
     <div className={Styles.container}>
       <div className={Styles.content}>

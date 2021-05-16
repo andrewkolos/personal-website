@@ -4,7 +4,8 @@
 }
 
 .title {
-  margin: 10px;
+  padding: 10px;
+  margin: 0;
   flex-grow: 1;
 }
 
@@ -17,6 +18,11 @@
   text-align: left;
   cursor: pointer;
   display: flex;
+  transition: all 0.05s linear;
+}
+
+.titleWrapper:hover {
+  background-color: #f8f8f8;
 }
 
 .entries {
