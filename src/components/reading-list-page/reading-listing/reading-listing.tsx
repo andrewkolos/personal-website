@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReadingListEntry } from '../reading-list-entry';
 import Styles from './reading-listing.module.scss';
+import MarkdownView from 'react-showdown';
 
 export interface ReadingListingProps {
   entry: ReadingListEntry;
@@ -28,7 +29,9 @@ const ReadingList: React.FC<ReadingListingProps> = props => {
       </div>
       {blurb && (
         <div className={Styles.blurbContainer}>
-          <span className={Styles.blurb}>{blurb}</span>
+          <span className={Styles.blurb}>
+            <MarkdownView markdown={blurb} />
+          </span>
         </div>
       )}
     </div>

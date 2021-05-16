@@ -3,7 +3,7 @@ import { CreatePagesArgs } from 'gatsby';
 import { getLinkPreview } from 'link-preview-js';
 import { ReadingListEntry } from '../src/components/reading-list-page/reading-list-entry';
 import { ReadingListPageContext } from '../src/components/reading-list-page/reading-list-page';
-import rawReadingListData from '../src/data/readinglist.json';
+import rawReadingListData from '../src/data/readinglist';
 
 type UnionToIntersection<T> =
   (T extends any ? (x: T) => any : never) extends

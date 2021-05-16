@@ -6,7 +6,7 @@
   "author": "Andrew Kolos <andrewrkolos@gmail.com>",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "dev": "gatsby clean && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -19,7 +19,9 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@octokit/rest": "^18.0.9",
+    "@types/dedent": "^0.7.0",
     "@types/react-helmet": "^6.1.0",
+    "dedent": "^0.7.0",
     "disqus-react": "^1.0.10",
     "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",
@@ -49,6 +51,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
+    "react-showdown": "^2.3.0",
     "react-typography": "^0.16.19"
   },
   "devDependencies": {
