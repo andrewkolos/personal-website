@@ -3,6 +3,18 @@ import dedent from 'dedent';
 const data = [
   {
     date: '2021/05/16',
+    url: 'https://www.gamasutra.com/blogs/ChrisSimpson/20140717/221339/Behavior_trees_for_AI_How_they_work.php',
+    blurb: dedent`
+      Demonstrates, at a conceptual level, how relatively complex AI behavior can be achieved by composing simple constructs.
+      Since games are huge state-ful applications with complex behavior, it is no surprise that game developers employ
+      elegant architectural patterns to keep themselves sane.
+
+      I'd also recommend Robert Nystrom's free book, [*Game Programming Patterns*](https://gameprogrammingpatterns.com/contents.html), to
+      anyone not already highly-experienced with OOD, regardless of whether or not they are interested in game development.
+    `
+  },
+  {
+    date: '2021/05/16',
     url: 'https://www.simplethread.com/dear-client-heres-why-that-change-took-so-long/',
     blurb: dedent`
      Interesting example of someone attempting to explain to a client why the smallest of code changes could
