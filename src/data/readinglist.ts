@@ -2,6 +2,14 @@ import dedent from 'dedent';
 
 const data = [
   {
+    date: '2021/05/18',
+    url: 'https://martinfowler.com/articles/micro-frontends.html',
+    blurb: dedent`An interesting approach of splitting up a single frontend into smaller ones based around business concerns,
+      similarly to the microservices approach to backends. There's the downside of mangaging dependencies shared by multiple of
+      these split frontends, but it can allow for each team to move more quickly to speed up development as well as use different
+      frontend stacks.`
+  },
+  {
     date: '2021/05/16',
     url: 'https://www.gamasutra.com/blogs/ChrisSimpson/20140717/221339/Behavior_trees_for_AI_How_they_work.php',
     blurb: dedent`
