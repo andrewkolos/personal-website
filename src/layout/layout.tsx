@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from '../components/header/header';
-import './layout.css';
+import './layout.module.scss';
 import { SocialLinks } from './social-links/social-links';
 import Seo from '../components/seo';
 
@@ -30,7 +30,7 @@ const Layout: React.FC<LayoutProps> = props => {
   `);
 
   return (
-    <div style={{ margin: "auto" }}>
+    <div style={{ margin: 'auto' }}>
       <Seo pathName={props.pathName} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />

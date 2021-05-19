@@ -1,30 +1,32 @@
 ---
-slug: "/blog/correctness-vs-complexity"
-title: "Library Design: Ease of Correct Use Versus Simplicity"
-subtitle: "A Tiny Case Study of a Little Tweening Library I Wrote"
-date: "2020-12-08"
+slug: '/blog/correctness-vs-complexity'
+title: 'Library Design: Ease of Correct Use Versus Simplicity'
+subtitle: 'A Tiny Case Study of a Little Tweening Library I Wrote'
+date: '2020-12-08'
 tags:
   - 'correctness'
   - 'complexity'
   - 'software design'
   - 'library'
---- 
+---
 
 Most decisions in software are tradeoffs. When designing a library, a high priority for me is making it easy to correctly use. This is a case study of a small tweening/animation library I wrote in TypeScript where I explore the costs of a design decision that would help prevent the user from writing wrong code.
 
-To *tween* something is to animate it between two points. I wanted a tweening library that I could use for animating playing cards moving around a table for a small browser game project written in TypeScript. I was unsatisfied with the existing solutions I found. The GreenSock Animation Platform typings were incomplete. @tweenjs/tween.js didn't work with TypeScript at the time (this was since fixed) and lacked thorough support for sequencing animations. There were some other libraries, but there was always some reason I was not 100% satisfied with them. I figured I would write my own as I thought it would make some good practice for writing a software library.
+To _tween_ something is to animate it between two points.
+I wanted a tweening library that I could use for animating playing cards moving around a table for a small browser game project written in TypeScript.
+Unsatisfied with existing solutions, I chose to write my own.
 
 ## Basic Requirements
 
-* The library provides a simple-to-use `Tween` construct that can be used to animate numeric properties on objects. These properties can also be found on objects within the object.
-* The `Tween` construct is created from the following information:
-  * a target object (i.e. the object to be animated). This object will be written to directly by the tween as it runs.
-  * an object containing the properties to be animated and what values they should be animated to.
-  * the length/duration over which the animation happens.
-  * a function that describes how the value moves from point A to point B over time -- commonly called an easing function.
-* The library provides `Group` and `Sequence` constructs as means to control multiple `Tween`s and/or other `Group`s  or `Sequence`s. We'll use the term *animation* to describe anything that is either a tween, group, or sequence.
-  * The `Group` is an animation comprised of other animations that are played at the same time. It is simply a means to control multiple animations that happen at the same time through one interface.
-  * The `Sequence` is an animation made of other animations, where each contained animation has it's own starting time relative to the beginning of the sequence. For example, imagine a sequence where a ball 1) is rolled along a floor and then 2) bounces off a wall, rolling in the opposite direction.
+- The library provides a simple-to-use `Tween` construct that can be used to animate numeric properties on objects. These properties can also be found on objects within the object.
+- The `Tween` construct is created from the following information:
+  - a target object (i.e. the object to be animated). This object will be written to directly by the tween as it runs.
+  - an object containing the properties to be animated and what values they should be animated to.
+  - the length/duration over which the animation happens.
+  - a function that describes how the value moves from point A to point B over time -- commonly called an easing function.
+- The library provides `Group` and `Sequence` constructs as means to control multiple `Tween`s and/or other `Group`s or `Sequence`s. We'll use the term _animation_ to describe anything that is either a tween, group, or sequence.
+  - The `Group` is an animation comprised of other animations that are played at the same time. It is simply a means to control multiple animations that happen at the same time through one interface.
+  - The `Sequence` is an animation made of other animations, where each contained animation has it's own starting time relative to the beginning of the sequence. For example, imagine a sequence where a ball 1) is rolled along a floor and then 2) bounces off a wall, rolling in the opposite direction.
 
 ## Animation Interface
 
@@ -32,11 +34,11 @@ To *tween* something is to animate it between two points. I wanted a tweening li
 
 ```ts
 interface Animation {
-    pause(): this;
-    resume(): this;
-    seek(time: number): this; // Rewinds or skips ahead.
-    // Maybe some other stuff...
-    __update(time: number): this; // Internal method called to perform the update.
+  pause(): this;
+  resume(): this;
+  seek(time: number): this; // Rewinds or skips ahead.
+  // Maybe some other stuff...
+  __update(time: number): this; // Internal method called to perform the update.
 }
 ```
 
@@ -46,8 +48,8 @@ Here we demonstrate how a tween can be created. We will animate an xy-coordinate
 
 ```ts
 interface Point {
-    x: number;
-    y: number;
+  x: number;
+  y: number;
 }
 
 const point: Point = {
@@ -57,20 +59,20 @@ const point: Point = {
 
 // Moves the x-coordinate to 10 over one second in a linear fashion.
 const xTween: Tween<Point> = Tween.start({
-    target: point,
-    to: { x: 10 }, // Contains the properties we want to animate and what to animate them to.
-    length: 1000,
-    easing: Easings.linear, // Coordinate will move with a static speed through the animation.
+  target: point,
+  to: { x: 10 }, // Contains the properties we want to animate and what to animate them to.
+  length: 1000,
+  easing: Easings.linear, // Coordinate will move with a static speed through the animation.
 });
 ```
 
 This call to the `Tween.start` function will create the Tween and start animating `point` right away.
 
-While this won't be relevant until later, let's suppose we want to provide a shorter, convenient syntax for creating tweens that doesn't involve the user having to create an object literal where they have to laboriously type out all the names of the properties.
+Having to create an object literal where each property has to be laboriously typed out could prove annoying to users. Let's provide a shorter, more convenient syntax:
 
 ```ts
 // This is equivalent to xTween above.
-const xTween: Tween<Point> = tween(point, {x: 10}, 1000, Easings.linear);
+const xTween: Tween<Point> = tween(point, { x: 10 }, 1000, Easings.linear);
 ```
 
 Moving on, let's consider how the programmer might create a sequence of animations. Here, we will animate the x-coordinate like before. After that's done, we will animate the y-coordinate.
@@ -78,65 +80,79 @@ Moving on, let's consider how the programmer might create a sequence of animatio
 ```ts
 const xTween = Tween.start(/* see above */);
 const yTween = Tween.start({
-    target: point,
-    to: {y: 10},
-    duration: 1000, // also a second long
-    easing: Easings.linear,
+  target: point,
+  to: { y: 10 },
+  duration: 1000, // also a second long
+  easing: Easings.linear,
 });
 
 const xySequence: Sequence<Tween<Point>> = Sequence.builder()
-	.append(xTween)
-	.append(yTween)
-	.start(); // Moves x to 10 and then moves y to 10.
+  .append(xTween)
+  .append(yTween)
+  .start(); // Moves x to 10 and then moves y to 10.
 ```
 
 This is perfectly fine, and was perfectly suitable for my needs.
-
-But...the purist in my head couldn't help but notice something. Consider what might happen when we run the below code 500ms after the code above.
+However, the purist in my head couldn't help but notice something. Consider what might happen when we run the below code 500ms after the code above.
 
 ```ts
 // ... 500 ms after we started our sequence
 xTween.seek(1000);
 ```
 
-We have manipulated `xTween`, which is the first part of `xySequence`. At this point, `xySequence` would have been at `t=500ms`, but what should happen after the above call to `xTween.seek`? Should `xySequence` also advance to `t=1000ms`? Should the sequence override this seek operation on its next update? Should we throw an error? There isn't a clear answer that we can rely on being intuitive to users. My personal preference is the second option, but the x-coordinate jumping straight to 10 then back to 5 could result in some error. The problem is that we don't know the intent of the above line of code.
+We have manipulated `xTween`, which is the first part of `xySequence`. At this point, `xySequence` would have been at `t=500ms`, but what should happen after the above call to `xTween.seek`?
+Should `xySequence` also advance to `t=1000ms`? Should the sequence override this seek operation on its next update? Should we throw an error?
+There isn't a clear answer that we can rely on being intuitive to users. My personal preference is the second option, but the x-coordinate jumping straight to 10 then back to 5 could result in some error.
+The problem is that the library can't know the intent of the above line of code.
 
-I could argue that the code above is bad: tweens used in sequences should never be touched after their creation-- the user should use the operations on `xySequence` itself. If so, we would be justified in either throwing an error or risking indeterminate behavior in the client code. Since this project has no deadline, I considered my argument as a lazy excuse to stop thinking so early. I thought to myself: is there a way we can help client programmers prevent/catch this at compile time?
+The library could do one of two things in this situation:
+
+1. Consider the code bad and throw an error. We argue that tweens used in sequenced should never be touched after their creation. Instead, the user should use the operations on `xySequence` itself.
+2. Do nothing and risk indeterminate behavior in the client code.
+
+Since this project has no deadline, I consider both solutions to be lazy excuses to stop thinking so early. I thought to myself: is there a way we can help client programmers prevent/catch this at compile time?
 
 ## Describing a Tween Without Creating One
 
-A `Sequence` will *most often* be a sequence of `Tween`s, but we don't want to pass `Tween`s in. What we can do is have `Sequence`s create and manage their own `Tween`s. Hooray for encapsulation. The `Sequence` will just need the same information needed to construct  the `Tween`s:
+A `Sequence` will _most often_ be a sequence of `Tween`s, but we don't want to pass `Tween`s in. What we can do is have `Sequence`s create and manage their own `Tween`s. Hooray for encapsulation. The `Sequence` will just need the same information needed to construct the `Tween`s:
 
 ```ts
 // Not a Tween, but describes how one would behave.
 // We'll call this a `TweenDescriptor`. `TweenArgs` also would be a decent name.
-const xTweenDescriptor: TweenDescriptor<Point> = { 
-    target: point,
-    to: { x: 10 },
-    length: 1000,
-    easing: Easings.linear,
+const xTweenDescriptor: TweenDescriptor<Point> = {
+  target: point,
+  to: { x: 10 },
+  length: 1000,
+  easing: Easings.linear,
 };
 
 const yTweenDescriptor = {
-    target: point,
-    to: {y: 10},
-    duration: 1000,
-    easing: Easings.linear,
+  target: point,
+  to: { y: 10 },
+  duration: 1000,
+  easing: Easings.linear,
 };
 
 const xySequence: Sequence<Tween<Point>> = Sequence.builder()
-	.append(xTweenDescriptor)
-	.append(yTweenDescriptor)
-	.start();
+  .append(xTweenDescriptor)
+  .append(yTweenDescriptor)
+  .start();
 ```
 
-This cleans things up, but introduces additional complexity in the form of an additional abstraction/concept, the tween descriptor. Making sequences directly from `Tween`s seems simpler and more intuitive to me, even if a little more error prone. However, we aren't done yet. Recall that there is another way to construct a `Tween`, the convenient `tween` factory function. This factory function was a shorter syntax for creating a tween. If the programmer wants to use this shorter syntax when creating sequences of tweens, we would have to introduce a sister function to `tween` that has the same parameters but produces a descriptor instead of a live tween. We could call it `describe`.
+This cleans things up but introduces additional complexity in the form of an additional abstraction/concept, the tween descriptor.
+Making sequences directly from `Tween`s seems simpler and more intuitive to me, even if a little more error prone. However, we aren't done yet.
+Recall that there is another way to construct a `Tween`, the convenient `tween` factory function. This factory function was a shorter syntax for creating a tween.
+If the programmer wants to use this shorter syntax when creating sequences of tweens, we would have to introduce a sister function to `tween` that has the same parameters but produces a descriptor instead of a live tween.
+We could call it `describe`.
 
-The API just got a little bigger. But wait, there's more. Recall that sequences can include other sequences. Not only do we need `TweenDescriptor`s, but we also need `SequenceDescriptor`s. We would add a new method to `SequenceBuilder`, i.e. `describe`. This is used in place of `start` and creates a `SequenceDescriptor` instead of a live `Sequence`. Internally, `Sequence` would use some sort of factory method that creates the appropriate animation from inspecting the shape of the descriptor in question, whether it be a `Tween`, a `Sequence` , or a `Group`. Then, we'd need to create a similar structure when implementing `Group`s.
+The API just got a little bigger. But wait, there's more. Recall that sequences can include other sequences.
+Not only do we need `TweenDescriptor`s, but we also need `SequenceDescriptor`s. We would add a new method to `SequenceBuilder`, i.e. `describe`.
+This is used in place of `start` and creates a `SequenceDescriptor` instead of a live `Sequence`.
+Internally, `Sequence` would use some sort of factory method that creates the appropriate animation from inspecting the shape of the descriptor in question, whether it be a `Tween`, a `Sequence` , or a `Group`.
+Then, we'd need to create a similar structure when implementing `Group`s.
 
-## Conclusion: Is it Worth it?
+## But Is it Worth it?
 
 While the whole idea of animation descriptors prevents potentially conflicting and/or confusing manipulations of animations that are parts of other animations, it adds a lot more to the API. For every way there is to create some sort of animation, we need a similar way to instead create something that describes the animation instead. In addition, it's another concept for whomever is maintaining the library to keep track of. I don't think there's a wrong answer, and it's not worth losing sleep over. Nonetheless, I though it was interesting to explore. In the end, I decided to keep things simple and not bother with the `Descriptor` concept when implementing the library. The decision was made simpler by the fact that I would likely be the only user of the library and that I would be unlikely to run into the hypothetical problem scenario that led down this rabbit hole.
 
 If for whatever reason you'd like to check out the library, you can find it [here](https://github.com/andrewkolos/ts-tween). I wouldn't highly recommend it for any serious use, as it I've only tested it by using it in one project, and I can't imagine it's very performant. It is also missing some basic features like the `pause` method, as I didn't need them. However, if you create an Issue, I would consider implementing whatever is missing.
-

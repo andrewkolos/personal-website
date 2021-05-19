@@ -6,10 +6,12 @@ import Seo from '../seo';
 import Styles from './blog-template.module.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
-import { CodeBlock } from '../code-block/code-block';
+import { CodeBlock } from './code-block/code-block';
+import { Aside } from './aside/aside';
 
 const components = {
   pre: CodeBlock,
+  aside: Aside,
 };
 
 const BlogTemplate: React.FunctionComponent<any> = props => {

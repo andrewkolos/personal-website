@@ -1,7 +1,11 @@
+@import '../variables.scss';
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font: 112.5%/1.45em georgia, serif, sans-serif;
+  font-family: georgia, serif, sans-serif;
+  font-size: $font-size;
+  line-height: $line-height;
   box-sizing: border-box;
   overflow-y: scroll;
 }

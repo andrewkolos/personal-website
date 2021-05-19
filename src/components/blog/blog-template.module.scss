@@ -1,5 +1,5 @@
-@import "../../variables.scss";
-@import "../../shared-styles.module.scss";
+@import '../../variables.scss';
+@import '../../shared-styles.module.scss';
 
 .blogPostContainer {
   @extend .card;
@@ -29,7 +29,7 @@
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
