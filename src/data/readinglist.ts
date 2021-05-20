@@ -2,6 +2,10 @@ import dedent from 'dedent';
 
 const data = [
   {
+    date: '2021/05/19',
+    url: 'https://samnewman.io/patterns/architectural/bff/'
+  },
+  {
     date: '2021/05/18',
     url: 'https://martinfowler.com/articles/micro-frontends.html',
     blurb: dedent`An interesting approach of splitting up a single frontend into smaller ones based around business concerns,
