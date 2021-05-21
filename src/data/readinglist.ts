@@ -2,6 +2,10 @@ import dedent from 'dedent';
 
 const data = [
   {
+    date: '2021/05/20',
+    url: 'https://uxdesign.cc/the-software-architect-fallacy-b62a41683979'
+  },
+  {
     date: '2021/05/19',
     url: 'https://samnewman.io/patterns/architectural/bff/'
   },
