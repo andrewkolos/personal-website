@@ -2,6 +2,18 @@ import dedent from 'dedent';
 
 const data = [
   {
+    date: '2021/11/21',
+    url: 'https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/',
+    blurb: dedent`It's been a long time since I updated my reading list. I have been keeping myself busy with my new job at Capital One.
+      A came across this article when looking for an object schema and declaration validation library for some node-based services at work.
+      
+      This article does a great job pointing out the utility of separating the duties of 1) input parsing/validation and 2) business logic
+      using that input. Not only does this make bugs easier to pin down, it also makes it simpler to reason about the function I'm currently
+      looking at. It's nice to not have to have the question "can I assume this parameter is has a valid value" burdening my mind when
+      trying to parse a function.
+    `
+  },
+  {
     date: '2021/05/20',
     url: 'https://uxdesign.cc/the-software-architect-fallacy-b62a41683979'
   },
