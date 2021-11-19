@@ -10,20 +10,24 @@ export interface ReadingListingProps {
 const ReadingList: React.FC<ReadingListingProps> = props => {
   const { url, description, imgUrl, title, blurb } = props.entry;
 
+  console.log(props.entry);
+
   return (
     <div className={Styles.container}>
       <div className={Styles.content}>
-        <a href={url}>
-          <div className={Styles.imageContainer}>
-            <img src={imgUrl} className={Styles.image}></img>
-          </div>
-        </a>
         <div className={Styles.textContent}>
           <a className={Styles.titleWrapper} href={url}>
             <h2 className={Styles.title}>{title}</h2>
           </a>
           <i className={Styles.description}>{description}</i>
         </div>
+        <a href={url}>
+          {imgUrl && (
+            <div className={Styles.imageContainer}>
+              <img src={imgUrl} className={Styles.image}></img>
+            </div>
+          )}
+        </a>
       </div>
       {blurb && (
         <div className={Styles.blurbContainer}>

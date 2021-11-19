@@ -3,13 +3,13 @@
  *
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
-require("source-map-support").install()
-require("ts-node").register({
+require('source-map-support').install();
+require('ts-node').register({
   compilerOptions: {
-    module: "commonjs",
-    target: "es2017",
+    module: 'commonjs',
+    target: 'es2017',
   },
   files: true,
-})
+});
 
-exports.createPages = require("./gatsby-create-pages").createPages
+exports.createPages = require('./gatsby-create-pages').createPages;

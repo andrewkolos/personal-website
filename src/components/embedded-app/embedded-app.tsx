@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, PageProps } from 'gatsby';
 import Styles from './embedded-app.module.scss';
 import { FiArrowLeft } from 'react-icons/fi';
@@ -8,7 +8,7 @@ export interface EmbeddedAppContext {
   repoUrl: string;
 }
 
-const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => {
+const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = props => {
   const [appLoaded, setAppLoaded] = useState(false);
   const loadingEl = useRef<HTMLDivElement>(null);
   const iframeEl = useRef<HTMLIFrameElement>(null);
@@ -22,7 +22,7 @@ const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => 
     return function cleanup() {
       html.style.overflow = '';
       html.style.margin = '';
-    }
+    };
   });
 
   useEffect(() => {
@@ -37,11 +37,10 @@ const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => 
     el.onload = () => {
       el.focus();
       setAppLoaded(true);
-    }
+    };
   });
 
   return (
-
     <div className={Styles.container}>
       <div ref={loadingEl} className={Styles.loadingContainer}>
         <div className={Styles.loading}>
@@ -60,18 +59,28 @@ const EmbeddedApp: React.FC<PageProps<object, EmbeddedAppContext>> = (props) => 
       </div>
 
       <div className={Styles.returnToSiteContainer}>
-        <Link className={Styles.returnToSiteLink} to={"/demos"}><FiArrowLeft size="14" style={{paddingLeft: '-2px', marginRight: '2px'}}/>Return to site</Link>
+        <Link className={Styles.returnToSiteLink} to={'/demos'}>
+          <FiArrowLeft
+            size="14"
+            style={{ paddingLeft: '-2px', marginRight: '2px' }}
+          />
+          Return to site
+        </Link>
       </div>
 
-      <iframe src={props.pageContext.demoUrl}
+      <iframe
+        src={props.pageContext.demoUrl}
         tabIndex={0}
         allowFullScreen={true}
         ref={iframeEl}
-        scrolling='no'
-        onMouseEnter={() => {iframeEl.current?.focus();}}
-        className={Styles.embeddedIframe} />
+        scrolling="no"
+        onMouseEnter={() => {
+          iframeEl.current?.focus();
+        }}
+        className={Styles.embeddedIframe}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default EmbeddedApp;

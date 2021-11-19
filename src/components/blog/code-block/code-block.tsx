@@ -1,19 +1,23 @@
-import React from 'react'
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/nightOwlLight'
+import React from 'react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/nightOwlLight';
 //@ts-ignore
 import Prism from 'prism-react-renderer/prism';
 
-export const CodeBlock: React.FC<any> = (props) => {
-  const className = props.children.props.className || ''
-  const matches = className.match(/language-(?<lang>.*)/)
+export const CodeBlock: React.FC<any> = props => {
+  const className = props.children.props.className || '';
+  const matches = className.match(/language-(?<lang>.*)/);
   return (
-    <Highlight {...defaultProps} code={props.children.props.children.trim()} language={
-      matches && matches.groups && matches.groups.lang
-        ? matches.groups.lang
-        : ''
-    }
-      theme={theme}>
+    <Highlight
+      {...defaultProps}
+      code={props.children.props.children.trim()}
+      language={
+        matches && matches.groups && matches.groups.lang
+          ? matches.groups.lang
+          : ''
+      }
+      theme={theme}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ ...style }}>
           {tokens.map((line, i) => (
@@ -26,5 +30,5 @@ export const CodeBlock: React.FC<any> = (props) => {
         </pre>
       )}
     </Highlight>
-  )
-}
+  );
+};

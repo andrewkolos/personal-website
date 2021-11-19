@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FiGithub, FiLinkedin, FiMail} from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import Styles from './social-links.module.scss';
 

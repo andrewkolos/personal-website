@@ -1,5 +1,5 @@
-const path = require("path")
-require("dotenv").config()
+const path = require('path');
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
@@ -32,8 +32,8 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    "gatsby-transformer-typescript-css-modules",
-    "gatsby-plugin-sass",
+    'gatsby-transformer-typescript-css-modules',
+    'gatsby-plugin-sass',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -45,8 +45,8 @@ module.exports = {
       resolve: 'gatsby-transformer-json',
       options: {
         name: 'readinglist',
-        path: './src/data'
-      }
+        path: './src/data',
+      },
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -58,10 +58,10 @@ module.exports = {
             options: {
               maxWidth: 500,
               linkImagesToOriginal: false,
-            }
+            },
           },
           'gatsby-remark-copy-linked-files',
-        ]
+        ],
       },
     },
     'gatsby-plugin-mdx-prismjs',
@@ -69,10 +69,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingIds: [
-          process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID,
-        ]
-      }
-    }
+        trackingIds: [process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID],
+      },
+    },
   ],
-}
+};

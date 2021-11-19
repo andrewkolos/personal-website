@@ -1,6 +1,5 @@
 import React from 'react';
 import ReadingListMonth from '../reading-list-month/reading-list-month';
-import Styles from './reading-list.module.scss';
 import SharedStyles from '../../../shared-styles.module.scss';
 import { ReadingListEntry } from '../reading-list-entry';
 
@@ -9,20 +8,18 @@ export interface ReadingListProps {
 }
 
 const ReadingList: React.FC<ReadingListProps> = props => {
-  const byMonth = props.entries
-    .map(d => ({ ...d, date: new Date(d.date) }))
-    .reduce((map, current) => {
-      const year = current.date.getFullYear();
-      const month = current.date.getMonth();
-      const key = `${year}${month}`;
-      const entries = map.has(key) ? map.get(key)! : [];
-      entries.push({ ...current, date: current.date.toString() });
-      map.set(key, entries);
-      return map;
-    }, new Map<string, ReadingListEntry[]>());
-
-  const months = Array.from(byMonth.entries()).sort((e, o) =>
-    o[0].localeCompare(e[0])
+  const sorted = [...props.entries].sort((a, b) => Number(a > b));
+  const groupedByYearMonth = Array.from(
+    sorted
+      .reduce((result, entry) => {
+        const date = new Date(entry.date);
+        const yearmonth = `${date.getUTCFullYear()}${date.getUTCMonth()}`;
+        const grouping = result.get(yearmonth) ?? [];
+        grouping.push(entry);
+        result.set(yearmonth, grouping);
+        return result;
+      }, new Map<string, ReadingListEntry[]>())
+      .values()
   );
 
   return (
@@ -33,8 +30,8 @@ const ReadingList: React.FC<ReadingListProps> = props => {
         interesting or get to me critically think about a topic get listed here.
       </p>
       <div>
-        {months.map((m, i) => (
-          <ReadingListMonth key={i} expanded={i === 0} entries={m[1]} />
+        {groupedByYearMonth.map((m, i) => (
+          <ReadingListMonth key={i} expanded={i === 0} entries={m} />
         ))}
       </div>
     </div>

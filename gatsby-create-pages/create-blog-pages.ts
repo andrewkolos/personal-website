@@ -15,9 +15,15 @@ interface MarkDownQueryResult {
   };
 }
 
-export async function createBlogPages({ actions, graphql, reporter }: CreatePagesArgs): Promise<void> {
+export async function createBlogPages({
+  actions,
+  graphql,
+  reporter,
+}: CreatePagesArgs): Promise<void> {
   const { createPage } = actions;
-  const blogPostTemplate = require.resolve(`../src/components/blog/blog-template.tsx`);
+  const blogPostTemplate = require.resolve(
+    `../src/components/blog/blog-template.tsx`
+  );
   const result = await graphql<MarkDownQueryResult>(`
     query BlogIndex {
       allMdx {
@@ -33,8 +39,8 @@ export async function createBlogPages({ actions, graphql, reporter }: CreatePage
           }
         }
       }
-    }`
-  );
+    }
+  `);
   // Handle errors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
@@ -45,7 +51,7 @@ export async function createBlogPages({ actions, graphql, reporter }: CreatePage
     throw Error('Could not fetch blog posts on build.');
   }
 
-  result.data.allMdx.edges.forEach(({ node }: { node: any; }) => {
+  result.data.allMdx.edges.forEach(({ node }: { node: any }) => {
     createPage({
       path: node.frontmatter.slug,
       component: blogPostTemplate,

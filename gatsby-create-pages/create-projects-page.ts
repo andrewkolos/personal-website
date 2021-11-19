@@ -1,5 +1,10 @@
 import { CreatePagesArgs } from 'gatsby';
-import { contributedTo, libraryProjects, otherProjects, ProjectDescriptor } from '../src/projects';
+import {
+  contributedTo,
+  libraryProjects,
+  otherProjects,
+  ProjectDescriptor,
+} from '../src/projects';
 import { Octokit } from '@octokit/rest';
 import { objectPromiseAll } from '@akolos/object-promise-all';
 import { Project } from '../src/components/projects/project-page/project-page';
@@ -9,7 +14,9 @@ const octokit = new Octokit({
 });
 
 export async function createProjectsPage({ actions }: CreatePagesArgs) {
-  const projectList = require.resolve('../src/components/projects/project-page/project-page.tsx');
+  const projectList = require.resolve(
+    '../src/components/projects/project-page/project-page.tsx'
+  );
 
   const repos = await objectPromiseAll({
     myLibraries: libraryProjects.map(p => getProjectInfo(p)),
@@ -25,11 +32,12 @@ export async function createProjectsPage({ actions }: CreatePagesArgs) {
 }
 
 async function getProjectInfo(project: ProjectDescriptor): Promise<Project> {
-
-  const data = (await octokit.repos.get({
-    owner: project.owner,
-    repo: project.name,
-  })).data;
+  const data = (
+    await octokit.repos.get({
+      owner: project.owner,
+      repo: project.name,
+    })
+  ).data;
 
   return {
     name: project.name,

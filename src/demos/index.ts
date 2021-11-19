@@ -1,5 +1,3 @@
-
-
 export interface Demo {
   name: string;
   description: string;
@@ -25,7 +23,8 @@ export const embeddedDemos: EmbeddedDemo[] = [
     name: 'Pong 3D',
     urlName: 'pong-3d',
     thumbnailName: 'pong-3d',
-    description: 'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E, or plug in a gamepad!',
+    description:
+      'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E, or plug in a gamepad!',
     repoUrl: 'https://github.com/andrewkolos/synchronized-pong-3d',
     demoUrl: 'https://andrew-pong-3d.herokuapp.com/',
   },
@@ -33,7 +32,8 @@ export const embeddedDemos: EmbeddedDemo[] = [
     name: 'Swoocebooks Lite',
     urlName: 'swoocebooks-lite',
     thumbnailName: 'swoocebooks-lite',
-    description: 'Calculates a grade for a course and tells you how well you need to do to get the grade you want.',
+    description:
+      'Calculates a grade for a course and tells you how well you need to do to get the grade you want.',
     repoUrl: 'https://github.com/andrewkolos/swoocebooks-lite',
     demoUrl: 'https://swoocebooks-lite.herokuapp.com/index.html',
   },
@@ -42,10 +42,11 @@ export const embeddedDemos: EmbeddedDemo[] = [
     urlName: 'online-game-synchronization-framework',
     thumbnailName: 'game-sync',
     description: 'Framework for smoothly synchronizing online games.',
-    repoUrl: 'https://github.com/andrewkolos/simple-online-game-syncrhonization-framework',
+    repoUrl:
+      'https://github.com/andrewkolos/simple-online-game-syncrhonization-framework',
     demoUrl: 'https://game-synchronization-framework.herokuapp.com/',
-  }
-]
+  },
+];
 
 export const noninteractiveDemos: Demo[] = [
   {
@@ -53,13 +54,15 @@ export const noninteractiveDemos: Demo[] = [
     thumbnailName: 'hybot',
     demoUrl: 'https://github.com/andrewkolos/hybot-discord-elo-bot',
     repoUrl: 'https://github.com/andrewkolos/hybot-discord-elo-bot',
-    description: 'Discord bot that calculates and keeps track of Elo scores amongst a community of players.'
+    description:
+      'Discord bot that calculates and keeps track of Elo scores amongst a community of players.',
   },
   {
     name: 'Swoocebooks',
     thumbnailName: 'swoocebooks',
     demoUrl: 'https://github.com/andrewkolos/simple-personal-gradebook',
     repoUrl: 'https://github.com/andrewkolos/simple-personal-gradebook',
-    description: 'A persistent web app application that helps students keep track of and experiment with their grades.',
-  }
+    description:
+      'A persistent web app application that helps students keep track of and experiment with their grades.',
+  },
 ];
