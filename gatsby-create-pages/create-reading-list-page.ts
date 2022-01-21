@@ -21,7 +21,7 @@ export async function createReadingListPage({
   const readingListDataWithLinkPreviewInfo = await objectPromiseAll(
     rawReadingListData.map(d => ({
       title: d.title,
-      linkPreviewInfo: getLinkPreview(d.url),
+      linkPreviewInfo: getLinkPreview(d.url, {timeout: 1000 * 30}),
       date: new Date(d.date).toString(),
       blurb: d.blurb,
     }))

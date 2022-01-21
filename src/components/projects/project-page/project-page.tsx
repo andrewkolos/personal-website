@@ -1,11 +1,10 @@
+import { PageProps } from 'gatsby';
 import React from 'react';
+import * as SharedStyles from '../../../../src/shared-styles.module.scss';
 import Layout from '../../../layout/layout';
 import { ProjectDescriptor } from '../../../projects';
-import { ProjectListing } from '../project-listing/project-listing';
-import { PageProps } from 'gatsby';
-import * as Styles from './project-page.module.scss';
-import * as SharedStyles from '../../../../src/shared-styles.module.scss';
 import Seo from '../../seo';
+import { ProjectListing } from '../project-listing/project-listing';
 
 export interface Project extends ProjectDescriptor {
   description?: string;
@@ -43,7 +42,7 @@ const ProjectsPage: React.FC<PageProps<unknown, ProjectListProps>> = data => {
 };
 
 const listProjects = (projects: Project[]) =>
-  projects.map((p, i) => {
+  projects.map((p) => {
     return <ProjectListing {...p} key={p.name} />;
   });
 
