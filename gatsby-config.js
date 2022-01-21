@@ -1,4 +1,3 @@
-const path = require('path');
 require('dotenv').config();
 
 module.exports = {
@@ -32,7 +31,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
-    'gatsby-transformer-typescript-css-modules',
     'gatsby-plugin-sass',
     {
       resolve: `gatsby-source-filesystem`,

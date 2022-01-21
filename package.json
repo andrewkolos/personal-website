@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "andrew-kolos-website",
   "private": true,
   "description": "Andrew Kolos' website",
   "version": "0.1.0",
@@ -41,7 +41,6 @@
     "gatsby-source-filesystem": "^4.5.2",
     "gatsby-transformer-json": "^4.5.0",
     "gatsby-transformer-sharp": "^4.5.0",
-    "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "link-preview-js": "^2.1.10",
     "prism-react-renderer": "^1.2.1",
     "prismjs": "^1.26.0",
