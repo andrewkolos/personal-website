@@ -1,8 +1,8 @@
 import React, { Ref, useEffect, useRef, useState } from 'react';
 import { ReadingListEntry } from '../reading-list-entry';
-import SharedStyles from '../../../shared-styles.module.scss';
+import * as SharedStyles from '../../../shared-styles.module.scss';
 import ReadingListing from '../reading-listing/reading-listing';
-import Styles from './reading-list-month.module.scss';
+import * as Styles from './reading-list-month.module.scss';
 
 export interface ReadingListMonthProps {
   expanded?: boolean;

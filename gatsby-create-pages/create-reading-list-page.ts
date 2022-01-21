@@ -31,7 +31,7 @@ export async function createReadingListPage({
     d => {
       const linkPreviewInfo = d.linkPreviewInfo as UnionToIntersection<
         typeof d.linkPreviewInfo
-      >; // Need this assertion because the library has ackward non-discriminated union typings.
+      >; // Need this assertion because the library has awkward non-discriminated union typings.
       return {
         title: d.title,
         blurb: d.blurb,

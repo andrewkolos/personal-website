@@ -3,11 +3,12 @@ import React from 'react';
 import Layout from '../../layout/layout';
 import { DiscussionEmbed } from 'disqus-react';
 import Seo from '../seo';
-import Styles from './blog-template.module.scss';
+import * as Styles from './blog-template.module.scss';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 import { CodeBlock } from './code-block/code-block';
 import { Aside } from './aside/aside';
+import dedent from 'dedent';
 
 const components = {
   pre: CodeBlock,
@@ -21,7 +22,8 @@ const BlogTemplate: React.FunctionComponent<any> = props => {
   const gatsbyName = process.env.GATSBY_DISQUS_NAME;
 
   if (!gatsbyName) {
-    throw Error('Disqus name was empty/undefined.');
+    throw Error(dedent`Disqus name was empty/undefined. Retrieve it from the
+      Gatsby Admin web console and provide it in the GATSBY_DISQUS_NAME env variable.`);
   }
 
   const disqusConfig = {

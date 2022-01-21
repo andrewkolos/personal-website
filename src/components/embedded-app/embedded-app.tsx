@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, PageProps } from 'gatsby';
-import Styles from './embedded-app.module.scss';
+import * as Styles from './embedded-app.module.scss';
 import { FiArrowLeft } from 'react-icons/fi';
 
 export interface EmbeddedAppContext {

@@ -44,7 +44,7 @@ async function getProjectInfo(project: ProjectDescriptor): Promise<Project> {
     owner: project.owner,
     url: data.html_url,
     topics: data.topics,
-    description: data.description,
+    description: data.description ?? undefined,
     createdAt: data.created_at,
     updatedAt: data.updated_at,
   };

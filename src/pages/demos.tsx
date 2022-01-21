@@ -6,7 +6,7 @@ import { DemoListingProps } from '../components/demo/demo-listing/demo-listing';
 import Seo from '../components/seo';
 import { embeddedDemos, noninteractiveDemos } from '../demos';
 import Layout from '../layout/layout';
-import SharedStyles from '../shared-styles.module.scss';
+import * as SharedStyles from '../shared-styles.module.scss';
 
 const DemosPage: React.FC<PageProps> = props => {
   const images = useStaticQuery(graphql`

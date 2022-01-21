@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import Styles from './social-links.module.scss';
+import * as Styles from './social-links.module.scss';
 
 export const SocialLinks: React.FC = () => {
   return (

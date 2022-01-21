@@ -1,4 +1,4 @@
-import Styles from './demo-list.module.scss';
+import * as Styles from './demo-list.module.scss';
 import React from 'react';
 import DemoListing, { DemoListingProps } from '../demo-listing/demo-listing';
 

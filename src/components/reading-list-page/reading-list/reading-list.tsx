@@ -1,6 +1,6 @@
 import React from 'react';
 import ReadingListMonth from '../reading-list-month/reading-list-month';
-import SharedStyles from '../../../shared-styles.module.scss';
+import * as SharedStyles from '../../../shared-styles.module.scss';
 import { ReadingListEntry } from '../reading-list-entry';
 
 export interface ReadingListProps {

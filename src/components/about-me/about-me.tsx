@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import * as React from 'react';
-import Styles from './about-me.module.scss';
+import * as Styles from './about-me.module.scss';
 
 export const query = graphql`
   query {

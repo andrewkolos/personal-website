@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 interface NavLinkProps {
   to: string;
-  className: string;
+  className?: string;
   activeClassName: string;
 }
 

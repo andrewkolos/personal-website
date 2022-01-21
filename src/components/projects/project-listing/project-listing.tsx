@@ -1,11 +1,11 @@
 import React from 'react';
 import { ProjectDescriptor } from '../../../projects';
-import Styles from './project-listing.module.scss';
+import * as Styles from './project-listing.module.scss';
 
 export interface ProjectListingProps extends ProjectDescriptor {
   url: string;
-  description: string;
-  topics: string[];
+  description?: string;
+  topics?: string[];
   createdAt: string;
   updatedAt: string;
 }
@@ -20,7 +20,7 @@ export const ProjectListing: React.FC<ProjectListingProps> = data => {
         Last updated: {formatMMDDYYYY(new Date(data.updatedAt))}. Created:{' '}
         {formatMMDDYYYY(new Date(data.createdAt))}.
       </p>
-      <p className={Styles.remarks}>{data.description}</p>
+      <p>{data.description}</p>
       {data.owner !== 'andrewkolos' && (
         <p>
           <a

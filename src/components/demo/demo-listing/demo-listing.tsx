@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import { FixedObject } from 'gatsby-image';
 import React from 'react';
-import Styles from './demo-listing.module.scss';
+import * as Styles from './demo-listing.module.scss';
 import Img from 'gatsby-image';
 import { FiGithub } from 'react-icons/fi';
 
