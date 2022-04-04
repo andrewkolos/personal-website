@@ -36,7 +36,7 @@ const DemoListing: React.FunctionComponent<DemoListingProps> = ({
       )}
       {!urlName && <a href={demoUrl}>{img}</a>}
       <div className={Styles.textContent}>
-        <Link href={urlName || demoUrl}>
+        <Link href={`demos/${urlName}`}>
           <a className={Styles.titleContainer}>
             <h2 className={Styles.title}>{name}</h2>
           </a>
