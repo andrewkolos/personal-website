@@ -6,11 +6,11 @@ import AboutMe from '../components/about-me/about-me'
 import BlogList from '../components/blog/blog-list/blog-list'
 import Layout from '../components/layout/layout'
 import { getRecentlyPlayedGamesData } from '../lib/games/get-recently-played-games-data'
-import { GameData } from '../lib/games/game-data'
+// import { GameData } from '../lib/games/game-data'
 
 interface IndexPageProps {
   allPostsData: BlogPostData[]
-  games: GameData[]
+  // games: GameData[]
 }
 
 const IndexPage: React.FC<IndexPageProps> = (props) => {
@@ -18,7 +18,7 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
   const { allPostsData } = props
   return (
     <Layout pathName={router.pathname}>
-      <AboutMe games={props.games} />
+      <AboutMe />
       <BlogList posts={allPostsData} />
     </Layout>
   )

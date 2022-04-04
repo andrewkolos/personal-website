@@ -1,15 +1,14 @@
 import Image from 'next/image'
 import * as React from 'react'
-import { GameData } from '../../lib/games/game-data'
+// import { GameData } from '../../lib/games/game-data'
 import portrait from '../../public/portrait.jpg'
 import Styles from './about-me.module.scss'
-import GameShowcase from './game-showcase/game-showcase'
 
 export interface AboutMeProps {
-  games: GameData[]
+  // games: GameData[]
 }
 
-const AboutMe: React.FC<AboutMeProps> = (props) => {
+const AboutMe: React.FC<AboutMeProps> = () => {
   const [aboutMeExpanded, setAboutMeExpanded] = React.useState(false)
 
   return (
@@ -69,8 +68,8 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
           some graduate courses to explore more potential interests and hopefully develop an interest within a
           specialized field in computer science.
         </p>
-        <h3>Recently Played Video Games</h3>
-        <GameShowcase games={props.games} />
+        {/* <h3>Recently Played Video Games</h3>
+        <GameShowcase games={props.games} /> */}
       </div>
     </div>
   )
