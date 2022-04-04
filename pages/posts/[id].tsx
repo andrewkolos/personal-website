@@ -3,6 +3,8 @@ import { DiscussionEmbed } from 'disqus-react'
 import { MDXRemote } from 'next-mdx-remote'
 import { useRouter } from 'next/router'
 import React from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 import { BlogPostData } from '../../lib/posts/blog-post-data'
 import { getAllPostsFileIds } from '../../lib/posts/get-all-posts-file-ids'
 import { getPostData } from '../../lib/posts/get-post-data'
@@ -11,6 +13,7 @@ import { CodeBlock } from '../../components/blog/code-block/code-block'
 import Seo from '../../components/seo'
 import Layout from '../../components/layout/layout'
 import Styles from './blog-page.module.scss'
+import { getParamsFromStaticPropsContext } from '../../lib/get-params-from-static-props-context'
 
 const components = {
   pre: CodeBlock,
@@ -44,16 +47,19 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
   )
 }
 
-export default BlogPost
+interface PathParams extends ParsedUrlQuery {
+  id: string
+}
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths<PathParams> = () => {
   const paths = getAllPostsFileIds()
   return {
     paths,
     fallback: false,
   }
 }
-export async function getStaticProps(params: { params: { id: string } }) {
+
+export const getStaticProps: GetStaticProps<BlogPostProps, PathParams> = async (context) => {
   const disqusShortname = process.env.GATSBY_DISQUS_NAME
 
   if (!disqusShortname) {
@@ -61,9 +67,16 @@ export async function getStaticProps(params: { params: { id: string } }) {
       Disqus web console and provide it in the GATSBY_DISQUS_NAME env variable.`)
   }
 
-  const postData = await getPostData(params.params.id)
+  const params = getParamsFromStaticPropsContext(context)
+  const postData = await getPostData(params.id)
+
+  if (postData == null) {
+    throw Error()
+  }
 
   return {
     props: { disqusShortname, ...postData },
   }
 }
+
+export default BlogPost

@@ -2,6 +2,7 @@ import React from 'react'
 import { objectPromiseAll } from '@akolos/object-promise-all'
 import { getLinkPreview } from 'link-preview-js'
 import { useRouter } from 'next/router'
+import { GetStaticProps } from 'next'
 import { ReadingListEntry } from '../components/reading-list-page/reading-list-entry'
 import ReadingListComponent from '../components/reading-list-page/reading-list/reading-list'
 import rawReadingListData from '../lib/readinglist'
@@ -22,7 +23,7 @@ const ReadingList: React.FC<ReadingListProps> = ({ entries }) => {
 
 export default ReadingList
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<ReadingListProps> = async () => {
   const readingListDataWithLinkPreviewInfo = await objectPromiseAll(
     rawReadingListData.map((d) => ({
       title: d.title,

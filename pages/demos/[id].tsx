@@ -1,30 +1,12 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
+import { ParsedUrlQuery } from 'querystring'
 import { embeddedDemos, getDemoById } from '../../lib/demos'
 import Styles from './embedded-app.module.scss'
 
-export async function getStaticPaths() {
-  return {
-    paths: embeddedDemos.map((demo) => ({
-      params: {
-        ...demo,
-      },
-    })),
-    fallback: false,
-  }
-}
-
-export async function getStaticProps(params: any) {
-  const demoData = getDemoById(params.params.id)
-  return {
-    props: {
-      demoUrl: demoData.demoUrl,
-    },
-  }
-}
-
-export interface DemoPageProps {
+interface DemoPageProps {
   demoUrl: string
 }
 
@@ -91,7 +73,6 @@ const DemoPage: React.FC<DemoPageProps> = (props) => {
       <iframe
         title="game"
         src={demoUrl}
-        tabIndex={0}
         allowFullScreen
         ref={iframeEl}
         scrolling="no"
@@ -102,6 +83,28 @@ const DemoPage: React.FC<DemoPageProps> = (props) => {
       />
     </div>
   )
+}
+
+interface PathParams extends ParsedUrlQuery {
+  id: string
+}
+
+export const getStaticPaths: GetStaticPaths<PathParams> = () => ({
+  paths: embeddedDemos.map((demo) => ({
+    params: {
+      ...demo,
+    },
+  })),
+  fallback: false,
+})
+
+export const getStaticProps: GetStaticProps<DemoPageProps> = async (params: any) => {
+  const demoData = getDemoById(params.params.id)
+  return {
+    props: {
+      demoUrl: demoData.demoUrl,
+    },
+  }
 }
 
 export default DemoPage

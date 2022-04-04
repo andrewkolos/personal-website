@@ -31,7 +31,7 @@ const ReadingList: React.FC<ReadingListProps> = ({ entries }) => {
       </p>
       <div>
         {groupedByYearMonth.map((m, i) => (
-          <ReadingListMonth key={i} expanded={i === 0} entries={m} />
+          <ReadingListMonth key={m[0].date} expanded={i === 0} entries={m} />
         ))}
       </div>
     </div>

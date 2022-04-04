@@ -24,8 +24,5 @@ module.exports = withPWA({
     sassOptions: {
       includePaths: [path.join(__dirname)],
     },
-    eslint: { // TODO: Remove this.
-      ignoreDuringBuilds: true
-    },
   })
 })

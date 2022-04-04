@@ -2,6 +2,7 @@ import React from 'react'
 import { objectPromiseAll } from '@akolos/object-promise-all'
 import { Octokit } from '@octokit/rest'
 import { useRouter } from 'next/router'
+import { GetStaticProps } from 'next'
 import ProjectListing from '../components/projects/project-listing/project-listing'
 import Seo from '../components/seo'
 import Layout from '../components/layout/layout'
@@ -26,7 +27,7 @@ interface ProjectListProps {
   contributedTo: Project[]
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<ProjectListProps> = async () => {
   const repos = await objectPromiseAll({
     myLibraries: libraryProjects.map((p) => getProjectInfo(p)),
     other: otherProjects.map((p) => getProjectInfo(p)),
