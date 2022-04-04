@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+@import '../../styles/shared-styles.module.scss';
+
+.portrait {
+  border-radius: 50%;
+  margin: auto;
+}
+
+.portraitContainer {
+  text-align: center;
+  margin-bottom: 0.7rem;
+}
+
+.container {
+  @extend .card;
+}
+
+.showMoreButton {
+  border: 1px solid $primary;
+  padding: 8px 14px 8px 14px;
+  border-radius: 5px;
+  color: $primary;
+  background: none;
+  cursor: pointer;
+}
+
+.showMoreButton:hover {
+  border: 1px solid $accent;
+  color: $accent;
+}

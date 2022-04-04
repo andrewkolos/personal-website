@@ -1,0 +1,46 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/shared-styles.module.scss';
+
+.container {
+  @extend .innerCard;
+}
+
+.titleContainer {
+  margin-top: 0;
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.title {
+  margin-top: 0;
+  display: inline;
+}
+
+.subtitle {
+  padding: 0;
+  margin: 0 0 1.45rem;
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  line-height: 1.1;
+  display: block;
+  font-size: 1.38316rem;
+}
+
+.secondaryInfo {
+  font-size: 1rem;
+  color: $body-text-light;
+}
+
+.excerpt {
+  margin-bottom: 10px;
+}
+
+.secondaryInfo {
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: $body-text-light;
+}

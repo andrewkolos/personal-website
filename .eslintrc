@@ -5,11 +5,13 @@
     "@typescript-eslint"
   ],
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "@akolos/eslint-config-typescript",
+    "prettier",
+    "plugin:@next/next/recommended"
   ],
   "rules": {
-    "@typescript-eslint/ban-ts-comment": 0,
+    "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }

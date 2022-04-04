@@ -1,0 +1,8 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/shared-styles.module.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+}

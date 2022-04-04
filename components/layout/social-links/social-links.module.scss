@@ -1,0 +1,12 @@
+@import '../../../styles/shared-styles.module.scss';
+
+.link {
+  @extend .iconLink;
+  margin: 20px;
+}
+
+.linksContainer {
+  text-align: center;
+  font-size: 36px;
+  padding-bottom: 1.45rem;
+}
