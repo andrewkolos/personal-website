@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.eslint.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": ["@akolos/eslint-config-typescript", "prettier"],
+  "rules": {
+    // With this project set up, we access the layer via the /opts/nodejs path.
+    // In addition, nothing here will be distributed as an NPM package, so this rule is less relevant.
+    "import/no-absolute-path": "off",
+    "import/extensions": "off"
+  }
+}

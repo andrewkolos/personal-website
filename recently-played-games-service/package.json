@@ -1,0 +1,39 @@
+{
+  "name": "service-stack",
+  "version": "0.1.0",
+  "bin": {
+    "service-stack": "bin/service-stack.js"
+  },
+  "workspaces": [
+    "layers/games-database",
+    "lambdas/get",
+    "lambdas/trigger-update"
+  ],
+  "scripts": {
+    "test": "npm run test --workspaces",
+    "cdk": "cdk",
+    "clean": "git clean -dfX --exclude=\"!.env\"",
+    "build": "npm i && ts-node build-for-prod.ts",
+    "deploy": "npm run build && npm run deploy:nobuild",
+    "deploy:nobuild": "cdk deploy"
+  },
+  "devDependencies": {
+    "@akolos/eslint-config-typescript": "latest",
+    "@akolos/prettier-config": "latest",
+    "@types/node": "10.17.27",
+    "aws-cdk": "2.16.0",
+    "eslint-config-prettier": "latest",
+    "lerna": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "^1.151.0",
+    "aws-cdk-lib": "2.16.0",
+    "constructs": "^10.0.0",
+    "dotenv": "^16.0.0",
+    "env-var": "^7.1.1"
+  }
+}

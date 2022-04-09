@@ -24,7 +24,7 @@ export const embeddedDemos: EmbeddedDemo[] = [
     urlName: 'pong-3d',
     id: 'pong-3d',
     description:
-      'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E, or plug in a gamepad!',
+      'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E.',
     repoUrl: 'https://github.com/andrewkolos/synchronized-pong-3d',
     demoUrl: 'https://andrew-pong-3d.herokuapp.com/',
   },
