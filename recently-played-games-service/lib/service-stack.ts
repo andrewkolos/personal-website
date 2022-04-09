@@ -5,14 +5,14 @@ import * as targets from 'aws-cdk-lib/aws-events-targets'
 import * as lambda from 'aws-cdk-lib/aws-lambda'
 import { Bucket } from 'aws-cdk-lib/aws-s3'
 import * as ssm from 'aws-cdk-lib/aws-ssm'
-import { Construct } from 'constructs'
+import { Construct, IConstruct } from 'constructs'
 import * as dotEnv from 'dotenv'
 import * as readEnv from 'env-var'
 import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch'
 import * as cloudwatchActions from 'aws-cdk-lib/aws-cloudwatch-actions'
 import * as snsSubscriptions from 'aws-cdk-lib/aws-sns-subscriptions'
-import * as cdk from 'aws-cdk-lib/core'
-import { IConstruct } from 'constructs'
+import * as cdk from 'aws-cdk-lib'
+import * as apigateway from 'aws-cdk-lib/aws-apigateway'
 
 dotEnv.config()
 
@@ -20,8 +20,8 @@ export class RecentlyPlayedGamesServiceStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
 
-    const gamesDatabaseBucket = new Bucket(this, 'database', {
-      bucketName: 'database',
+    const gamesDatabaseBucket = new Bucket(this, 'recently-played-games-service-database', {
+      bucketName: 'recently-played-games-service-database',
       versioned: true,
     })
     tag(gamesDatabaseBucket)
@@ -44,7 +44,7 @@ export class RecentlyPlayedGamesServiceStack extends Stack {
     })
     tag(gamesDatabaseLayer)
 
-    const getLambda = new lambda.Function(this, 'recently-played-games-service.get', {
+    const getLambda = new lambda.Function(this, 'get', {
       functionName: 'get',
       runtime: lambda.Runtime.NODEJS_14_X,
       code: lambda.Code.fromAsset('lambdas/get'),
@@ -56,6 +56,17 @@ export class RecentlyPlayedGamesServiceStack extends Stack {
     })
     tag(getLambda)
     gamesDatabaseBucket.grantRead(getLambda)
+
+    const getApi = new apigateway.RestApi(this, 'get-api', {
+      restApiName: 'get-api',
+      description: 'Gets recently played games from Steam.',
+    })
+    const getApiLambdaIntegration = new apigateway.LambdaIntegration(getLambda, {
+      requestTemplates: { 'application/json': '{ "statusCode": "200" }' },
+    })
+
+    getApi.root.addMethod('GET', getApiLambdaIntegration)
+    tag(getApi)
 
     const triggerUpdateLambda = new lambda.Function(this, 'trigger-update', {
       functionName: 'trigger-update',
@@ -84,27 +95,23 @@ export class RecentlyPlayedGamesServiceStack extends Stack {
     tag(lambdaErrorTopic)
     lambdaErrorTopic.addSubscription(new snsSubscriptions.EmailSubscription('andrewrkolos@gmail.com'))
 
-    const triggerUpdateLambdaErrorMetric = triggerUpdateLambda
-      .metricErrors()
-      .createAlarm(this, 'trigger-update-error', {
-        alarmName: 'trigger-update-error',
-        threshold: 1,
-        comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
-        evaluationPeriods: 1,
-      })
-      .addAlarmAction(new cloudwatchActions.SnsAction(lambdaErrorTopic))
-    tag(triggerUpdateLambdaErrorMetric)
+    const getLambdaErrorMetric = triggerUpdateLambda.metricErrors()
+    const getLambdaErrorAlarm = getLambdaErrorMetric.createAlarm(this, 'get-error', {
+      alarmName: 'get-error',
+      threshold: 1,
+      comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+      evaluationPeriods: 1,
+    })
+    tag(getLambdaErrorAlarm)
 
-    const getLambdaErrorMetric = triggerUpdateLambda
-      .metricErrors()
-      .createAlarm(this, 'get-error', {
-        alarmName: 'get-error',
-        threshold: 1,
-        comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
-        evaluationPeriods: 1,
-      })
-      .addAlarmAction(new cloudwatchActions.SnsAction(lambdaErrorTopic))
-    tag(getLambdaErrorMetric)
+    getLambdaErrorAlarm.addAlarmAction(new cloudwatchActions.SnsAction(lambdaErrorTopic))
+
+    // eslint-disable-next-line no-new
+    new cdk.CfnOutput(this, 'getApiEndpoint', {
+      value: getApi.url,
+      description: 'URL for the get API endpoint.',
+      exportName: 'getApiEndpoint',
+    })
   }
 }
 
