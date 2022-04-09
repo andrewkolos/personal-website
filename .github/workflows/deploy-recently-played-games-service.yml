@@ -18,6 +18,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: cd recently-played-games-service
-      - run: npm install
-      - run: npm run deploy
+      - working-directory: ./recently-played-games-service
+        run: |
+          npm install
+          npm run deploy
