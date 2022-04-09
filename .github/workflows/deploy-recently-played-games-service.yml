@@ -1,0 +1,23 @@
+name: Deploy Recently Played Games Service
+
+env:
+  STEAMWORKS_TOKEN: ${{ secrets.STEAMWORKS_TOKEN }}
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - recently-played-games-service/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: cd recently-played-games-service
+      - run: npm install
+      - run: npm run deploy

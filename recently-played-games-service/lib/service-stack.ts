@@ -1,0 +1,114 @@
+import { Stack, StackProps } from 'aws-cdk-lib'
+import * as sns from 'aws-cdk-lib/aws-sns'
+import * as events from 'aws-cdk-lib/aws-events'
+import * as targets from 'aws-cdk-lib/aws-events-targets'
+import * as lambda from 'aws-cdk-lib/aws-lambda'
+import { Bucket } from 'aws-cdk-lib/aws-s3'
+import * as ssm from 'aws-cdk-lib/aws-ssm'
+import { Construct } from 'constructs'
+import * as dotEnv from 'dotenv'
+import * as readEnv from 'env-var'
+import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch'
+import * as cloudwatchActions from 'aws-cdk-lib/aws-cloudwatch-actions'
+import * as snsSubscriptions from 'aws-cdk-lib/aws-sns-subscriptions'
+import * as cdk from 'aws-cdk-lib/core'
+import { IConstruct } from 'constructs'
+
+dotEnv.config()
+
+export class RecentlyPlayedGamesServiceStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
+    super(scope, id, props)
+
+    const gamesDatabaseBucket = new Bucket(this, 'database', {
+      bucketName: 'database',
+      versioned: true,
+    })
+    tag(gamesDatabaseBucket)
+
+    const steamworksApiTokenParameter = new ssm.StringParameter(this, 'STEAMWORKS_TOKEN', {
+      stringValue: readEnv.get('STEAMWORKS_TOKEN').required().asString(),
+      parameterName: 'STEAMWORKS_TOKEN',
+      type: ssm.ParameterType.STRING,
+      simpleName: true,
+      dataType: ssm.ParameterDataType.TEXT,
+    })
+    tag(steamworksApiTokenParameter)
+
+    const gamesDatabaseLayer = new lambda.LayerVersion(this, 'games-database-layer', {
+      layerVersionName: 'games-database-layer',
+      code: lambda.Code.fromAsset('layers'),
+      compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
+      license: 'MIT',
+      description: 'Database access layer for the RecentlyPlayedGamesService',
+    })
+    tag(gamesDatabaseLayer)
+
+    const getLambda = new lambda.Function(this, 'recently-played-games-service.get', {
+      functionName: 'get',
+      runtime: lambda.Runtime.NODEJS_14_X,
+      code: lambda.Code.fromAsset('lambdas/get'),
+      handler: 'dist/handler.lambdaHandler',
+      layers: [gamesDatabaseLayer],
+      environment: {
+        DATABASE_BUCKET_NAME: gamesDatabaseBucket.bucketName,
+      },
+    })
+    tag(getLambda)
+    gamesDatabaseBucket.grantRead(getLambda)
+
+    const triggerUpdateLambda = new lambda.Function(this, 'trigger-update', {
+      functionName: 'trigger-update',
+      runtime: lambda.Runtime.NODEJS_14_X,
+      code: lambda.Code.fromAsset('lambdas/trigger-update'),
+      handler: 'dist/handler.lambdaHandler',
+      layers: [gamesDatabaseLayer],
+      environment: {
+        DATABASE_BUCKET_NAME: gamesDatabaseBucket.bucketName,
+      },
+    })
+    tag(triggerUpdateLambda)
+    steamworksApiTokenParameter.grantRead(triggerUpdateLambda)
+    gamesDatabaseBucket.grantReadWrite(triggerUpdateLambda)
+
+    const triggerUpdateScheduledEventRule = new events.Rule(this, 'trigger-update-scheduled-event-rule', {
+      ruleName: 'trigger-update-scheduled-event-rule',
+      schedule: events.Schedule.expression('rate(7 days)'),
+    })
+    tag(triggerUpdateScheduledEventRule)
+    triggerUpdateScheduledEventRule.addTarget(new targets.LambdaFunction(triggerUpdateLambda))
+
+    const lambdaErrorTopic = new sns.Topic(this, 'error-topic', {
+      topicName: 'error-topic',
+    })
+    tag(lambdaErrorTopic)
+    lambdaErrorTopic.addSubscription(new snsSubscriptions.EmailSubscription('andrewrkolos@gmail.com'))
+
+    const triggerUpdateLambdaErrorMetric = triggerUpdateLambda
+      .metricErrors()
+      .createAlarm(this, 'trigger-update-error', {
+        alarmName: 'trigger-update-error',
+        threshold: 1,
+        comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+        evaluationPeriods: 1,
+      })
+      .addAlarmAction(new cloudwatchActions.SnsAction(lambdaErrorTopic))
+    tag(triggerUpdateLambdaErrorMetric)
+
+    const getLambdaErrorMetric = triggerUpdateLambda
+      .metricErrors()
+      .createAlarm(this, 'get-error', {
+        alarmName: 'get-error',
+        threshold: 1,
+        comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+        evaluationPeriods: 1,
+      })
+      .addAlarmAction(new cloudwatchActions.SnsAction(lambdaErrorTopic))
+    tag(getLambdaErrorMetric)
+  }
+}
+
+function tag(scope: IConstruct) {
+  cdk.Tags.of(scope).add('Environment', 'prod')
+  cdk.Tags.of(scope).add('Application', 'recently-played-games-service')
+}
