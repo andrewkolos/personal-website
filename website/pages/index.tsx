@@ -6,12 +6,12 @@ import { getSortedPostsData } from '../lib/posts/get-sorted-posts-data'
 import AboutMe from '../components/about-me/about-me'
 import BlogList from '../components/blog/blog-list/blog-list'
 import Layout from '../components/layout/layout'
-// import { getRecentlyPlayedGamesData } from '../lib/games/get-recently-played-games-data'
-// import { GameData } from '../lib/games/game-data'
+import { GameData } from '../lib/games/game-data'
+import { getRecentlyPlayedGamesData } from '../lib/games/get-recently-played-games-data'
 
 interface IndexPageProps {
   allPostsData: BlogPostData[]
-  // games: GameData[]
+  games: GameData[]
 }
 
 const IndexPage: React.FC<IndexPageProps> = (props) => {
@@ -19,7 +19,7 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
   const { allPostsData } = props
   return (
     <Layout pathName={router.pathname}>
-      <AboutMe />
+      <AboutMe games={props.games} />
       <BlogList posts={allPostsData} />
     </Layout>
   )
@@ -28,6 +28,7 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
 export const getStaticProps: GetStaticProps<IndexPageProps> = async () => ({
   props: {
     allPostsData: await getSortedPostsData(),
+    games: await getRecentlyPlayedGamesData(),
   },
 })
 

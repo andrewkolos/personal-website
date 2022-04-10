@@ -4,12 +4,12 @@ import * as conset from 'conset'
 import { lambdaHandler } from '../src/handler'
 import { SteamworksApi } from '../src/steamworks-api'
 import { GetRecentlyPlayedGamesResponse } from '../src/steamworks-api/get-recently-played-games-response'
-import { GamesDatabase, GameRecord } from '../../../layers/games-database'
+import { GamesDatabase, GameRecord } from '../../../common/games-database'
 
 process.env.DATABASE_BUCKET_NAME = 'bucket'
 
 jest.mock('../src/steamworks-api')
-jest.mock('../../../layers/games-database') // This really should be '/opt/games-database', but I cannot get moduleNameMapper within the jest config to function correctly.
+jest.mock('../../../common/games-database') // This really should be '/opt/games-database', but I cannot get moduleNameMapper within the jest config to function correctly.
 
 const now = new Date().getTime()
 jest.useFakeTimers().setSystemTime(now)

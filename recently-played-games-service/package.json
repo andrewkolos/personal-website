@@ -5,7 +5,7 @@
     "service-stack": "bin/service-stack.js"
   },
   "workspaces": [
-    "layers/games-database",
+    "common/games-database",
     "lambdas/get",
     "lambdas/trigger-update"
   ],

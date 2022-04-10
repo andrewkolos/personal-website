@@ -35,21 +35,30 @@ export class RecentlyPlayedGamesServiceStack extends Stack {
     })
     tag(steamworksApiTokenParameter)
 
-    const gamesDatabaseLayer = new lambda.LayerVersion(this, 'games-database-layer', {
-      layerVersionName: 'games-database-layer',
-      code: lambda.Code.fromAsset('layers'),
+    const commonPackagesLayer = new lambda.LayerVersion(this, 'common-packages-layer', {
+      layerVersionName: 'common-packages-layer',
+      code: lambda.Code.fromAsset('common'),
       compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
       license: 'MIT',
-      description: 'Database access layer for the RecentlyPlayedGamesService',
+      description: 'Shared packages for the RecentlyPlayedGamesService',
     })
-    tag(gamesDatabaseLayer)
+    tag(commonPackagesLayer)
+
+    const awsSdkLayer = new lambda.LayerVersion(this, 'aws-sdk-v3-layer-layer', {
+      layerVersionName: 'aws-sdk-v3-layer-layer',
+      code: lambda.Code.fromAsset('aws-sdk-v3-layer'),
+      compatibleRuntimes: [lambda.Runtime.NODEJS_14_X],
+      license: 'MIT',
+      description: 'Layer with certain AWS SDK V3 (@aws-sdk) libraries.',
+    })
+    tag(commonPackagesLayer)
 
     const getLambda = new lambda.Function(this, 'get', {
       functionName: 'get',
       runtime: lambda.Runtime.NODEJS_14_X,
       code: lambda.Code.fromAsset('lambdas/get'),
       handler: 'dist/handler.lambdaHandler',
-      layers: [gamesDatabaseLayer],
+      layers: [commonPackagesLayer, awsSdkLayer],
       environment: {
         DATABASE_BUCKET_NAME: gamesDatabaseBucket.bucketName,
       },
@@ -73,7 +82,7 @@ export class RecentlyPlayedGamesServiceStack extends Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       code: lambda.Code.fromAsset('lambdas/trigger-update'),
       handler: 'dist/handler.lambdaHandler',
-      layers: [gamesDatabaseLayer],
+      layers: [commonPackagesLayer, awsSdkLayer],
       environment: {
         DATABASE_BUCKET_NAME: gamesDatabaseBucket.bucketName,
       },

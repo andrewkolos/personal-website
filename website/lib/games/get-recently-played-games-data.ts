@@ -1,45 +1,47 @@
 import util from 'util'
 import fetch from 'node-fetch'
-import { readEnvVarUnsafe } from '../read-env-var-unsafe'
-import { GetRecentlyPlayedGamesResponse } from './get-recently-played-games-response'
+import * as envVar from 'env-var'
+import { z } from 'zod'
+import streamToString from 'stream-to-string'
 import { GameData } from './game-data'
 
-const MY_PLAYER_ID = '76561198049300555'
-
 export async function getRecentlyPlayedGamesData() {
-  const steamworksResponse = await callSteamworksGetRecentlyPlayedGamesApi()
-  const parsedResponse = GetRecentlyPlayedGamesResponse.parse(await steamworksResponse.json())
-
-
+  const games = await callGetRecentlyPlayedGamesApi()
   return Promise.all(
-    parsedResponse.response.games.map(
-      async (value): Promise<GameData> => {
-        const imageData = await getGameCapsuleImageData(value.appid)
-        return {
-          name: value.name,
-          image: {
-            url: imageData.imageUrl,
-            width: imageData.width,
-            height: imageData.height
-          }
-        }
-      },
-    ),
+    games.map(async (value): Promise<GameData> => {
+      const imageData = await getGameCapsuleImageData(value.appId)
+      return {
+        name: value.name,
+        appId: value.appId,
+        lastRecentlyPlayed: value.lastKnownToBeRecentlyPlayed,
+        image: {
+          url: imageData.imageUrl,
+          width: imageData.width,
+          height: imageData.height,
+        },
+      }
+    }),
   )
 
-  async function callSteamworksGetRecentlyPlayedGamesApi() {
-    const steamworksToken = readEnvVarUnsafe('STEAMWORKS_TOKEN')
-    const input = { steamid: MY_PLAYER_ID, count: 20 }
-    const endpoint = `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?key=${steamworksToken}&input_json=${JSON.stringify(input)}`
-    const response = await fetch(endpoint)
+  async function callGetRecentlyPlayedGamesApi(): Promise<GetGamesApiGameResponseBody> {
+    const response = await fetch(envVar.get('GET_GAMES_API_URL').required().asString(), {
+      method: 'GET',
+    })
+
     if (!response.ok) {
-      throw Error(`Received non-OK response from Steamworks API: ${util.inspect(response)}`)
+      throw Error(`Error response from GetRecentlyPlayedGamesApi: ${util.inspect(response)}`)
     }
-    return response
+
+    if (response.body == null) {
+      throw Error('Response from GetRecentlyPlayedGamesApi.')
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    return GetGamesApiGameResponseBody.parse(JSON.parse(await streamToString(response.body)))
   }
 
   async function getGameCapsuleImageData(appId: number) {
-    const width = 616;
+    const width = 616
     const height = 353
     const imageUrl = `https://cdn.akamai.steamstatic.com/steam/apps/${appId}/capsule_${width}x${height}.jpg`
     const response = await fetch(imageUrl)
@@ -55,7 +57,18 @@ export async function getRecentlyPlayedGamesData() {
     return {
       imageUrl,
       width,
-      height
+      height,
     }
   }
 }
+
+const GetGamesApiGameResponseBody = z.array(
+  z.object({
+    name: z.string().nonempty(),
+    appId: z.number(),
+    lastKnownToBeRecentlyPlayed: z.number(),
+    totalPlaytimeMinutes: z.number(),
+  }),
+)
+
+type GetGamesApiGameResponseBody = z.infer<typeof GetGamesApiGameResponseBody>

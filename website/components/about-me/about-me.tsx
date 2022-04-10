@@ -1,14 +1,15 @@
 import Image from 'next/image'
 import * as React from 'react'
-// import { GameData } from '../../lib/games/game-data'
+import { GameData } from '../../lib/games/game-data'
 import portrait from '../../public/portrait.jpg'
 import Styles from './about-me.module.scss'
+import GameShowcase from './game-showcase/game-showcase'
 
 export interface AboutMeProps {
-  // games: GameData[]
+  games: GameData[]
 }
 
-const AboutMe: React.FC<AboutMeProps> = () => {
+const AboutMe: React.FC<AboutMeProps> = (props) => {
   const [aboutMeExpanded, setAboutMeExpanded] = React.useState(false)
 
   return (
@@ -63,13 +64,12 @@ const AboutMe: React.FC<AboutMeProps> = () => {
         </p>
         <h3>Upcoming Plans</h3>
         <p>
-          I am currently waiting on hearing back from{' '}
-          <a href="https://omscs.gatech.edu/">Georgia Tech&#39;s OMSCS program</a>. If accepted, I&#39;ll start taking
-          some graduate courses to explore more potential interests and hopefully develop an interest within a
-          specialized field in computer science.
+          I am enrolled in <a href="https://omscs.gatech.edu/">Georgia Tech&#39;s OMSCS program</a> for the Fall 2022
+          semester. I&#39;ll start taking some graduate courses to explore more potential interests and hopefully
+          develop an interest within a specialized field in computer science.
         </p>
-        {/* <h3>Recently Played Video Games</h3>
-        <GameShowcase games={props.games} /> */}
+        <h3>Recently Played Video Games</h3>
+        <GameShowcase games={props.games} />
       </div>
     </div>
   )

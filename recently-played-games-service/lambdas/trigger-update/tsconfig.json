@@ -11,7 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "/opt/*": [
-        "../../layers/*"
+        "../../common/*"
       ]
     },
     "resolveJsonModule": true,

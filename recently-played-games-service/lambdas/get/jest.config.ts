@@ -6,7 +6,7 @@ import type { InitialOptionsTsJest } from 'ts-jest'
 
 const config: InitialOptionsTsJest = {
   moduleNameMapper: {
-    '/opt/(.*)': '<rootDir>/../../layers/$1',
+    '/opt/(.*)': '<rootDir>/../../common/$1',
   },
   preset: 'ts-jest',
   globals: {
@@ -17,7 +17,7 @@ const config: InitialOptionsTsJest = {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  moduleDirectories: ['node_modules', '../../layers', '.'],
+  moduleDirectories: ['node_modules', '../../common', '.'],
   rootDir: '.',
 }
 

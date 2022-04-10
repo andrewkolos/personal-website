@@ -26,13 +26,13 @@
   "exclude": [
     "node_modules",
     "cdk.out",
-    "layers",
+    "common",
     "lambdas",
     "jest.config.ts",
   ],
   "references": [
     {
-      "path": "./layers/games-database/tsconfig.ref.json"
+      "path": "./common/games-database/tsconfig.ref.json"
     },
     {
       "path": "./lambdas/get/tsconfig.ref.json"
