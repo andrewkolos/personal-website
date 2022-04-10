@@ -1,24 +1,27 @@
 name: Deploy Recently Played Games Service
 
-env:
-  STEAMWORKS_TOKEN: ${{ secrets.STEAMWORKS_TOKEN }}
-
 on:
   push:
     branches:
       - master
-    paths:
-      - recently-played-games-service/**
+   #paths:
+  #  - recently-played-games-service/**
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: prod
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - working-directory: ./recently-played-games-service
+      - working-directory: recently-played-games-service
+        env:
+          STEAMWORKS_TOKEN: ${{ secrets.STEAMWORKS_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           npm install
+          ls -laS
           npm run deploy

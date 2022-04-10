@@ -1,0 +1,36 @@
+name: Deploy Website
+
+on:
+  workflow_run:
+    workflows:
+      - "Deploy Recently Played Games Service"
+    types:
+      - completed
+  push:
+    branches:
+      - master
+    paths:
+      - website/**
+  schedule:
+    # Every Sunday
+    - cron: '0 16 * * 0'
+jobs:
+  build:
+    name: Deploy
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Netlify Deploy
+        working-directory: website
+        env:
+          DISQUS_NAME: ${{ secrets.DISQUS_NAME }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          GET_GAMES_API_URL: ${{ secrets.GET_GAMES_API_URL }}
+        run: |
+          npm install
+          npm run deploy:prod

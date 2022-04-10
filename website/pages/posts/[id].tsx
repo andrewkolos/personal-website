@@ -60,11 +60,11 @@ export const getStaticPaths: GetStaticPaths<PathParams> = () => {
 }
 
 export const getStaticProps: GetStaticProps<BlogPostProps, PathParams> = async (context) => {
-  const disqusShortname = process.env.GATSBY_DISQUS_NAME
+  const disqusShortname = process.env.DISQUS_NAME
 
   if (!disqusShortname) {
     throw Error(dedent`Disqus name was empty/undefined. Retrieve it from the
-      Disqus web console and provide it in the GATSBY_DISQUS_NAME env variable.`)
+      Disqus web console and provide it in the DISQUS_NAME env variable.`)
   }
 
   const params = getParamsFromStaticPropsContext(context)

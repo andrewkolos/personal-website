@@ -8,9 +8,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "clean": "git clean -dfX --exclude=\"!.env\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint . --ext .ts --fix",
+    "deploy:draft": "netlify deploy --build",
+    "deploy:prod": "netlify deploy --build --prod"
   },
   "dependencies": {
     "@akolos/object-promise-all": "^1.0.0",
@@ -45,6 +48,7 @@
   "devDependencies": {
     "@akolos/eslint-config-typescript": "^1.0.5",
     "@akolos/prettier-config": "^1.0.0",
+    "@netlify/plugin-nextjs": "^4.3.2",
     "@next/eslint-plugin-next": "^12.1.4",
     "@types/dedent": "^0.7.0",
     "@types/fs-extra": "^9.0.13",
@@ -56,6 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "cross-env": "^7.0.3",
+    "env-var": "^7.1.1",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.5.0",
     "node-sass": "^6.0.1",

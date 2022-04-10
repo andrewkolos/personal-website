@@ -13,7 +13,9 @@ async function go() {
 
   await Promise.all<void>(
     layerSources.map(async (layer) => {
-      await execp(`cd ${layer} && git clean -dfX && npm install && npm run build && npm install --only=prod`)
+      await execp(
+        `cd ${layer} && git clean -dfX && npm install && npm run build && rm -rf node_modules && npm install --only=prod`,
+      )
     }),
   )
 
@@ -21,7 +23,9 @@ async function go() {
 
   await Promise.all<void>(
     lambdaFunctionSources.map(async (layer) => {
-      await execp(`cd ${layer} && git clean -dfX && npm install && npm run build && npm install --only=prod`)
+      await execp(
+        `cd ${layer} && git clean -dfX && npm install && npm run build && rm -rf node_modules && npm install --only=prod`,
+      )
     }),
   )
 }
