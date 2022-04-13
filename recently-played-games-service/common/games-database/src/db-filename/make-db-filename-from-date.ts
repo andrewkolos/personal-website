@@ -4,7 +4,7 @@ export function makeDbFilenameFromDate(date: Date): string {
 
 function dateAsFilenamePart(date: Date): string {
   return `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date
-    .getUTCDay()
+    .getUTCDate()
     .toString()
     .padStart(2, '0')}`
 }
