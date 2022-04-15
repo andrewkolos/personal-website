@@ -15,6 +15,10 @@ export const libraryProjects: ProjectDescriptor[] = [
     owner: me,
     name: 'tiny-node-packages',
   },
+  {
+    owner: me,
+    name: 's3-object-location-parsing'
+  }
 ]
 
 export const otherProjects: ProjectDescriptor[] = [
