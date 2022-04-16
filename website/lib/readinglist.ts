@@ -9,6 +9,14 @@ export interface ReadingListEntry {
 
 const data: ReadingListEntry[] = [
   {
+    date: '2022/4/16',
+    title: 'Fast-Paced Multiplayer: Client-Server Game Architecture',
+    url: 'https://www.gabrielgambetta.com/client-server-game-architecture.html',
+    blurb: dedent`An amazing article series explaining the fundamental architecture used to synchronized fast-moving online video games.
+      Also includes a demo. It might take you an afternoon to synthesize all the information, but I'd definitely recommend it
+      for anyone that plays games online or is interested in synchronization more generally.`,
+  },
+  {
     date: '2021/11/22',
     title: "Parse don't validate.",
     url: 'https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/',
@@ -36,7 +44,7 @@ const data: ReadingListEntry[] = [
     date: '2021/05/18',
     url: 'https://martinfowler.com/articles/micro-frontends.html',
     blurb: dedent`An interesting approach of splitting up a single frontend into smaller ones based around business concerns,
-      similarly to the microservices approach to backends. There's the downside of mangaging dependencies shared by multiple of
+      similarly to the microservices approach to backends. There's the downside of managing dependencies shared by multiple of
       these split frontends, but it can allow for each team to move more quickly to speed up development as well as use different
       frontend stacks.`,
   },
