@@ -9,6 +9,15 @@ export interface ReadingListEntry {
 
 const data: ReadingListEntry[] = [
   {
+    date: '2022/5/14',
+    title: 'We love AWS Lambda, but its concurrency handling with SQS is silly.',
+    url: 'https://www.foxy.io/blog/we-love-aws-lambda-but-its-concurrency-handling-with-sqs-is-silly/',
+    blurb: dedent`Despite having worked with Lambdas with SQS event source mappings for a decent amount of time now, I
+      had no idea that such a configuration could result in Lambda throttling. I need to revise some of our team's stuff
+      at Capital One to see if are vulnerable to any of this. My team personally doesn't use dead-letter queues (DLQs) due to a variety
+      of unfortunate reasons, so such throttling could result in dropped messages.`,
+  },
+  {
     date: '2022/4/16',
     title: 'Fast-Paced Multiplayer: Client-Server Game Architecture',
     url: 'https://www.gabrielgambetta.com/client-server-game-architecture.html',
