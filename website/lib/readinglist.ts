@@ -1,13 +1,23 @@
 import dedent from 'dedent'
 
 export interface ReadingListEntry {
-  title: string // Needed in case their site's web server blocks crawler request at build time.
+  /** Needed in case their site's web server blocks crawler request at build time. */
+  title: string
   date: string
   url: string
   blurb?: string
 }
 
 const data: ReadingListEntry[] = [
+  {
+    date: '2022/5/15',
+    title: 'EventBridge Storming — How to build state-of-the-art Event-Driven Serverless Architectures',
+    url: 'https://medium.com/serverless-transformation/eventbridge-storming-how-to-build-state-of-the-art-event-driven-serverless-architectures-e07270d4dee',
+    blurb: dedent`Though I have heard and read about event-driven architectures before, this is a cool introduction to the idea of "Event Storming," an
+    approach to defining the Events, Boundaries and Entities in a business domain. With these things defined, one can create a decoupled collection of microservices
+    that can be deployed independently of each other, communicating indirectly via an event bus. I've seen this concept before in discussions about SoA, but it was
+    neat to see it from an AWS-native perspective.`,
+  },
   {
     date: '2022/5/14',
     title: 'We love AWS Lambda, but its concurrency handling with SQS is silly.',
