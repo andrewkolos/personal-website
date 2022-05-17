@@ -55,7 +55,7 @@ describe('GamesDatabase', () => {
 
   describe('postGames', () => {
     beforeEach(() => {
-      jest.useFakeTimers().setSystemTime(new Date(2022, 11, 7))
+      jest.useFakeTimers().setSystemTime(new Date(2022, 11, 3))
     })
 
     afterEach(() => {

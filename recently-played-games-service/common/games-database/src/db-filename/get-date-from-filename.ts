@@ -4,6 +4,6 @@ export function getDateFromFilename(filename: string): Date {
   if (matchArray == null) {
     throw Error(`Couldn't parse date out of the filename. Filename: ${filename}`)
   }
-
-  return new Date(matchArray[0])
+  const [year, month, date] = matchArray.slice(1)
+  return new Date(Number(year), Number(month), Number(date))
 }

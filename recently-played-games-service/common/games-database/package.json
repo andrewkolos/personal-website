@@ -6,13 +6,13 @@
   },
   "main": "./dist/index.js",
   "devDependencies": {
-    "@aws-sdk/client-s3": "^3.58.0",
     "@akolos/prettier-config": "^1.0.0",
+    "@aws-sdk/client-s3": "^3.58.0",
     "@types/aws-lambda": "^8.10.92",
-    "@types/jest": "^27.4.1",
+    "@types/jest": "^27.5.1",
     "aws-sdk-client-mock": "^0.6.2",
-    "jest": "^27.5.1",
-    "ts-jest": "^27.1.4"
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.2"
   },
   "dependencies": {
     "aws-lambda": "^1.0.7",

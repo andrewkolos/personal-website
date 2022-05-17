@@ -28,7 +28,7 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
       body: JSON.stringify(games),
     }
   } catch (err) {
-    console.log(err)
+    console.error(err)
     return {
       statusCode: 500,
       body: JSON.stringify({

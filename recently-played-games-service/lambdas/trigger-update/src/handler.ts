@@ -12,6 +12,8 @@ export const lambdaHandler = async (event: EventBridgeEvent<string, unknown>): P
   console.log('event', inspect(event))
 
   const gamesFromDb = await GamesDatabase.getGames(bucketName)
+  console.log('Games from database', inspect(gamesFromDb))
+
   const recentlyPlayedGamesAccordingToSteam: GameRecord[] = (
     await SteamworksApi.getRecentlyPlayedGames(MY_PLAYER_ID)
   ).response.games.map(
@@ -23,9 +25,12 @@ export const lambdaHandler = async (event: EventBridgeEvent<string, unknown>): P
     }),
   )
 
+  console.log('Recently played games according to Steamworks api', inspect(recentlyPlayedGamesAccordingToSteam))
+
   const allGames = conset.create<GameRecord>((gameRecord) => gameRecord.appId.toString())
   gamesFromDb.forEach((gameFromDb) => conset.add(allGames, gameFromDb))
   recentlyPlayedGamesAccordingToSteam.forEach((rpg) => conset.add(allGames, rpg))
 
+  console.log('Posting games to database', inspect(conset.getItems(allGames)))
   await GamesDatabase.postGames(bucketName, conset.getItems(allGames))
 }

@@ -5,6 +5,7 @@ import streamToString from 'stream-to-string'
 import { GameRecord } from './game-record'
 import { getDateFromFilename } from './db-filename/get-date-from-filename'
 import { makeDbFilenameFromDate } from './db-filename'
+import { inspect } from 'util'
 
 const s3 = new S3Client({
   region: 'us-east-1',
@@ -41,7 +42,11 @@ export const GamesDatabase = {
       return 0
     })
 
-    const mostUpToDateFile = filesSortedByDate[0]
+    console.log('DB files sorted by date', inspect(filesSortedByDate))
+
+    const mostUpToDateFile = filesSortedByDate[filesSortedByDate.length - 1]
+
+    console.log('Most up-to-date file', inspect(mostUpToDateFile))
 
     const contents = (
       await s3.send(
