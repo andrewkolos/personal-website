@@ -9,7 +9,6 @@ import Layout from '../components/layout/layout'
 import { contributedTo, libraryProjects, otherProjects, ProjectDescriptor } from '../lib/project-descriptors'
 import SharedStyles from '../styles/shared-styles.module.scss'
 import { Project, ProjectBase, PersonalProject, CollaborativeProject } from '../lib/project'
-import util from 'util'
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
