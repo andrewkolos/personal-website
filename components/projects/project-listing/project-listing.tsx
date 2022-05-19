@@ -1,30 +1,29 @@
 import React from 'react'
-import { ProjectDescriptor } from '../../../lib/projects'
+import { z } from 'zod'
+import { CollaborativeProject, Project } from '../../../lib/project'
 import Styles from './project-listing.module.scss'
 
-export interface ProjectListingProps extends ProjectDescriptor {
-  url: string
-  description?: string
-  createdAt: string
-  updatedAt: string
+export interface ProjectListingProps {
+  project: Project
 }
 
-const ProjectListing: React.FC<ProjectListingProps> = ({ url, description, createdAt, updatedAt, name, owner }) => (
-  <div className={Styles.container} key={name}>
-    <a href={url} className={Styles.titleLink}>
-      <h2 className={Styles.title}>{name} </h2>
+const ProjectListing: React.FC<ProjectListingProps> = ({ project }) => (
+  <div className={Styles.container} key={project.name}>
+    <a href={project.url} className={Styles.titleLink}>
+      <h2 className={Styles.title}>{project.name} </h2>
     </a>
     <p>
-      Last updated: {formatMMDDYYYY(new Date(updatedAt))}. Created: {formatMMDDYYYY(new Date(createdAt))}.
+      Last updated: {formatMMDDYYYY(new Date(project.updatedAt))}. Created:{' '}
+      {formatMMDDYYYY(new Date(project.createdAt))}.
     </p>
-    <p>{description}</p>
-    {owner !== 'andrewkolos' && (
+    <p>{project.description}</p>
+    {project.owner !== 'andrewkolos' && (
       <p>
         <a
-          aria-label={`Andrew Kolos' pull requests for ${name}`}
-          href={`https://github.com/${owner}/${name}/pulls?q=author%3Aandrewkolos`}
+          aria-label={`Andrew Kolos' pull requests for ${project.name}`}
+          href={`https://github.com/${project.owner}/${project.name}/pulls?q=author%3Aandrewkolos`}
         >
-          Pull Requests
+          Pull Requests {`(${z.number().parse((project as CollaborativeProject).numberOfPrsOpenedByMe)})`}
         </a>
       </p>
     )}
@@ -32,10 +31,6 @@ const ProjectListing: React.FC<ProjectListingProps> = ({ url, description, creat
 )
 
 export default ProjectListing
-
-ProjectListing.defaultProps = {
-  description: undefined,
-}
 
 function formatMMDDYYYY(date: Date): string {
   return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
