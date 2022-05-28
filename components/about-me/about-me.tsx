@@ -40,22 +40,17 @@ const AboutMe: React.FC<{}> = () => {
         </p>
         <h3>Current Hobby Project</h3>
         <p>
-          Right now, I&#39;m working on a recreation/rewrite of a{' '}
-          <a href="https://github.com/andrewkolos/simple-personal-gradebook">
-            personal gradebook/grade calculator web app I created back in back in college
-          </a>
-          . Back then, I created it as a way to teach myself modern simple full-stack web development. This time around,
-          I aim to recreate it with an improved UI, improved cloud-native backend, and improved code quality.
+          Right now I&#39;m creating a desktop application that helps the user keep their GitHub profile activity chart
+          green through legitimate means,{' '}
+          <a href="https://github.com/andrewkolos/evergreen-github-companion">Evergreen GitHub Companion</a> (working
+          title). It scans local git repositories for unpushed commits. If you have not pushed a commit to GitHub today
+          and there is an unpushed commit available, it will set the date on the commit to today, and then push it to
+          GitHub.
         </p>
         <p>
-          Along the way, I&#39;ll get to learn more general-purpose dev tools (like{' '}
-          <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html">
-            AWS SAM
-          </a>{' '}
-          and <a href="https://docs.aws.amazon.com/cdk/v2/guide/home.html">AWS CDK</a>
-          ), the ability to flex some skills picked up while obtaining multiple AWS certifications, and learn new
-          frontend technologies like <a href="https://svelte.dev/">Svelete</a> and{' '}
-          <a href="https://tailwindcss.com/">Tailwind CSS</a>. Hopefully, my UI design skill will improve as well.
+          The idea is that you can maintain an &quot;activity streak&quot; on GitHub, without having to find time every
+          single day to make and push a commit. Instead, during a day where you have the time, you can make <i>N</i>{' '}
+          commits, and the application will automatically spread those commits out over the upcoming <i>N</i> days.
         </p>
         <h3>Upcoming Plans</h3>
         <p>
