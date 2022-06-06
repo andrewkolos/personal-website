@@ -38,20 +38,6 @@ const AboutMe: React.FC<{}> = () => {
           crucial role in call/contact ingestion. Most of my work is backend, working on realtime and batch ingestion of
           customer contacts into our platform, with some on-off core API and frontend development.
         </p>
-        <h3>Current Hobby Project</h3>
-        <p>
-          Right now I&#39;m creating a desktop application that helps the user keep their GitHub profile activity chart
-          green through legitimate means,{' '}
-          <a href="https://github.com/andrewkolos/evergreen-github-companion">Evergreen GitHub Companion</a> (working
-          title). It scans local git repositories for unpushed commits. If you have not pushed a commit to GitHub today
-          and there is an unpushed commit available, it will set the date on the commit to today, and then push it to
-          GitHub.
-        </p>
-        <p>
-          The idea is that you can maintain an &quot;activity streak&quot; on GitHub, without having to find time every
-          single day to make and push a commit. Instead, during a day where you have the time, you can make <i>N</i>{' '}
-          commits, and the application will automatically spread those commits out over the upcoming <i>N</i> days.
-        </p>
         <h3>Upcoming Plans</h3>
         <p>
           I am enrolled in <a href="https://omscs.gatech.edu/">Georgia Tech&#39;s OMSCS program</a> for the Fall 2022
