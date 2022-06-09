@@ -1,7 +1,7 @@
 import { StaticImageData } from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-import { embeddedDemos, nonInteractiveDemos } from '../lib/demos'
+import { interactiveDemos, nonInteractiveDemos } from '../lib/demos'
 import { allDemoImageData } from '../lib/demos/all-demo-image-data'
 import DemoList from '../components/demo/demo-list/demo-list'
 import { DemoListingProps } from '../components/demo/demo-listing/demo-listing'
@@ -26,21 +26,17 @@ const DemosPage: React.FC = () => {
     }),
   )
 
-  const embeddedDemoListings: DemoListingProps[] = embeddedDemos.map((d) => {
+  const interactiveDemoListings: DemoListingProps[] = interactiveDemos.map((d) => {
     const thumbnail = getThumbnailObject(imagesByName, d.id)
     return {
-      demoUrl: d.demoUrl,
-      name: d.name,
-      repoUrl: d.repoUrl,
-      description: d.description,
+      demoInfo: d,
       thumbnail,
-      urlName: d.urlName,
     }
   })
 
   useEffect(() => {
-    embeddedDemoListings.forEach((edl) => {
-      fetch(edl.demoUrl, {
+    interactiveDemoListings.forEach((edl) => {
+      fetch(edl.demoInfo.demoUrl, {
         mode: 'no-cors',
       }) // Hack to rehydrate any Heroku servers.
     })
@@ -49,10 +45,7 @@ const DemosPage: React.FC = () => {
   const nonInteractiveDemoListings: DemoListingProps[] = nonInteractiveDemos.map((d) => {
     const thumbnail = getThumbnailObject(imagesByName, d.id)
     return {
-      demoUrl: d.demoUrl,
-      name: d.name,
-      repoUrl: d.repoUrl,
-      description: d.description,
+      demoInfo: d,
       thumbnail,
     }
   })
@@ -63,7 +56,7 @@ const DemosPage: React.FC = () => {
       <div className={SharedStyles.card}>
         <h1>Games and demos</h1>
         Some games and other demos of things that I&#39;ve made for fun that are still working.
-        <DemoList demoInfo={embeddedDemoListings} />
+        <DemoList demoInfo={interactiveDemoListings} />
       </div>
       <div className={SharedStyles.card}>
         <h1>Non-interactive demos</h1>

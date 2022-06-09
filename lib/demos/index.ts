@@ -1,4 +1,6 @@
-export interface Demo {
+export type Demo = InteractiveDemo | NonInteractiveDemo
+
+interface DemoBase {
   name: string
   description: string
   id: string
@@ -6,12 +8,18 @@ export interface Demo {
   demoUrl: string
 }
 
-export interface EmbeddedDemo extends Demo {
+export interface InteractiveDemo extends DemoBase {
+  kind: 'interactive'
   urlName: string
 }
 
-export const embeddedDemos: EmbeddedDemo[] = [
+export interface NonInteractiveDemo extends DemoBase {
+  kind: 'non-interactive'
+}
+
+export const interactiveDemos: InteractiveDemo[] = [
   {
+    kind: 'interactive',
     name: 'Bastion Breach 3D',
     urlName: 'bastion-breach-3d',
     id: 'bastion-breach-3d',
@@ -20,15 +28,16 @@ export const embeddedDemos: EmbeddedDemo[] = [
     demoUrl: 'https://bastion-breach-3d.herokuapp.com',
   },
   {
+    kind: 'interactive',
     name: 'Pong 3D',
     urlName: 'pong-3d',
     id: 'pong-3d',
-    description:
-      'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E.',
+    description: 'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E.',
     repoUrl: 'https://github.com/andrewkolos/synchronized-pong-3d',
     demoUrl: 'https://andrew-pong-3d.herokuapp.com/',
   },
   {
+    kind: 'interactive',
     name: 'Swoocebooks Lite',
     urlName: 'swoocebooks-lite',
     id: 'swoocebooks-lite',
@@ -37,6 +46,7 @@ export const embeddedDemos: EmbeddedDemo[] = [
     demoUrl: 'https://swoocebooks-lite.herokuapp.com/index.html',
   },
   {
+    kind: 'interactive',
     name: 'Online Game Synchronization Framework',
     urlName: 'online-game-synchronization-framework',
     id: 'online-game-synchronization-framework',
@@ -46,8 +56,9 @@ export const embeddedDemos: EmbeddedDemo[] = [
   },
 ]
 
-export const nonInteractiveDemos: Demo[] = [
+export const nonInteractiveDemos: NonInteractiveDemo[] = [
   {
+    kind: 'non-interactive',
     name: 'Hybot Discord Elo Bot',
     id: 'hybot',
     demoUrl: 'https://github.com/andrewkolos/hybot-discord-elo-bot',
@@ -55,6 +66,7 @@ export const nonInteractiveDemos: Demo[] = [
     description: 'Discord bot that calculates and keeps track of Elo scores amongst a community of players.',
   },
   {
+    kind: 'non-interactive',
     name: 'Swoocebooks',
     id: 'swoocebooks',
     demoUrl: 'https://github.com/andrewkolos/simple-personal-gradebook',
@@ -63,9 +75,8 @@ export const nonInteractiveDemos: Demo[] = [
   },
 ]
 
-
 export function getDemoById(id: string) {
-  const result = [...embeddedDemos, ...nonInteractiveDemos].find((value) => value.id === id)
+  const result = [...interactiveDemos, ...nonInteractiveDemos].find((value) => value.id === id)
   if (result == null) {
     throw Error(`Could not find demo with id of '${id}'`)
   }

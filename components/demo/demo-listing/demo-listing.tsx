@@ -2,25 +2,17 @@ import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FiGithub } from 'react-icons/fi'
+import { Demo } from '../../../lib/demos'
 import Styles from './demo-listing.module.scss'
 
 export interface DemoListingProps {
-  name: string
-  description: string
+  demoInfo: Demo
   thumbnail: StaticImageData
-  demoUrl: string
-  repoUrl: string
-  urlName?: string
 }
 
-const DemoListing: React.FunctionComponent<DemoListingProps> = ({
-  thumbnail,
-  name,
-  urlName,
-  demoUrl,
-  repoUrl,
-  description,
-}) => {
+const DemoListing: React.FunctionComponent<DemoListingProps> = ({ thumbnail, demoInfo }) => {
+  const { name, demoUrl, repoUrl, description } = demoInfo
+
   const img = (
     <div className={Styles.demoThumbnailContainer}>
       <Image width={423} height={237} src={thumbnail} alt={`${name} Demo`} className={Styles.demoThumbnail} />
@@ -29,14 +21,14 @@ const DemoListing: React.FunctionComponent<DemoListingProps> = ({
 
   return (
     <div className={Styles.container} key={name}>
-      {urlName && (
-        <Link href={`demos/${urlName}`}>
+      {demoInfo.kind === 'interactive' && (
+        <Link href={`demos/${demoInfo.urlName}`}>
           <a>{img}</a>
         </Link>
       )}
-      {!urlName && <a href={demoUrl}>{img}</a>}
+      {demoInfo.kind === 'non-interactive' && <a href={demoUrl}>{img}</a>}
       <div className={Styles.textContent}>
-        <Link href={`demos/${urlName}`}>
+        <Link href={demoInfo.kind === 'interactive' ? `demos/${demoInfo.urlName}` : repoUrl}>
           <a className={Styles.titleContainer}>
             <h2 className={Styles.title}>{name}</h2>
           </a>
@@ -49,10 +41,6 @@ const DemoListing: React.FunctionComponent<DemoListingProps> = ({
       </div>
     </div>
   )
-}
-
-DemoListing.defaultProps = {
-  urlName: undefined,
 }
 
 export default DemoListing

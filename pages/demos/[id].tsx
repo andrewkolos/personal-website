@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 import { ParsedUrlQuery } from 'querystring'
-import { embeddedDemos, getDemoById } from '../../lib/demos'
+import { interactiveDemos, getDemoById } from '../../lib/demos'
 import Styles from './embedded-app.module.scss'
 
 interface DemoPageProps {
@@ -90,7 +90,7 @@ interface PathParams extends ParsedUrlQuery {
 }
 
 export const getStaticPaths: GetStaticPaths<PathParams> = () => ({
-  paths: embeddedDemos.map((demo) => ({
+  paths: interactiveDemos.map((demo) => ({
     params: {
       ...demo,
     },
