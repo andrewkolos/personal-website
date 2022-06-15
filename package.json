@@ -45,6 +45,7 @@
     "react-typography": "^0.16.20",
     "sharp": "^0.30.3",
     "stream-to-string": "^1.2.0",
+    "ts-key-enum": "^2.0.11",
     "zod": "^3.14.3"
   },
   "devDependencies": {
@@ -58,6 +59,7 @@
     "@types/react": "^17.0.43",
     "@types/react-helmet": "^6.1.5",
     "@types/react-icons": "^3.0.0",
+    "@types/react-modal": "^3.13.1",
     "@types/typography": "^0.16.4",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",

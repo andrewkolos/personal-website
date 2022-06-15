@@ -8,9 +8,10 @@ import { SocialLinks } from './social-links/social-links'
 interface LayoutProps {
   children: React.ReactNode
   pathName: string
+  showFooter?: boolean
 }
 
-const Layout: React.FC<LayoutProps> = ({ pathName, children }) => (
+const Layout: React.FC<LayoutProps> = ({ pathName, children, showFooter }) => (
   <div style={{ margin: 'auto' }}>
     <Seo pathName={pathName} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,19 +24,26 @@ const Layout: React.FC<LayoutProps> = ({ pathName, children }) => (
     >
       <main id="main">{children}</main>
     </div>
-    <footer
-      style={{
-        marginTop: `3.45rem`,
-      }}
-    >
-      <hr />
-      <SocialLinks />
-    </footer>
+    {showFooter !== false && (
+      <footer
+        style={{
+          marginTop: `3.45rem`,
+        }}
+      >
+        <hr />
+        <SocialLinks />
+      </footer>
+    )}
   </div>
 )
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  showFooter: PropTypes.bool,
+}
+
+Layout.defaultProps = {
+  showFooter: true,
 }
 
 export default Layout
