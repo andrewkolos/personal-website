@@ -29,6 +29,9 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
             <NavLink to="/reading-list" activeclassname={Styles.navLinkActive}>
               Reading List
             </NavLink>
+            <NavLink to="/contact-me" activeclassname={Styles.navLinkActive}>
+              Contact
+            </NavLink>
           </ul>
         </nav>
       </div>
