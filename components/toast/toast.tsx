@@ -5,6 +5,7 @@ import Styles from './toast.module.scss'
 export interface ToastData {
   id: string
   title: string
+  subtitle?: string
 }
 interface ToastProps {
   toastList: ToastData[]
@@ -46,6 +47,7 @@ export const Toast: React.FC<ToastProps> = ({ toastList }) => {
           </div>
           <div>
             <p className={Styles.notificationTitle}>{toast.title}</p>
+            {toast.subtitle ?? <p className={Styles.notificationMessage}>{toast.subtitle}</p>}
           </div>
         </div>
       ))}

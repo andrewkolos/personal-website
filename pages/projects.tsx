@@ -1,30 +1,31 @@
-import React from 'react'
 import { objectPromiseAll } from '@akolos/object-promise-all'
 import { Octokit } from '@octokit/rest'
-import { useRouter } from 'next/router'
+import dedent from 'dedent'
 import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
+import React from 'react'
+import Layout from '../components/layout/layout'
 import ProjectListing from '../components/projects/project-listing/project-listing'
 import Seo from '../components/seo'
-import Layout from '../components/layout/layout'
+import { CollaborativeProject, PersonalProject, Project, ProjectBase } from '../lib/project'
 import { contributedTo, libraryProjects, otherProjects, ProjectDescriptor } from '../lib/project-descriptors'
 import SharedStyles from '../styles/shared-styles.module.scss'
-import { Project, ProjectBase, PersonalProject, CollaborativeProject } from '../lib/project'
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 })
 
 interface ProjectListProps {
-  myLibraries: Project[]
-  other: Project[]
-  contributedTo: Project[]
+  myLibraries: PersonalProject[]
+  other: PersonalProject[]
+  contributedTo: CollaborativeProject[]
 }
 
 export const getStaticProps: GetStaticProps<ProjectListProps> = async () => {
   const repos = await objectPromiseAll({
-    myLibraries: libraryProjects.map((p) => getProjectInfo(p)),
-    other: otherProjects.map((p) => getProjectInfo(p)),
-    contributedTo: contributedTo.map((p) => getProjectInfo(p)),
+    myLibraries: libraryProjects.map((p) => getPersonalProjectInfo(p)),
+    other: otherProjects.map((p) => getPersonalProjectInfo(p)),
+    contributedTo: contributedTo.map((p) => getCollaborativeProjectInfo(p)),
   })
 
   return {
@@ -41,7 +42,7 @@ const Projects: React.FC<ProjectListProps> = (props) => {
       <Seo description="A list of Andrew Kolos' personal/hobby software projects." />
       <div className={SharedStyles.card}>
         <h1>OSS I have contributed to</h1>
-        {listProjects(props.contributedTo)}
+        {listProjects(props.contributedTo.sort((a, b) => a.numberOfPrsOpenedByMe - b.numberOfPrsOpenedByMe))}
       </div>
       <div className={SharedStyles.card}>
         <h1>Libraries</h1>
@@ -57,15 +58,15 @@ const Projects: React.FC<ProjectListProps> = (props) => {
 
 export default Projects
 
-async function getProjectInfo(project: ProjectDescriptor): Promise<Project> {
+async function getProjectInfo(projectDescriptor: ProjectDescriptor): Promise<ProjectBase> {
   const { data: repoData } = await octokit.repos.get({
-    owner: project.owner,
-    repo: project.name,
+    owner: projectDescriptor.owner,
+    repo: projectDescriptor.name,
   })
 
   const resultBase: ProjectBase = {
-    owner: project.owner,
-    name: project.name,
+    owner: projectDescriptor.owner,
+    name: projectDescriptor.name,
     url: repoData.html_url,
     topics: repoData.topics,
     description: repoData.description ?? undefined,
@@ -73,20 +74,35 @@ async function getProjectInfo(project: ProjectDescriptor): Promise<Project> {
     updatedAt: repoData.updated_at,
   }
 
-  if (resultBase.owner === 'andrewkolos') {
-    return resultBase as PersonalProject
+  return resultBase
+}
+
+async function getPersonalProjectInfo(projectDescriptor: ProjectDescriptor): Promise<PersonalProject> {
+  const projectInfo = await getProjectInfo(projectDescriptor)
+
+  if (projectInfo.owner !== 'andrewkolos') {
+    throw Error(dedent`Repo does not belong to me. ${projectDescriptor.owner}/${projectDescriptor.name}`)
   }
+
+  return {
+    ...projectInfo,
+    owner: 'andrewkolos',
+  }
+}
+
+async function getCollaborativeProjectInfo(projectDescriptor: ProjectDescriptor): Promise<CollaborativeProject> {
+  const repoInfo = await getProjectInfo(projectDescriptor)
 
   // Note: this won't pull more than 100 results. Paging would be required to pull more.
   const numberOfPrsIMadeToThisRepo =
     (
       await octokit.search.issuesAndPullRequests({
-        q: `repo:${project.owner}/${project.name} author:andrewkolos`,
+        q: `repo:${projectDescriptor.owner}/${projectDescriptor.name} author:andrewkolos`,
       })
     ).data.total_count - 1
 
   const result: CollaborativeProject = {
-    ...resultBase,
+    ...repoInfo,
     numberOfPrsOpenedByMe: numberOfPrsIMadeToThisRepo,
   }
 

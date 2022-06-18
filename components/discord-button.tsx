@@ -7,17 +7,19 @@ export interface DiscordButtonProps {
   className: string
 }
 
+const DISCORD_USERNAME = 'AndrewBagel#2199'
 export const DiscordButton: React.FC<DiscordButtonProps> = ({ className }) => {
   const [toastsList, setToastsList] = useState<ToastData[]>([])
 
   function showDiscordToast() {
-    navigator.clipboard.writeText('AndrewBagel#2199')
+    navigator.clipboard.writeText(DISCORD_USERNAME)
 
     setToastsList([
       ...toastsList,
       {
         id: String(Math.floor(Math.random() * 1000)),
-        title: 'Discord username copied to clipboard',
+        title: `Discord username copied to clipboard:`,
+        subtitle: DISCORD_USERNAME,
       },
     ])
   }

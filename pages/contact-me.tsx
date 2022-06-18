@@ -11,7 +11,7 @@ const ContactMePage: React.FC = () => {
     <Layout pathName={router.pathname} showFooter={false}>
       <div className={Styles.container}>
         <h1>Contact Me👋</h1>
-        <p>Want to talk about programming? Your current OSS project? Video games? Let&apos;s chat!</p>
+        <p>Want to talk about programming? Your open source projects? Video games? Let&apos;s chat!</p>
         <div className={Styles.linksContainer}>
           <a
             className={Styles.link}
