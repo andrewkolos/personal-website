@@ -10,6 +10,7 @@ export const SocialLinks: React.FC = () => (
         className={Styles.link}
         href="https://github.com/andrewkolos"
         aria-label="Link to Andrew Kolos' GitHub profile"
+        target="blank"
       >
         <FiGithub />
       </a>
@@ -17,10 +18,16 @@ export const SocialLinks: React.FC = () => (
         className={Styles.link}
         href="https://linkedin.com/in/andrewkolos/"
         aria-label="Link to Andrew Kolos' LinkedIn profile"
+        target="blank"
       >
         <FiLinkedin />
       </a>
-      <a className={Styles.link} href="mailto:andrewrkolos@gmail.com" aria-label="Mail link for andrewrkolos@gmail.com">
+      <a
+        className={Styles.link}
+        href="mailto:andrewrkolos@gmail.com"
+        aria-label="Mail link for andrewrkolos@gmail.com"
+        target="blank"
+      >
         <FiMail />
       </a>
       <DiscordButton className={Styles.link} />
