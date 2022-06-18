@@ -36,3 +36,83 @@
 .iconLink:hover {
   color: $accent;
 }
+
+.tooltip {
+  display: block;
+  position: relative;
+  text-align: center;
+}
+
+.tooltipText {
+  font-size: initial;
+
+  position: absolute;
+
+  /* Horizontally center */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 15px;
+
+  white-space: nowrap;
+  min-width: 150px;
+  padding: 10px;
+  border-radius: 10px;
+  background: $primary;
+  color: #dfdfdf;
+  display: none;
+  z-index: 9999;
+}
+
+.tooltip:hover .tooltipText {
+  display: block;
+}
+
+.tooltipTop .tooltipText {
+  bottom: 100%;
+  // margin-bottom: 15px;
+}
+
+.tooltip:after {
+  z-index: 1;
+  content: '';
+  position: absolute;
+
+  /* position tooltip correctly */
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+
+  /* vertically center */
+  top: 0%;
+
+  /* the arrow */
+  border: 10px solid $primary;
+  border-color: $primary transparent transparent transparent;
+
+  display: none;
+}
+.tooltip:hover:before,
+.tooltip:hover:after {
+  display: block;
+}
+
+.tooltip:before {
+  /* other styles */
+
+  /*  display:none; */
+
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+
+.tooltip:hover:before {
+  opacity: 1;
+}
+
+.tooltip:after {
+  opacity: 0;
+  transition: 0.3s;
+}
+.tooltip:hover:after {
+  opacity: 1;
+}

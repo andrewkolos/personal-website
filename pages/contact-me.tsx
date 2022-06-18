@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiExternalLink } from 'react-icons/fi'
+import { RiFileCopyLine } from 'react-icons/ri'
 import { DiscordButton } from '../components/discord-button'
 import Layout from '../components/layout/layout'
 import Styles from './contact-me.module.scss'
@@ -18,22 +19,45 @@ const ContactMePage: React.FC = () => {
             href="https://linkedin.com/in/andrewkolos/"
             aria-label="Link to Andrew Kolos' LinkedIn profile"
           >
-            <FiLinkedin />
+            <span className={`${Styles.tooltip} ${Styles.tooltipTop}`}>
+              <FiLinkedin />
+              <span className={Styles.tooltipText}>
+                {' '}
+                LinkedIn Profile <FiExternalLink />{' '}
+              </span>
+            </span>
           </a>
           <a
             className={Styles.link}
             href="mailto:andrewrkolos@gmail.com"
             aria-label="Mail link for andrewrkolos@gmail.com"
           >
-            <FiMail />
+            <span className={`${Styles.tooltip} ${Styles.tooltipTop}`} data-text="Email me">
+              <FiMail />
+              <span className={Styles.tooltipText}>
+                {' '}
+                Email me <FiExternalLink />{' '}
+              </span>
+            </span>
           </a>
-          <DiscordButton className={Styles.link} />
+          <span className={`${Styles.tooltip} ${Styles.tooltipTop} ${Styles.link}`}>
+            <DiscordButton />
+            <span className={Styles.tooltipText}>
+              {' '}
+              Copy Discord Username <RiFileCopyLine />{' '}
+            </span>
+          </span>
           <a
             className={Styles.link}
             href="https://github.com/andrewkolos"
             aria-label="Link to Andrew Kolos' GitHub profile"
           >
-            <FiGithub />
+            <span className={`${Styles.tooltip} ${Styles.tooltipTop}`} data-text="GitHub Profile">
+              <FiGithub />
+              <span className={Styles.tooltipText}>
+                GitHub Profile <FiExternalLink />
+              </span>
+            </span>
           </a>
         </div>
       </div>

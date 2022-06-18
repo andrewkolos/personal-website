@@ -4,7 +4,7 @@ import { Key } from 'ts-key-enum'
 import { Toast, ToastData } from './toast/toast'
 
 export interface DiscordButtonProps {
-  className: string
+  className?: string
 }
 
 const DISCORD_USERNAME = 'AndrewBagel#2199'
@@ -42,4 +42,8 @@ export const DiscordButton: React.FC<DiscordButtonProps> = ({ className }) => {
       <Toast toastList={toastsList} />
     </>
   )
+}
+
+DiscordButton.defaultProps = {
+  className: '',
 }
