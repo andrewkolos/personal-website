@@ -28,3 +28,9 @@
   border: 1px solid $accent;
   color: $accent;
 }
+
+.additionalContent {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.25s linear;
+}

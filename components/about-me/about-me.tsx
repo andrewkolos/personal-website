@@ -6,6 +6,21 @@ import GameShowcase from './game-showcase/game-showcase'
 
 const AboutMe: React.FC<{}> = () => {
   const [aboutMeExpanded, setAboutMeExpanded] = React.useState(false)
+  const additionalContentDiv: React.Ref<HTMLDivElement> = React.useRef(null)
+
+  React.useEffect(() => {
+    const { current } = additionalContentDiv
+    if (current == null) return
+
+    if (aboutMeExpanded) {
+      current.style.height = `${Array.from(current.childNodes).reduce(
+        (s, c) => s + ((c as HTMLElement).clientHeight || 0),
+        0,
+      )}px`
+    } else {
+      current.style.height = '0px'
+    }
+  }, [aboutMeExpanded])
 
   return (
     <div className={Styles.container}>
@@ -29,23 +44,25 @@ const AboutMe: React.FC<{}> = () => {
         Show more...
       </button>
 
-      <div hidden={!aboutMeExpanded}>
-        <h2>What I&#39;m up to</h2>
+      <div className={Styles.additionalContent} hidden={!aboutMeExpanded} ref={additionalContentDiv}>
+        <div>
+          <h2>What I&#39;m up to</h2>
 
-        <h3>Work</h3>
-        <p>
-          I work at Capital One. I take part in enabling our contact center call quality assessment process, playing a
-          crucial role in call/contact ingestion. Most of my work is backend, working on realtime and batch ingestion of
-          customer contacts into our platform, with some on-off core API and frontend development.
-        </p>
-        <h3>Upcoming Plans</h3>
-        <p>
-          I am enrolled in <a href="https://omscs.gatech.edu/">Georgia Tech&#39;s OMSCS program</a> for the Fall 2022
-          semester. I&#39;ll start taking some graduate courses to explore more potential interests and hopefully
-          develop an interest within a specialized field in computer science.
-        </p>
-        <h3>Recently Played Video Games</h3>
-        <GameShowcase />
+          <h3>Work</h3>
+          <p>
+            I work at Capital One. I take part in enabling our contact center call quality assessment process, playing a
+            crucial role in call/contact ingestion. Most of my work is backend, working on realtime and batch ingestion
+            of customer contacts into our platform, with some on-off core API and frontend development.
+          </p>
+          <h3>Upcoming Plans</h3>
+          <p>
+            I am enrolled in <a href="https://omscs.gatech.edu/">Georgia Tech&#39;s OMSCS program</a> for the Fall 2022
+            semester. I&#39;ll start taking some graduate courses to explore more potential interests and hopefully
+            develop an interest within a specialized field in computer science.
+          </p>
+          <h3>Recently Played Video Games</h3>
+          <GameShowcase />
+        </div>
       </div>
     </div>
   )
