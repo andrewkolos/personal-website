@@ -2,7 +2,6 @@ import Image from 'next/image'
 import * as React from 'react'
 import portrait from '../../public/portrait.jpg'
 import Styles from './about-me.module.scss'
-import GameShowcase from './game-showcase/game-showcase'
 
 const AboutMe: React.FC<{}> = () => {
   const [aboutMeExpanded, setAboutMeExpanded] = React.useState(false)
