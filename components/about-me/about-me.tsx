@@ -6,31 +6,39 @@ import Styles from './about-me.module.scss'
 
 const AboutMe: React.FC<{}> = () => {
   const [aboutMeExpanded, setAboutMeExpanded] = React.useState(false)
-  const additionalContentDiv: React.Ref<HTMLDivElement> = React.useRef(null)
+  const additionalContentDiv: React.RefObject<HTMLDivElement> = React.useRef(null)
 
   React.useEffect(() => {
-    const { current } = additionalContentDiv
-    if (current == null) return
-    const height = getAboutMeContentsHeightPx(current)
-    if (height < 300) {
+    const listener = () => updateAboutMeContentsHeight()
+    window.addEventListener('resize', listener)
+    return () => window.removeEventListener('resize', listener)
+  })
+
+  React.useEffect(() => {
+    if (window.innerWidth > 800) {
       setAboutMeExpanded(true)
     }
   })
 
   React.useEffect(() => {
-    const { current } = additionalContentDiv
-    if (current == null) return
-
-    const aboutMeContentsHeightPx = getAboutMeContentsHeightPx(current)
-    if (aboutMeExpanded) {
-      current.style.height = `${aboutMeContentsHeightPx}px`
-    } else {
-      current.style.height = '0px'
-    }
+    updateAboutMeContentsHeight()
   }, [aboutMeExpanded])
 
   function getAboutMeContentsHeightPx(ref: HTMLDivElement) {
     return Array.from(ref.childNodes).reduce((s, c) => s + ((c as HTMLElement).clientHeight || 0), 0)
+  }
+
+  function updateAboutMeContentsHeight() {
+    const { current } = additionalContentDiv
+    if (current == null) return
+    const aboutMeContentsHeightPx = getAboutMeContentsHeightPx(current)
+    if (aboutMeExpanded) {
+      // eslint-disable-next-line no-param-reassign
+      current.style.height = `${aboutMeContentsHeightPx}px`
+    } else {
+      // eslint-disable-next-line no-param-reassign
+      current.style.height = '0px'
+    }
   }
 
   return (
