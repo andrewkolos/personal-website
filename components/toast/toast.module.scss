@@ -78,8 +78,8 @@
 .bottomRight {
   bottom: 12px;
   right: 12px;
-  transition: transform 0.6s ease-in-out;
-  animation: toast-in-right 0.7s;
+  transition: transform 0.3s ease-in-out;
+  animation: toast-in-right 0.3s;
 }
 
 @keyframes toast-in-right {

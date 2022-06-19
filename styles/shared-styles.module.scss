@@ -38,7 +38,6 @@
 }
 
 .tooltip {
-  display: block;
   position: relative;
   text-align: center;
 }
@@ -51,7 +50,7 @@
   /* Horizontally center */
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 
   white-space: nowrap;
   min-width: 150px;
@@ -59,12 +58,14 @@
   border-radius: 3px;
   background: $primary;
   color: #dfdfdf;
-  display: none;
+  opacity: 0;
   z-index: 9999;
+  transition: opacity 0.2s;
 }
 
 .tooltip:hover .tooltipText {
-  display: block;
+  opacity: 1;
+  transition: opacity 0.3s;
 }
 
 .tooltipTop .tooltipText {
@@ -80,29 +81,15 @@
   /* position tooltip correctly */
   left: 50%;
   margin-left: -10px;
-  margin-top: -15px;
+  margin-top: -20px;
 
   /* vertically center */
   top: 0%;
 
   /* the arrow */
-  border: 10px solid $primary;
+  border: 9px solid $primary;
+  transition: opacity 0.2s;
   border-color: $primary transparent transparent transparent;
-
-  display: none;
-}
-.tooltip:hover:before,
-.tooltip:hover:after {
-  display: block;
-}
-
-.tooltip:before {
-  /* other styles */
-
-  /*  display:none; */
-
-  opacity: 0;
-  transition: 0.3s opacity;
 }
 
 .tooltip:hover:before {
@@ -111,8 +98,8 @@
 
 .tooltip:after {
   opacity: 0;
-  transition: 0.3s;
 }
 .tooltip:hover:after {
+  transition: 0.3s;
   opacity: 1;
 }

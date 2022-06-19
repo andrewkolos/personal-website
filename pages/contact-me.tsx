@@ -42,11 +42,13 @@ const ContactMePage: React.FC = () => {
               </span>
             </span>
           </a>
-          <span className={`${Styles.tooltip} ${Styles.tooltipTop} ${Styles.link}`}>
-            <DiscordButton />
-            <span className={Styles.tooltipText}>
-              {' '}
-              Copy Discord Username <RiFileCopyLine />{' '}
+          <span className={Styles.link}>
+            <span className={`${Styles.tooltip} ${Styles.tooltipTop}`}>
+              <DiscordButton />
+              <span className={Styles.tooltipText}>
+                {' '}
+                Copy Discord Username <RiFileCopyLine />{' '}
+              </span>
             </span>
           </span>
           <a
