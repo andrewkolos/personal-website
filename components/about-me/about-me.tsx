@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import * as React from 'react'
+import { FiExternalLink } from 'react-icons/fi'
 import portrait from '../../public/portrait.jpg'
 import Styles from './about-me.module.scss'
 
@@ -10,16 +11,27 @@ const AboutMe: React.FC<{}> = () => {
   React.useEffect(() => {
     const { current } = additionalContentDiv
     if (current == null) return
+    const height = getAboutMeContentsHeightPx(current)
+    if (height < 300) {
+      setAboutMeExpanded(true)
+    }
+  })
 
+  React.useEffect(() => {
+    const { current } = additionalContentDiv
+    if (current == null) return
+
+    const aboutMeContentsHeightPx = getAboutMeContentsHeightPx(current)
     if (aboutMeExpanded) {
-      current.style.height = `${Array.from(current.childNodes).reduce(
-        (s, c) => s + ((c as HTMLElement).clientHeight || 0),
-        0,
-      )}px`
+      current.style.height = `${aboutMeContentsHeightPx}px`
     } else {
       current.style.height = '0px'
     }
   }, [aboutMeExpanded])
+
+  function getAboutMeContentsHeightPx(ref: HTMLDivElement) {
+    return Array.from(ref.childNodes).reduce((s, c) => s + ((c as HTMLElement).clientHeight || 0), 0)
+  }
 
   return (
     <div className={Styles.container}>
@@ -46,19 +58,33 @@ const AboutMe: React.FC<{}> = () => {
       <div className={Styles.additionalContent} hidden={!aboutMeExpanded} ref={additionalContentDiv}>
         <div>
           <h2>What I&#39;m up to</h2>
-
-          <h3>Work</h3>
-          <p>
-            I work at Capital One. I take part in enabling our contact center call quality assessment process, playing a
-            crucial role in call/contact ingestion. Most of my work is backend, working on realtime and batch ingestion
-            of customer contacts into our platform, with some on-off core API and frontend development.
-          </p>
-          <h3>Upcoming Plans</h3>
-          <p>
-            I am enrolled in <a href="https://omscs.gatech.edu/">Georgia Tech&#39;s OMSCS program</a> for the Fall 2022
-            semester. I&#39;ll start taking some graduate courses to explore more potential interests and hopefully
-            develop an interest within a specialized field in computer science.
-          </p>
+          <ul>
+            <li>
+              Working at Capital One, doing primarily data ingestion, using Node with TypeScript on cloud-native AWS
+              services.
+            </li>
+            <li>
+              Enrolled in{' '}
+              <a href="https://omscs.gatech.edu/" target="blank">
+                Georgia Tech&#39;s OMSCS program <FiExternalLink />
+              </a>{' '}
+              for the Fall 2022 semester.
+            </li>
+            <li>
+              Learning{' '}
+              <a href="https://flutter.dev/" target="blank">
+                Flutter <FiExternalLink />
+              </a>
+              .
+            </li>
+            <li>
+              Casually reading{' '}
+              <a href="https://abseil.io/resources/swe-book" target="blank">
+                Software Engineering at Google <FiExternalLink />
+              </a>
+              .
+            </li>
+          </ul>
         </div>
       </div>
     </div>
