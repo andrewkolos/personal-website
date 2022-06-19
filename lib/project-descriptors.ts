@@ -17,11 +17,12 @@ export const libraryProjects: ProjectDescriptor[] = [
   },
   {
     owner: me,
-    name: 's3-object-location-parsing'
-  }
+    name: 's3-object-location-parsing',
+  },
 ]
 
 export const otherProjects: ProjectDescriptor[] = [
+  { owner: me, name: 'evergreen-github-companion' },
   {
     owner: me,
     name: 'hybot-discord-elo-bot',
