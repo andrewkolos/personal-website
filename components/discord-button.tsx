@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SiDiscord } from 'react-icons/si'
+import { FaDiscord } from 'react-icons/fa'
 import { Key } from 'ts-key-enum'
 import { Toast, ToastData } from './toast/toast'
 
@@ -37,7 +37,7 @@ export const DiscordButton: React.FC<DiscordButtonProps> = ({ className }) => {
           }
         }}
       >
-        <SiDiscord />
+        <FaDiscord />
       </a>
       <Toast toastList={toastsList} />
     </>

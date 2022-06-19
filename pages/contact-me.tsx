@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import { FiGithub, FiLinkedin, FiMail, FiExternalLink } from 'react-icons/fi'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FiExternalLink } from 'react-icons/fi'
+import { IoMdMail } from 'react-icons/io'
 import { RiFileCopyLine } from 'react-icons/ri'
 import { DiscordButton } from '../components/discord-button'
 import Layout from '../components/layout/layout'
@@ -21,7 +23,7 @@ const ContactMePage: React.FC = () => {
             target="blank"
           >
             <span className={`${Styles.tooltip} ${Styles.tooltipTop}`}>
-              <FiLinkedin />
+              <FaLinkedin />
               <span className={Styles.tooltipText}>
                 {' '}
                 LinkedIn Profile <FiExternalLink />{' '}
@@ -35,7 +37,7 @@ const ContactMePage: React.FC = () => {
             target="blank"
           >
             <span className={`${Styles.tooltip} ${Styles.tooltipTop}`} data-text="Email me">
-              <FiMail />
+              <IoMdMail />
               <span className={Styles.tooltipText}>
                 {' '}
                 Email me <FiExternalLink />{' '}
@@ -57,8 +59,8 @@ const ContactMePage: React.FC = () => {
             aria-label="Link to Andrew Kolos' GitHub profile"
             target="blank"
           >
-            <span className={`${Styles.tooltip} ${Styles.tooltipTop}`} data-text="GitHub Profile">
-              <FiGithub />
+            <span className={`${Styles.tooltip} ${Styles.tooltipTop}`}>
+              <FaGithub />
               <span className={Styles.tooltipText}>
                 GitHub Profile <FiExternalLink />
               </span>

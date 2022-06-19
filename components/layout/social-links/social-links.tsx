@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
-import { DiscordButton } from '../../discord-button'
 import Styles from './social-links.module.scss'
 
 export const SocialLinks: React.FC = () => (
@@ -30,7 +29,6 @@ export const SocialLinks: React.FC = () => (
       >
         <FiMail />
       </a>
-      <DiscordButton className={Styles.link} />
     </div>
   </div>
 )

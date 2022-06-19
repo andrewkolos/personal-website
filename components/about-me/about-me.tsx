@@ -30,7 +30,7 @@ const AboutMe: React.FC<{}> = () => {
       </div>
       <p className={Styles.content}>
         Hello, I enjoy programming and am most experienced in full-stack web dev. I like to think about application and
-        code architecture/design. I also enjoy developing features for applications. When I&quot;m not programming or
+        code architecture/design. I also enjoy developing features for applications. When I&apos;m not programming or
         reading about it, I spend most of my time playing video games, particularly single-player indie titles or co-op
         games.
       </p>
@@ -60,8 +60,6 @@ const AboutMe: React.FC<{}> = () => {
             semester. I&#39;ll start taking some graduate courses to explore more potential interests and hopefully
             develop an interest within a specialized field in computer science.
           </p>
-          <h3>Recently Played Video Games</h3>
-          <GameShowcase />
         </div>
       </div>
     </div>
