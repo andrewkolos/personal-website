@@ -16,6 +16,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #f8f8f8;
     color: hsla(0, 0%, 0%, 0.8);
+    // Make body take all of viewport. Important for dark mode browser extensions.
+    // Avoids background after end of page being a different shade of black.
+    height: 100vh;
     font-family: georgia, serif;
     font-weight: normal;
     word-wrap: break-word;
