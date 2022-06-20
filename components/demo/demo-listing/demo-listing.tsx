@@ -1,7 +1,8 @@
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FiGithub } from 'react-icons/fi'
+
+import { FaExternalLinkAlt } from 'react-icons/fa'
 import { Demo } from '../../../lib/demos'
 import Styles from './demo-listing.module.scss'
 
@@ -29,14 +30,16 @@ const DemoListing: React.FunctionComponent<DemoListingProps> = ({ thumbnail, dem
       {demoInfo.kind === 'non-interactive' && <a href={demoUrl}>{img}</a>}
       <div className={Styles.textContent}>
         <Link href={demoInfo.kind === 'interactive' ? `demos/${demoInfo.urlName}` : repoUrl}>
-          <a className={Styles.titleContainer}>
-            <h2 className={Styles.title}>{name}</h2>
+          <a className={Styles.titleContainer} target="blank">
+            <h2 className={Styles.title}>
+              {name} {demoInfo.kind === 'non-interactive' && <FaExternalLinkAlt />}
+            </h2>
           </a>
         </Link>
         <p className={Styles.excerpt}>{description}&nbsp;</p>
-        <a href={repoUrl}>
-          <FiGithub className={Styles.gitHubIcon} size="14" />
+        <a href={repoUrl} target="blank">
           GitHub
+          <FaExternalLinkAlt style={{ marginLeft: '4px' }} size="14" />
         </a>
       </div>
     </div>

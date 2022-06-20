@@ -63,8 +63,8 @@ function pathSum(root: TreeNode | null, sum: number): number {
   return (
     continueSearch(root, 0, sum) + // 1. Include root in our sum and continue searching.
     pathSum(root.left, sum) + // 2. Ignore root and explore left subtree.
-    pathSum(root.right, sum)
-  ) // 3. Ignore root and explore right subtree.
+    pathSum(root.right, sum) // 3. Ignore root and explore right subtree.
+  )
 }
 
 function continueSearch(node: TreeNode | null, currentSum: number, targetSum: number): number {
@@ -75,8 +75,8 @@ function continueSearch(node: TreeNode | null, currentSum: number, targetSum: nu
   return (
     (newSum === targetSum ? 1 : 0) + // Check if we reached the target, if so, add one to result.
     continueSearch(node.left, newSum, targetSum) + // Continue down left subtree with our updated sum.
-    continueSearch(node.right, newSum, targetSum)
-  ) // Continue down right subtree with our updated sum.
+    continueSearch(node.right, newSum, targetSum) // Continue down right subtree with our updated sum.
+  )
 }
 ```
 

@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { FiExternalLink } from 'react-icons/fi'
+import { FaGithub, FaLinkedin, FaExternalLinkAlt } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
 import { RiFileCopyLine } from 'react-icons/ri'
 import { DiscordButton } from '../components/discord-button'
@@ -26,7 +25,7 @@ const ContactMePage: React.FC = () => {
               <FaLinkedin />
               <span className={Styles.tooltipText}>
                 {' '}
-                LinkedIn Profile <FiExternalLink />{' '}
+                LinkedIn Profile <FaExternalLinkAlt />{' '}
               </span>
             </span>
           </a>
@@ -40,7 +39,7 @@ const ContactMePage: React.FC = () => {
               <IoMdMail />
               <span className={Styles.tooltipText}>
                 {' '}
-                Email me <FiExternalLink />{' '}
+                Email me <FaExternalLinkAlt />{' '}
               </span>
             </span>
           </a>
@@ -62,7 +61,7 @@ const ContactMePage: React.FC = () => {
             <span className={`${Styles.tooltip} ${Styles.tooltipTop}`}>
               <FaGithub />
               <span className={Styles.tooltipText}>
-                GitHub Profile <FiExternalLink />
+                GitHub Profile <FaExternalLinkAlt />
               </span>
             </span>
           </a>

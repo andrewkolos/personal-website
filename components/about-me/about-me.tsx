@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import * as React from 'react'
-import { FiExternalLink } from 'react-icons/fi'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 import portrait from '../../public/portrait.jpg'
 import Styles from './about-me.module.scss'
 
@@ -74,21 +74,21 @@ const AboutMe: React.FC<{}> = () => {
             <li>
               Enrolled in{' '}
               <a href="https://omscs.gatech.edu/" target="blank">
-                Georgia Tech&#39;s OMSCS program <FiExternalLink />
+                Georgia Tech&#39;s OMSCS program <FaExternalLinkAlt />
               </a>{' '}
               for the Fall 2022 semester.
             </li>
             <li>
               Learning{' '}
               <a href="https://flutter.dev/" target="blank">
-                Flutter <FiExternalLink />
+                Flutter <FaExternalLinkAlt />
               </a>
               .
             </li>
             <li>
               Casually reading{' '}
               <a href="https://abseil.io/resources/swe-book" target="blank">
-                Software Engineering at Google <FiExternalLink />
+                Software Engineering at Google <FaExternalLinkAlt />
               </a>
               .
             </li>

@@ -14,6 +14,6 @@ export async function getPostData(id: string): Promise<BlogPostData> {
   return BlogPostData.parse({
     id,
     ...matterResult.data,
-    compiledSource: ((await serialize(matterResult.content)).compiledSource),
+    compiledSource: (await serialize(matterResult.content)).compiledSource,
   })
 }
