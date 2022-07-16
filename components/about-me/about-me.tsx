@@ -31,6 +31,7 @@ const AboutMe: React.FC<{}> = () => {
   function updateAboutMeContentsHeight() {
     const { current } = additionalContentDiv
     if (current == null) return
+
     const aboutMeContentsHeightPx = getAboutMeContentsHeightPx(current)
     if (aboutMeExpanded) {
       // eslint-disable-next-line no-param-reassign
@@ -68,8 +69,12 @@ const AboutMe: React.FC<{}> = () => {
           <h2>What I&#39;m up to</h2>
           <ul>
             <li>
-              Working at Capital One, doing primarily data ingestion, using Node with TypeScript on cloud-native AWS
-              services.
+              Just moved on from Capital One, where I primary worked on data ingestion using Node with TypeScript on
+              cloud-native AWS services. In August, I will be starting at Google working on{' '}
+              <a href="https://flutter.dev" target="blank">
+                Flutter <FaExternalLinkAlt />
+              </a>
+              .
             </li>
             <li>
               Enrolled in{' '}
