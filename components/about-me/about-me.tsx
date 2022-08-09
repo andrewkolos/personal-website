@@ -51,8 +51,8 @@ const AboutMe: React.FC<{}> = () => {
       <p className={Styles.content}>
         Hello! I enjoy programming and am most experienced in full-stack web dev. Topics that interest me include
         software architecture, code/API design, and developer productivity/happiness. When I&apos;m not programming or
-        reading about it, I spend most of my time playing video games, particularly single-player indie titles or co-op
-        games.
+        reading about it, I spend most of my time playing video games, particularly shorter single-player titles or
+        team-based games.
       </p>
 
       <button
@@ -69,12 +69,11 @@ const AboutMe: React.FC<{}> = () => {
           <h2>What I&#39;m up to</h2>
           <ul>
             <li>
-              Just moved on from Capital One, where I primary worked on data ingestion using Node with TypeScript on
-              cloud-native AWS services. In August, I will be starting at Google working on{' '}
+              Working on{' '}
               <a href="https://flutter.dev" target="blank">
                 Flutter <FaExternalLinkAlt />
-              </a>
-              .
+              </a>{' '}
+              at Google, focused primarily on tools.
             </li>
             <li>
               Enrolled in{' '}
