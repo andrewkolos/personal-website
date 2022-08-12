@@ -10,6 +10,14 @@ export interface ReadingListEntry {
 
 const data: ReadingListEntry[] = [
   {
+    date: '2022/08/12',
+    title: 'Crafting Interpreters - Representing Code',
+    url: 'https://craftinginterpreters.com/representing-code.html',
+    blurb: dedent`While this part of this book is how to have multiple components (e.g. parser and interpreter) work on an the same abstract syntax tree (AST), I find it particularly
+    interesting for it's fantastic explanation and discussion on the Visitor OOD pattern. The Visitor pattern very much confused me when I first encountered it right out of college,
+    and I think this is the explanation and example I really could have used back then.`,
+  },
+  {
     date: '2022/5/15',
     title: 'EventBridge Storming — How to build state-of-the-art Event-Driven Serverless Architectures',
     url: 'https://medium.com/serverless-transformation/eventbridge-storming-how-to-build-state-of-the-art-event-driven-serverless-architectures-e07270d4dee',
