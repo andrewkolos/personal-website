@@ -73,7 +73,7 @@ const AboutMe: React.FC<{}> = () => {
               <a href="https://flutter.dev" target="blank">
                 Flutter <FaExternalLinkAlt />
               </a>{' '}
-              at Google, focused primarily on tools.
+              at Google, focused primarily on the command-line tool.
             </li>
             <li>
               Enrolled in{' '}
@@ -81,20 +81,6 @@ const AboutMe: React.FC<{}> = () => {
                 Georgia Tech&#39;s OMSCS program <FaExternalLinkAlt />
               </a>{' '}
               for the Fall 2022 semester.
-            </li>
-            <li>
-              Learning{' '}
-              <a href="https://flutter.dev/" target="blank">
-                Flutter <FaExternalLinkAlt />
-              </a>
-              .
-            </li>
-            <li>
-              Slowly reading{' '}
-              <a href="https://abseil.io/resources/swe-book" target="blank">
-                Software Engineering at Google <FaExternalLinkAlt />
-              </a>
-              .
             </li>
           </ul>
         </div>
