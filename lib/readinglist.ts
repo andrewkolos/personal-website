@@ -13,7 +13,7 @@ const data: ReadingListEntry[] = [
     date: '2022/08/12',
     title: 'Crafting Interpreters - Representing Code',
     url: 'https://craftinginterpreters.com/representing-code.html',
-    blurb: dedent`While this part of this book is how to have multiple components (e.g. parser and interpreter) work on an the same abstract syntax tree (AST), I find it particularly
+    blurb: dedent`While this part of this book discusses how to have multiple components (e.g. parser and interpreter) work on an the same abstract syntax tree (AST), I find it particularly
     interesting for it's fantastic explanation and discussion on the Visitor OOD pattern. The Visitor pattern very much confused me when I first encountered it right out of college,
     and I think this is the explanation and example I really could have used back then.`,
   },
