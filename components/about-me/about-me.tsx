@@ -82,9 +82,6 @@ const AboutMe: React.FC<{}> = () => {
               </a>, taking{' '}
               <a href="https://omscs.gatech.edu/cs-6340-software-analysis" target="blank">
                CS6340 - Software Analysis and Testing <FaExternalLinkAlt />
-              </a> {' '} and {' '}
-              <a href="https://omscs.gatech.edu/cs-6250-computer-networks" target="blank">
-                CS6250 - Computer Networks <FaExternalLinkAlt />
               </a>.
             </li>
           </ul>
