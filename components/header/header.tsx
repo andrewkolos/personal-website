@@ -18,16 +18,10 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
         <nav ref={navRef}>
           <ul className={Styles.navLinkContainer}>
             <NavLink to="/" activeclassname={Styles.navLinkActive}>
-              Blog
-            </NavLink>
-            <NavLink to="/projects" activeclassname={Styles.navLinkActive}>
-              Projects
+              Home
             </NavLink>
             <NavLink to="/demos" activeclassname={Styles.navLinkActive}>
               Games/Demos
-            </NavLink>
-            <NavLink to="/reading-list" activeclassname={Styles.navLinkActive}>
-              Reading List
             </NavLink>
             <NavLink to="/contact-me" activeclassname={Styles.navLinkActive}>
               Contact
