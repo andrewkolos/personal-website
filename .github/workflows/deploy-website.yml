@@ -20,7 +20,6 @@ jobs:
       - name: Netlify Deploy
         working-directory: .
         env:
-          DISQUS_NAME: ${{ secrets.DISQUS_NAME }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |

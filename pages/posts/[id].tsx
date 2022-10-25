@@ -1,5 +1,3 @@
-import dedent from 'dedent'
-import { DiscussionEmbed } from 'disqus-react'
 import { MDXRemote } from 'next-mdx-remote'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -21,12 +19,11 @@ const components = {
 }
 
 export interface BlogPostProps extends BlogPostData {
-  disqusShortname: string
 }
 
 const BlogPost: React.FC<BlogPostProps> = (props) => {
   const router = useRouter()
-  const { title, subtitle, excerpt, tags, id, date, compiledSource, disqusShortname } = props
+  const { title, subtitle, excerpt, tags, date, compiledSource } = props
 
   return (
     <Layout pathName={router.pathname}>
@@ -40,7 +37,6 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
             <MDXRemote compiledSource={compiledSource} components={components as any} />{' '}
             {/* Not sure why type assertion is needed here. */}
           </div>
-          <DiscussionEmbed shortname={disqusShortname} config={{ identifier: id, title }} />
         </div>
       </div>
     </Layout>
@@ -60,22 +56,11 @@ export const getStaticPaths: GetStaticPaths<PathParams> = () => {
 }
 
 export const getStaticProps: GetStaticProps<BlogPostProps, PathParams> = async (context) => {
-  const disqusShortname = process.env.DISQUS_NAME
-
-  if (!disqusShortname) {
-    throw Error(dedent`Disqus name was empty/undefined. Retrieve it from the
-      Disqus web console and provide it in the DISQUS_NAME env variable.`)
-  }
-
   const params = getParamsFromStaticPropsContext(context)
   const postData = await getPostData(params.id)
 
-  if (postData == null) {
-    throw Error()
-  }
-
   return {
-    props: { disqusShortname, ...postData },
+    props: {...postData },
   }
 }
 
