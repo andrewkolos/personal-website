@@ -25,7 +25,7 @@ export const interactiveDemos: InteractiveDemo[] = [
     id: 'bastion-breach-3d',
     description: 'A short card game.',
     repoUrl: 'https://github.com/andrewkolos/bastion-breach-3d',
-    demoUrl: 'https://bastion-breach-3d.herokuapp.com',
+    demoUrl: 'https://jazzy-queijadas-597b8d.netlify.app/',
   },
   {
     kind: 'interactive',
@@ -34,16 +34,7 @@ export const interactiveDemos: InteractiveDemo[] = [
     id: 'pong-3d',
     description: 'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E.',
     repoUrl: 'https://github.com/andrewkolos/synchronized-pong-3d',
-    demoUrl: 'https://andrew-pong-3d.herokuapp.com/',
-  },
-  {
-    kind: 'interactive',
-    name: 'Swoocebooks Lite',
-    urlName: 'swoocebooks-lite',
-    id: 'swoocebooks-lite',
-    description: 'Calculates a grade for a course and tells you how well you need to do to get the grade you want.',
-    repoUrl: 'https://github.com/andrewkolos/swoocebooks-lite',
-    demoUrl: 'https://swoocebooks-lite.herokuapp.com/index.html',
+    demoUrl: 'https://meek-frangollo-a11f3a.netlify.app/',
   },
   {
     kind: 'interactive',
@@ -52,7 +43,7 @@ export const interactiveDemos: InteractiveDemo[] = [
     id: 'online-game-synchronization-framework',
     description: 'Framework for smoothly synchronizing online games.',
     repoUrl: 'https://github.com/andrewkolos/simple-online-game-syncrhonization-framework',
-    demoUrl: 'https://game-synchronization-framework.herokuapp.com/',
+    demoUrl: 'https://precious-boba-b48abe.netlify.app/',
   },
 ]
 
