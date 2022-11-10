@@ -25,7 +25,7 @@ export const interactiveDemos: InteractiveDemo[] = [
     id: 'bastion-breach-3d',
     description: 'A short card game.',
     repoUrl: 'https://github.com/andrewkolos/bastion-breach-3d',
-    demoUrl: 'https://jazzy-queijadas-597b8d.netlify.app/',
+    demoUrl: 'https://bastion-breach-3d.netlify.app/',
   },
   {
     kind: 'interactive',
@@ -34,7 +34,7 @@ export const interactiveDemos: InteractiveDemo[] = [
     id: 'pong-3d',
     description: 'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E.',
     repoUrl: 'https://github.com/andrewkolos/synchronized-pong-3d',
-    demoUrl: 'https://meek-frangollo-a11f3a.netlify.app/',
+    demoUrl: 'https://andrew-kolos-pong-3d.netlify.app/',
   },
   {
     kind: 'interactive',
@@ -43,7 +43,7 @@ export const interactiveDemos: InteractiveDemo[] = [
     id: 'online-game-synchronization-framework',
     description: 'Framework for smoothly synchronizing online games.',
     repoUrl: 'https://github.com/andrewkolos/simple-online-game-syncrhonization-framework',
-    demoUrl: 'https://precious-boba-b48abe.netlify.app/',
+    demoUrl: 'https://andrew-kolos-game-sync.netlify.app/',
   },
 ]
 
