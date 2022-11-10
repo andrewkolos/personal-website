@@ -55,9 +55,7 @@ const DemoPage: React.FC<DemoPageProps> = (props) => {
               <div />
             </div>
           </div>
-          Hello! The server is being rehydrated.
-          <br />
-          This could take up to 15 seconds.
+          Loading
         </div>
       </div>
 
