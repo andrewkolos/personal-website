@@ -32,7 +32,8 @@ export const interactiveDemos: InteractiveDemo[] = [
     name: 'Pong 3D',
     urlName: 'pong-3d',
     id: 'pong-3d',
-    description: 'The classic, but now with a twist. Move around with the WASD keys and rotate with Q and E.',
+    description:
+      'The classic, but with a twist. Move around with WASD and rotate with ← and →, or use the analog sticks on your gamepad.',
     repoUrl: 'https://github.com/andrewkolos/synchronized-pong-3d',
     demoUrl: 'https://andrew-kolos-pong-3d.netlify.app/',
   },
