@@ -49,10 +49,9 @@ const AboutMe: React.FC<{}> = () => {
         <Image src={portrait} alt="Portrait of Andrew Kolos" className={Styles.portrait} width={128} height={128} />
       </div>
       <p className={Styles.content}>
-        Hello! I enjoy programming and am most experienced in full-stack web dev. Topics that interest me include
-        software architecture, code/API design, and developer productivity/happiness. When I&apos;m not programming or
-        reading about it, I spend most of my time playing video games, particularly shorter single-player titles or
-        team-based games.
+        Hello! I enjoy programming. Topics that interest me include software architecture, code/API design, and
+        developer productivity/happiness. Outside of work and hobby programming, I spend most of my time playing video
+        games, particularly smaller single-player titles or team-based multiplayer games.
       </p>
 
       <button
@@ -73,16 +72,7 @@ const AboutMe: React.FC<{}> = () => {
               <a href="https://flutter.dev" target="blank">
                 Flutter <FaExternalLinkAlt />
               </a>{' '}
-              at Google, focused primarily on the command-line tool.
-            </li>
-            <li>
-              Enrolled in{' '}
-              <a href="https://omscs.gatech.edu/" target="blank">
-                Georgia Tech&#39;s OMSCS program <FaExternalLinkAlt />
-              </a>, taking{' '}
-              <a href="https://omscs.gatech.edu/cs-6340-software-analysis" target="blank">
-               CS6340 - Software Analysis and Testing <FaExternalLinkAlt />
-              </a>.
+              at Google, focused primarily on tooling.
             </li>
           </ul>
         </div>
