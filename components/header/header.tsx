@@ -11,7 +11,7 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
     <header className={Styles.header}>
       <div className={Styles.container}>
         <span className={Styles.titleContainer}>
-          <Link href="/">
+          <Link legacyBehavior href="/">
             <a className={Styles.title}>{siteTitle}</a>
           </Link>
         </span>
@@ -22,6 +22,9 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
             </NavLink>
             <NavLink to="/demos" activeclassname={Styles.navLinkActive}>
               Games/Demos
+            </NavLink>
+            <NavLink to="/art" activeclassname={Styles.navLinkActive}>
+              Art
             </NavLink>
             <NavLink to="/contact-me" activeclassname={Styles.navLinkActive}>
               Contact

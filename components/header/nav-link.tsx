@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import ActiveLink from '../active-link'
 
-interface NavLinkProps {
+interface NavLinkProps extends PropsWithChildren {
   to: string
   className?: string
   activeclassname: string

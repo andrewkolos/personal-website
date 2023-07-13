@@ -1,5 +1,4 @@
 const path = require('path')
-const withPWA = require('next-pwa')
 
 require('dotenv').config()
 
@@ -12,12 +11,7 @@ const withMDX = require('@next/mdx')({
   },
 })
 
-module.exports = withPWA({
-  pwa: {
-    dest: 'public',
-    register: true,
-    skipWaiting: true,
-  },
+module.exports = {
   ...withMDX({
     // Append the default value with md extensions
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -25,4 +19,4 @@ module.exports = withPWA({
       includePaths: [path.join(__dirname)],
     },
   }),
-})
+}

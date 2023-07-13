@@ -23,13 +23,13 @@ const DemoListing: React.FunctionComponent<DemoListingProps> = ({ thumbnail, dem
   return (
     <div className={Styles.container} key={name}>
       {demoInfo.kind === 'interactive' && (
-        <Link href={`demos/${demoInfo.urlName}`}>
+        <Link legacyBehavior href={`demos/${demoInfo.urlName}`}>
           <a>{img}</a>
         </Link>
       )}
       {demoInfo.kind === 'non-interactive' && <a href={demoUrl}>{img}</a>}
       <div className={Styles.textContent}>
-        <Link href={demoInfo.kind === 'interactive' ? `demos/${demoInfo.urlName}` : repoUrl}>
+        <Link legacyBehavior href={demoInfo.kind === 'interactive' ? `demos/${demoInfo.urlName}` : repoUrl}>
           <a className={Styles.titleContainer} target="blank">
             <h2 className={Styles.title}>
               {name} {demoInfo.kind === 'non-interactive' && <FaExternalLinkAlt />}

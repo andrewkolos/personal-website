@@ -60,7 +60,7 @@ const DemoPage: React.FC<DemoPageProps> = (props) => {
       </div>
 
       <div className={Styles.returnToSiteContainer}>
-        <Link href="/demos">
+        <Link legacyBehavior href="/demos">
           <a>
             <FiArrowLeft size="14" style={{ paddingLeft: '-2px', marginRight: '2px' }} />
             Return to site

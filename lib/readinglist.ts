@@ -49,7 +49,7 @@ const data: ReadingListEntry[] = [
     url: 'https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/',
     blurb: dedent`It's been a long time since I updated my reading list. I have been keeping myself busy with my new job at Capital One.
       A came across this article when looking for an object schema and declaration validation library for some node-based services at work.
-      
+
       This article does a great job pointing out the utility of separating the duties of 1) input parsing/validation and 2) business logic
       using that input. Not only does this make bugs easier to pin down, it also makes it simpler to reason about the function I'm currently
       looking at. It's nice to not have to have the question "can I assume this parameter is has a valid value" burdening my mind when
@@ -78,7 +78,7 @@ const data: ReadingListEntry[] = [
   {
     title: 'Behavior Trees for AI: How They Work',
     date: '2021/05/16',
-    url: 'https://www.gamasutra.com/blogs/ChrisSimpson/20140717/221339/Behavior_trees_for_AI_How_they_work.php',
+    url: 'https://www.gamedeveloper.com/programming/behavior-trees-for-ai-how-they-work',
     blurb: dedent`
       Demonstrates, at a conceptual level, how relatively complex AI behavior can be achieved by composing simple constructs.
       Since games are huge state-ful applications with complex behavior, it is no surprise that game developers employ
@@ -95,8 +95,8 @@ const data: ReadingListEntry[] = [
     blurb: dedent`
      Interesting example of someone attempting to explain to a client why the smallest of code changes could
      take a decent bit of time to make. Personally, I'd rather do this in -person rather than over email.
-     
-     Additionally, providing a list of all the things done to perform a simple code change in the invoice could is simpler way of 
+
+     Additionally, providing a list of all the things done to perform a simple code change in the invoice could is simpler way of
      exposing the client to a lot the complexity they don't see. This could avoid the need for such an email to begin with.
 
      The Hacker News thread on this article has lots of good discussion around the topic.`,
@@ -104,14 +104,14 @@ const data: ReadingListEntry[] = [
   {
     title: 'How Discord Stores Billions of Messages',
     date: '2021/05/15',
-    url: 'https://blog.discord.com/how-discord-stores-billions-of-messages-7fa6ec7ee4c7#.dzqq7q4o7',
+    url: 'https://discord.com/blog/how-discord-stores-billions-of-messages',
     blurb:
       "A nice case study that walks through the considerations and process of choosing a DB for Discord's scenario.",
   },
   {
     title: 'Simulating Return Type Inference in C#',
     date: '2021/04/09',
-    url: 'https://tyrrrz.me/blog/return-type-inference',
+    url: 'https://tyrrrz.me/blog/target-type-inference',
   },
   {
     title: 'Popular Myths About Relational & No-SQL Databases Explained',

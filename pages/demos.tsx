@@ -36,7 +36,7 @@ const DemosPage: React.FC = () => {
 
   useEffect(() => {
     interactiveDemoListings.forEach((edl) => {
-      fetch(edl.demoInfo.demoUrl, {
+      void fetch(edl.demoInfo.demoUrl, {
         mode: 'no-cors',
       }) // Hack to rehydrate any Heroku servers.
     })

@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import FadeIn from 'react-fade-in'
 import { defaultSiteMetadata } from '../../lib/default-site-metadata'
 import Header from '../header/header'
 import Seo from '../seo'
 import { SocialLinks } from './social-links/social-links'
 
-interface LayoutProps {
-  children: React.ReactNode
+interface LayoutProps extends PropsWithChildren {
   pathName: string
   showFooter?: boolean
 }

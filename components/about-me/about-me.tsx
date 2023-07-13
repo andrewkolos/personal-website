@@ -46,7 +46,14 @@ const AboutMe: React.FC<{}> = () => {
     <div className={Styles.container}>
       <h1>About me</h1>
       <div className={Styles.portraitContainer}>
-        <Image src={portrait} alt="Portrait of Andrew Kolos" className={Styles.portrait} width={128} height={128} />
+        <Image
+          src={portrait}
+          alt="Portrait of Andrew Kolos"
+          className={Styles.portrait}
+          width={128}
+          height={128}
+          quality={100}
+        />
       </div>
       <p className={Styles.content}>
         Hello! I enjoy programming. Topics that interest me include software architecture, code/API design, and

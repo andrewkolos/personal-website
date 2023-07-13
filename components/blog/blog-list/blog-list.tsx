@@ -15,7 +15,7 @@ const BlogList: React.FunctionComponent<BlogListProps> = ({ posts }) => (
       .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
       .map((post) => (
         <div className={Styles.container} key={post.id}>
-          <Link href={`/posts/${post.id}`}>
+          <Link legacyBehavior href={`/posts/${post.id}`}>
             <a className={Styles.titleContainer}>
               <h2 className={Styles.title}>{post.title}</h2>
               <span className={Styles.subtitle}>{post.subtitle}</span>

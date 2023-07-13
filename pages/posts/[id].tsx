@@ -18,8 +18,7 @@ const components = {
   aside: Aside,
 }
 
-export interface BlogPostProps extends BlogPostData {
-}
+export interface BlogPostProps extends BlogPostData {}
 
 const BlogPost: React.FC<BlogPostProps> = (props) => {
   const router = useRouter()
@@ -60,7 +59,7 @@ export const getStaticProps: GetStaticProps<BlogPostProps, PathParams> = async (
   const postData = await getPostData(params.id)
 
   return {
-    props: {...postData },
+    props: { ...postData },
   }
 }
 
