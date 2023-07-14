@@ -1,7 +1,0 @@
-public/art/tortoise.jpg filter=lfs diff=lfs merge=lfs -text
-public/art/tortoise-digital.png filter=lfs diff=lfs merge=lfs -text
-public/art/tea-kettle.jpg filter=lfs diff=lfs merge=lfs -text
-public/art/cardinal.jpg filter=lfs diff=lfs merge=lfs -text
-public/art/hummingbird.jpg filter=lfs diff=lfs merge=lfs -text
-public/art/pear.png filter=lfs diff=lfs merge=lfs -text
-public/art/scrub-jay.jpg filter=lfs diff=lfs merge=lfs -text
