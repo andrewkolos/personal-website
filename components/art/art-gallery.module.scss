@@ -6,19 +6,20 @@ $time: 0.3s;
 .galleryWrapper {
   justify-content: center;
   align-items: center;
-  background-color: #bdd8f1;
 }
 
 .gallery {
   display: grid;
-  transition: all $time ease(gravity);
   grid-template-columns: repeat(4, auto);
-  // grid-gap: .25em;
+  gap: 0.25em;
 
   @media only screen and (max-width: $mobile-breakpoint) {
     grid-template-columns: repeat(2, auto);
   }
 
+  .thumbnail {
+    @extend .boxShadow;
+  }
   .thumbnail img {
     cursor: zoom-in;
 
@@ -70,7 +71,7 @@ $time: 0.3s;
         opacity: 1;
       }
     }
-    & > * {
+    & > div {
       transition: all 450ms ease-in-out;
     }
 

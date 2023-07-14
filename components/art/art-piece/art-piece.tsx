@@ -66,9 +66,13 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
             quality={QUALITY}
           />
           <div className={Styles.content}>
-            <em className={Styles.title}>{entry.title}.</em>
-            <span className={Styles.date}> {new Date(entry.date).toLocaleDateString()}. </span>
-            <a href={`/art/${entry.imageFilename}`} target="_blank" rel="noreferrer"> Uncompressed <FaExternalLinkAlt /> </a>
+            <em className={Styles.title}>{entry.title}. </em>
+            <em>{entry.media}. </em>
+            <span className={Styles.date}>{new Date(entry.date).toLocaleDateString()}. </span>
+            <a className={Styles.light} href={`/art/${entry.imageFilename}`} target="_blank" rel="noreferrer">
+              {' '}
+              Uncompressed image <FaExternalLinkAlt />{' '}
+            </a>
           </div>
           <a
             ref={(e) => {

@@ -17,11 +17,15 @@
 }
 
 .boxShadow {
-  box-shadow: 0 1.6px 3.6px 0 hsla(0, 0%, 0%, 0.132), 0 0.3px 0.9px 0 hsla(0, 0%, 0%, 0.108);
+  box-shadow:
+    0 1.6px 3.6px 0 hsla(0, 0%, 0%, 0.132),
+    0 0.3px 0.9px 0 hsla(0, 0%, 0%, 0.108);
 }
 
 .boxShadowHeavy {
-  box-shadow: 0 3.6px 7.4px 0 hsla(0, 0%, 0%, 0.264), 0 0.6px 1.8px 0 hsla(0, 0%, 0%, 0.216);
+  box-shadow:
+    0 3.6px 7.4px 0 hsla(0, 0%, 0%, 0.264),
+    0 0.6px 1.8px 0 hsla(0, 0%, 0%, 0.216);
 }
 
 .iconLink {
@@ -102,4 +106,12 @@
 .tooltip:hover:after {
   transition: 0.3s;
   opacity: 1;
+}
+
+a.light {
+  color: $primary-lighter;
+}
+
+a.light:hover {
+  color: $primary-lightest;
 }

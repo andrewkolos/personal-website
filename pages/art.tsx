@@ -13,7 +13,7 @@ export interface ArtPageProps {
 const ReadingList: React.FC<ArtPageProps> = ({ entries }) => {
   const router = useRouter()
   return (
-    <Layout pathName={router.pathname}>
+    <Layout pathName={router.pathname} noSideMargins>
       <div className={SharedStyles.card}>
         <h1>Art</h1>
         <p>I started to learn to draw in 2023. This page shows some things I have made.</p>
