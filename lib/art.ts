@@ -61,7 +61,7 @@ export const artEntries: ArtEntry[] = [
   {
     title: 'Tortoise from Photo Reference',
     media: Media.Digital,
-    imageFilename: 'tortoise-digital.png',
+    imageFilename: 'tortoise-digital.jpg',
     date: '2023/06/18',
     height: 3367,
     width: 4853,
@@ -69,7 +69,7 @@ export const artEntries: ArtEntry[] = [
   {
     title: 'Pear from Photo Reference',
     media: Media.Digital,
-    imageFilename: 'pear.png',
+    imageFilename: 'pear.jpg',
     date: '2023/07/02',
     height: 2400,
     width: 4000,
