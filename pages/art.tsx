@@ -16,7 +16,7 @@ const ReadingList: React.FC<ArtPageProps> = ({ entries }) => {
     <Layout pathName={router.pathname} noSideMargins>
       <div className={SharedStyles.card}>
         <h1>Art</h1>
-        <p>I started to learn to draw in 2023. This page shows some things I have made.</p>
+        <p>I started drawing in 2023. Here is some of my work. Click an image for a better view.</p>
 
         <ArtGallery artEntries={entries} />
       </div>
