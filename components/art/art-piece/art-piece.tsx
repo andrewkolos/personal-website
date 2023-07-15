@@ -57,6 +57,15 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div id={entry.title} className={Styles.lightbox} onClick={onLightBoxClicked} role="button">
+        <a
+          ref={(e) => {
+            closeButton = e!
+          }}
+          className={Styles.close}
+          href="art#"
+        >
+          X
+        </a>
         <div className={Styles.content}>
           <Image
             src={`/art/${entry.imageFilename}`}
@@ -71,18 +80,9 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
             <span className={Styles.date}>{new Date(entry.date).toLocaleDateString()}. </span>
             <a className={Styles.light} href={`/art/${entry.imageFilename}`} target="_blank" rel="noreferrer">
               {' '}
-              Uncompressed image <FaExternalLinkAlt />{' '}
+              Original image <FaExternalLinkAlt />{' '}
             </a>
           </div>
-          <a
-            ref={(e) => {
-              closeButton = e!
-            }}
-            className={Styles.close}
-            href="art#"
-          >
-            X
-          </a>
         </div>
       </div>
     </>
