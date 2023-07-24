@@ -76,10 +76,18 @@ const AboutMe: React.FC<{}> = () => {
           <ul>
             <li>
               Working on{' '}
-              <a href="https://flutter.dev" target="blank">
+              <a href="https://github.com/flutter/flutter#readme" target="blank">
                 Flutter <FaExternalLinkAlt />
               </a>{' '}
               at Google, focused primarily on tooling.
+            </li>
+            <li>
+              Learning to draw. Working through{' '}
+              <a href="https://drawabox.com/" target="blank">
+                Draw a Box <FaExternalLinkAlt />
+              </a>
+              {'. '}
+              Interested in fantastical character and creature design.
             </li>
           </ul>
         </div>
