@@ -74,6 +74,14 @@ export const artEntries: ArtEntry[] = [
     height: 2400,
     width: 4000,
   },
+  {
+    title: 'Hovering pigeon',
+    media: Media.Graphite,
+    imageFilename: 'hovering_pigeon.jpg',
+    date: '2023/07/28',
+    height: 931,
+    width: 1174,
+  },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   .reverse()
