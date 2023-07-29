@@ -17,7 +17,7 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
         </span>
         <nav ref={navRef}>
           <ul className={Styles.navLinkContainer}>
-            <NavLink to="/" activeclassname={Styles.navLinkActive}>
+            <NavLink catchAll={false} to="/" activeclassname={Styles.navLinkActive}>
               Home
             </NavLink>
             <NavLink to="/demos" activeclassname={Styles.navLinkActive}>
