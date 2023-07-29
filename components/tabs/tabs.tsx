@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unused-prop-types */
+import { useRouter } from 'next/router'
 import React, { PropsWithChildren, ReactElement, useState } from 'react'
-import Styles from './tabs.module.scss'
 import { TabProps } from './tab'
+import Styles from './tabs.module.scss'
 
 export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
+  const router = useRouter()
   const tabs = asTabs(children)
 
   ;(() => {
@@ -21,7 +23,7 @@ export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
     <>
       <div className={Styles.tabsContainer}>
         {tabs.map((t, i) => (
-          <button type="button" className={calcClassNameForTab(i)} onClick={() => setSelectedIndex(i)} key={t.key}>
+          <button type="button" className={calcClassNameForTab(i)} onClick={() => selectTab(i)} key={t.key}>
             {t.props.title}
           </button>
         ))}
@@ -33,6 +35,13 @@ export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
       ))}
     </>
   )
+
+  function selectTab(index: number) {
+    setSelectedIndex(index)
+    router
+      .push(`/art/${tabs[index].props.urlSlug}`, undefined, { shallow: true })
+      .catch((e) => console.error(`Unable to switch tab. ${e}`))
+  }
 
   function calcClassNameForTab(index: number): string {
     const styles = [Styles.tab]

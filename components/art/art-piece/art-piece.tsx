@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { FaExternalLinkAlt } from 'react-icons/fa'
+import { useRouter } from 'next/router'
 import { ArtEntry } from '../../../lib/art'
 import Styles from '../art-gallery.module.scss'
 
@@ -17,6 +18,7 @@ interface ArtGalleryProps {
 const QUALITY = 75
 
 export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
+  const { basePath } = useRouter()
   let closeButton: HTMLAnchorElement | undefined
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
   return (
     <>
       <div className={Styles.thumbnail}>
-        <a target="_self" href={`art#${entry.title}`}>
+        <a target="_self" href={`${basePath}#${entry.title}`}>
           <Image
             src={`/art/${entry.imageFilename}`}
             alt={entry.title}
@@ -62,7 +64,7 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
             closeButton = e!
           }}
           className={Styles.close}
-          href="art#"
+          href={`${basePath}#`}
         >
           X
         </a>
@@ -78,7 +80,7 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
             <em className={Styles.title}>{entry.title}. </em>
             <em>{entry.media}. </em>
             <span className={Styles.date}>{new Date(entry.date).toLocaleDateString()}. </span>
-            <a className={Styles.light} href={`/art/${entry.imageFilename}`} target="_blank" rel="noreferrer">
+            <a className={Styles.light} href={`/${basePath}/${entry.imageFilename}`} target="_blank" rel="noreferrer">
               {' '}
               Original image <FaExternalLinkAlt />{' '}
             </a>
