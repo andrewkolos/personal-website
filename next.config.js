@@ -26,17 +26,8 @@ module.exports = {
         destination: '/art',
       },
       {
-        source: '/art/scribbles',
+        source: '/art/sketchbook',
         destination: '/art',
-      },
-    ]
-  },
-  async redirects() {
-    return [
-      {
-        source: '/art',
-        destination: '/art/gallery',
-        permanent: true,
       },
     ]
   },

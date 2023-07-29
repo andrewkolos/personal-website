@@ -1,10 +1,14 @@
 /* eslint-disable react/no-unused-prop-types */
 import { useRouter } from 'next/router'
-import React, { PropsWithChildren, ReactElement, useState } from 'react'
+import React, { PropsWithChildren, ReactElement, useEffect, useState } from 'react'
 import { TabProps } from './tab'
 import Styles from './tabs.module.scss'
 
-export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
+export interface TabsProps {
+  basePath: string
+}
+
+export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, basePath }) => {
   const router = useRouter()
   const tabs = asTabs(children)
 
@@ -17,7 +21,13 @@ export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
     }
   })()
 
-  const [selectedIndex, setSelectedIndex] = useState<number>(indexOfSelectedTab(tabs))
+  const [selectedIndex, setSelectedIndex] = useState<number>(0)
+
+  useEffect(() => {
+    // window is not available during SSR, so we have to useEffect here.
+    // We can't use router.pathname because it will only include the rewrite destination.
+    setSelectedIndex(indexOfSelectedTab(window.location.pathname))
+  }, [])
 
   return (
     <>
@@ -44,6 +54,7 @@ export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
   }
 
   function calcClassNameForTab(index: number): string {
+    console.log('idx', selectedIndex)
     const styles = [Styles.tab]
     if (selectedIndex === index) {
       styles.push(Styles.active)
@@ -53,6 +64,20 @@ export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
 
   function classNameForTabContent(index: number): string {
     return index === selectedIndex ? Styles.tabContent : Styles.hidden
+  }
+
+  function indexOfSelectedTab(currentPath: string): number {
+    console.log('regex', `${basePath}/`)
+    const slug = currentPath.replace(RegExp(`${basePath}/?`), '')
+    console.log(`"${slug}"`)
+    if (slug === '') {
+      const idx = tabs.findIndex((t) => t.props.selected)
+      return idx > -1 ? idx : 0
+    }
+
+    const idx = tabs.findIndex((t) => t.props.urlSlug === slug)
+    console.log(idx)
+    return idx
   }
 }
 
@@ -75,9 +100,4 @@ function asTabs(children: React.ReactNode): ReactElement<PropsWithChildren<TabPr
   }
 
   return validChildren
-}
-
-function indexOfSelectedTab(tabs: ReactElement<TabProps>[]): number {
-  const idx = tabs.findIndex((t) => t.props.selected)
-  return idx > -1 ? idx : 0
 }
