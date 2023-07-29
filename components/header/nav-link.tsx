@@ -5,26 +5,15 @@ interface NavLinkProps extends PropsWithChildren {
   to: string
   className?: string
   activeclassname: string
-  catchAll?: boolean
 }
 
-export const NavLink: React.FunctionComponent<NavLinkProps> = ({
-  to,
-  className,
-  activeclassname,
-  catchAll,
-  children,
-}) => (
+export const NavLink: React.FunctionComponent<NavLinkProps> = ({ to, className, activeclassname, children }) => (
   <li style={{ display: 'inline-block', marginRight: `0.6rem` }}>
-    <ActiveLink catchAll={catchAll} href={to} activeClassName={activeclassname}>
+    <ActiveLink href={to} activeClassName={activeclassname}>
       <a className={className}>{children}</a>
     </ActiveLink>
   </li>
 )
-
-NavLink.defaultProps = {
-  catchAll: true,
-}
 
 NavLink.defaultProps = {
   className: undefined,

@@ -1,15 +1,14 @@
 /* eslint-disable react/no-unused-prop-types */
 import { useRouter } from 'next/router'
-import React, { PropsWithChildren, ReactElement } from 'react'
+import React, { PropsWithChildren, ReactElement, useEffect, useState } from 'react'
 import { TabProps } from './tab'
 import Styles from './tabs.module.scss'
 
 export interface TabsProps {
-  activeSlug: string
-  parentSlug: string
+  basePath: string
 }
 
-export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, activeSlug, parentSlug }) => {
+export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, basePath }) => {
   const router = useRouter()
   const tabs = asTabs(children)
 
@@ -22,52 +21,63 @@ export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, activeS
     }
   })()
 
-  const selectedTab = getSelectedTab()
+  const [selectedIndex, setSelectedIndex] = useState<number>(0)
+
+  useEffect(() => {
+    // window is not available during SSR, so we have to useEffect here.
+    // We can't use router.pathname because it will only include the rewrite destination.
+    setSelectedIndex(indexOfSelectedTab(window.location.pathname))
+  }, [])
 
   return (
     <>
       <div className={Styles.tabsContainer}>
-        {tabs.map((t) => (
-          <button
-            type="button"
-            className={calcClassNameForTab(t.props.urlSlug)}
-            onClick={() => selectTab(t.props.urlSlug)}
-            key={t.key}
-          >
+        {tabs.map((t, i) => (
+          <button type="button" className={calcClassNameForTab(i)} onClick={() => selectTab(i)} key={t.key}>
             {t.props.title}
           </button>
         ))}
       </div>
-
-      <div className={Styles.tabContent} key={selectedTab.key}>
-        {selectedTab.props.children}
-      </div>
+      {tabs.map((t, i) => (
+        <div className={classNameForTabContent(i)} key={t.key}>
+          {t.props.children}
+        </div>
+      ))}
     </>
   )
 
-  function calcClassNameForTab(slug: string): string {
+  function selectTab(index: number) {
+    setSelectedIndex(index)
+    router
+      .push(`/art/${tabs[index].props.urlSlug}`, undefined, { shallow: true })
+      .catch((e) => console.error(`Unable to switch tab. ${e}`))
+  }
+
+  function calcClassNameForTab(index: number): string {
+    console.log('idx', selectedIndex)
     const styles = [Styles.tab]
-    if (slug === activeSlug) {
+    if (selectedIndex === index) {
       styles.push(Styles.active)
     }
     return styles.join(' ')
   }
 
-  function getSelectedTab() {
-    const result = tabs.filter((t) => t.props.urlSlug === activeSlug)
-    if (result.length > 1) {
-      throw Error('Multiple tabs selected.')
-    }
-    if (result.length < 1) {
-      throw Error(`No tab matches slug ${activeSlug}`)
-    }
-    return result[0]
+  function classNameForTabContent(index: number): string {
+    return index === selectedIndex ? Styles.tabContent : Styles.hidden
   }
 
-  function selectTab(slug: string): void {
-    router.push(`${parentSlug}/${slug}`).catch((e) => {
-      throw e
-    })
+  function indexOfSelectedTab(currentPath: string): number {
+    console.log('regex', `${basePath}/`)
+    const slug = currentPath.replace(RegExp(`${basePath}/?`), '')
+    console.log(`"${slug}"`)
+    if (slug === '') {
+      const idx = tabs.findIndex((t) => t.props.selected)
+      return idx > -1 ? idx : 0
+    }
+
+    const idx = tabs.findIndex((t) => t.props.urlSlug === slug)
+    console.log(idx)
+    return idx
   }
 }
 

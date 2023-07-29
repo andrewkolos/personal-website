@@ -4,27 +4,16 @@ import React, { Children, PropsWithChildren } from 'react'
 
 export interface ActiveLinkProps extends LinkProps, PropsWithChildren {
   activeClassName: string
-  catchAll?: boolean
 }
 
-const ActiveLink: React.FC<PropsWithChildren<ActiveLinkProps>> = ({
-  children,
-  activeClassName,
-  catchAll,
-  ...props
-}) => {
+const ActiveLink: React.FC<PropsWithChildren<ActiveLinkProps>> = ({ children, activeClassName, ...props }) => {
   const { asPath } = useRouter()
   const child = Children.only(children) as React.ReactElement
 
   const childClassName = (child.props.className as String) || ''
 
-  const matches = (() => {
-    if (catchAll !== false) {
-      return asPath.includes(props.href.toString())
-    }
-    return asPath === props.href
-  })()
-  const className = matches ? `${childClassName} ${activeClassName}`.trim() : childClassName
+  const className =
+    asPath === props.href || asPath === props.as ? `${childClassName} ${activeClassName}`.trim() : childClassName
 
   return (
     <Link legacyBehavior {...props}>
@@ -33,10 +22,6 @@ const ActiveLink: React.FC<PropsWithChildren<ActiveLinkProps>> = ({
       })}
     </Link>
   )
-}
-
-ActiveLink.defaultProps = {
-  catchAll: true,
 }
 
 export default ActiveLink
