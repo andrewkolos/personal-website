@@ -15,7 +15,7 @@ interface ArtGalleryProps {
 // all different instances of effectively the same image.
 //
 // 75 is the nextjs default.
-const QUALITY = 75
+const QUALITY = 50
 
 export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
   const router = useRouter()
