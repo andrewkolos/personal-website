@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { PropsWithChildren } from 'react'
+import FadeIn from 'react-fade-in'
 import { defaultSiteMetadata } from '../../lib/default-site-metadata'
 import Header from '../header/header'
 import Seo from '../seo'
@@ -22,7 +23,9 @@ const Layout: React.FC<LayoutProps> = ({ pathName, children, showFooter, noSideM
         maxWidth: noSideMargins ? 'initial' : 960,
       }}
     >
-      <main id="main">{children}</main>
+      <main id="main">
+        <FadeIn delay={75}>{children}</FadeIn>
+      </main>
     </div>
     {showFooter !== false && (
       <footer
