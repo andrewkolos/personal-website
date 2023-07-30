@@ -23,13 +23,15 @@ export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, basePat
 
   // We don't want to include any images in the SSR.
   const [selectedIndex, setSelectedIndex] = useState<number>(-1)
+  const [loadedTabs, setLoadedTabs] = useState<number[]>([])
 
   useEffect(() => {
     // hack to be able to "link" directly to sketchbook tab because
     // during SSR the slug will always be empty
     // window is not available during SSR, so we have to useEffect here.
     // We can't use router.pathname because it will only include the rewrite destination.
-    setSelectedIndex(indexOfSelectedTab(window.location.pathname))
+    const index = indexOfSelectedTab(window.location.pathname)
+    selectTab(index)
   }, [])
 
   return (
@@ -42,7 +44,7 @@ export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, basePat
         ))}
       </div>
       {tabs.map((t, i) =>
-        selectedIndex !== i ? undefined : (
+        selectedIndex !== i && !loadedTabs.includes(i) ? undefined : (
           <div className={classNameForTabContent(i)} key={t.key}>
             {t.props.children}
           </div>
@@ -52,6 +54,9 @@ export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, basePat
   )
 
   function selectTab(index: number) {
+    if (!loadedTabs.includes(index)) {
+      setLoadedTabs([...loadedTabs, index])
+    }
     setSelectedIndex(index)
     router
       .push(`/art/${tabs[index].props.urlSlug}`, undefined, { shallow: true })
