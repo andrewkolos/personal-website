@@ -59,7 +59,6 @@ export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, basePat
   }
 
   function calcClassNameForTab(index: number): string {
-    console.log('idx', selectedIndex)
     const styles = [Styles.tab]
     if (selectedIndex === index) {
       styles.push(Styles.active)
@@ -72,16 +71,14 @@ export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, basePat
   }
 
   function indexOfSelectedTab(currentPath: string): number {
-    console.log('regex', `${basePath}/`)
-    const slug = currentPath.replace(RegExp(`${basePath}/?`), '')
-    console.log(`"${slug}"`)
+    const basePathWithoutParams = basePath.substring(0, basePath.lastIndexOf('/'))
+    const slug = currentPath.replace(RegExp(`${basePathWithoutParams}/?`), '')
     if (slug === '') {
       const idx = tabs.findIndex((t) => t.props.selected)
       return idx > -1 ? idx : 0
     }
 
     const idx = tabs.findIndex((t) => t.props.urlSlug === slug)
-    console.log(idx)
     return idx
   }
 }

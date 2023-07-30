@@ -1,19 +1,44 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { GetStaticProps } from 'next'
-import Layout from '../components/layout/layout'
-import { ArtEntry, galleryEntries as galleryEntriesData, sketchbookEntries as sketchbookEntriesData } from '../lib/art'
-import SharedStyles from '../styles/shared-styles.module.scss'
-import { ArtGallery } from '../components/art/art-gallery/art-gallery'
-import { Tabs } from '../components/tabs/tabs'
-import { Tab } from '../components/tabs/tab'
+import { GetStaticProps, GetStaticPaths } from 'next'
+import Layout from '../../components/layout/layout'
+import {
+  ArtEntry,
+  galleryEntries as galleryEntriesData,
+  sketchbookEntries as sketchbookEntriesData,
+} from '../../lib/art'
+import SharedStyles from '../../styles/shared-styles.module.scss'
+import { ArtGallery } from '../../components/art/art-gallery/art-gallery'
+import { Tabs } from '../../components/tabs/tabs'
+import { Tab } from '../../components/tabs/tab'
+
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: [
+    {
+      params: {
+        slug: [],
+      },
+    },
+    {
+      params: {
+        slug: ['gallery'],
+      },
+    },
+    {
+      params: {
+        slug: ['sketchbook'],
+      },
+    },
+  ],
+  fallback: 'blocking', // false or "blocking"
+})
 
 export interface ArtPageProps {
   galleryEntries: ArtEntry[]
   sketchbookEntries: ArtEntry[]
 }
 
-const ReadingList: React.FC<ArtPageProps> = ({ galleryEntries, sketchbookEntries }) => {
+const ArtPage: React.FC<ArtPageProps> = ({ galleryEntries, sketchbookEntries }) => {
   const router = useRouter()
   return (
     <Layout pathName={router.pathname} noSideMargins>
@@ -34,7 +59,7 @@ const ReadingList: React.FC<ArtPageProps> = ({ galleryEntries, sketchbookEntries
   )
 }
 
-export default ReadingList
+export default ArtPage
 
 export const getStaticProps: GetStaticProps<ArtPageProps> = async () => ({
   props: {
