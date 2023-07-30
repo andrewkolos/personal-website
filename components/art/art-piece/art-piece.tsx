@@ -52,7 +52,6 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
             width={3907}
             height={3072}
             fetchPriority="high"
-            priority
             quality={QUALITY}
           />
         </a>
