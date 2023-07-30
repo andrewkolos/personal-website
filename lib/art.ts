@@ -17,7 +17,7 @@ enum Media {
   Digital = 'Digital',
 }
 
-export const artEntries: ArtEntry[] = [
+export const galleryEntries: ArtEntry[] = [
   {
     title: 'Study of Scrub Jay drawing by Brent Eviston',
     media: Media.ColoredPencil,
@@ -81,6 +81,19 @@ export const artEntries: ArtEntry[] = [
     date: '2023/07/28',
     height: 931,
     width: 1174,
+  },
+]
+  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+  .reverse()
+
+export const sketchbookEntries: ArtEntry[] = [
+  {
+    title: 'Closed bird wing',
+    media: Media.Graphite,
+    imageFilename: 'sketchbook/closed-bird-wing.jpg',
+    date: '2023/07/28',
+    height: 1081,
+    width: 2513,
   },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())

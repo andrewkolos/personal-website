@@ -19,4 +19,16 @@ module.exports = {
       includePaths: [path.join(__dirname)],
     },
   }),
+  async rewrites() {
+    return [
+      {
+        source: '/art/gallery',
+        destination: '/art',
+      },
+      {
+        source: '/art/sketchbook',
+        destination: '/art',
+      },
+    ]
+  },
 }
