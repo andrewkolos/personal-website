@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 import { ArtEntry } from '../../../lib/art'
@@ -18,8 +18,11 @@ interface ArtGalleryProps {
 const QUALITY = 75
 
 export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
-  const { asPath, route } = useRouter()
+  const router = useRouter()
+  const asPath = router.asPath.substring(0, router.asPath.indexOf('#'))
   let closeButton: HTMLAnchorElement | undefined
+
+  const [lightboxVisible, setLightboxVisible] = useState(false)
 
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
@@ -36,16 +39,39 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
     }
   }, [])
 
+  // Handles case where use deliberately modifies the target hash.
+  useEffect(() => {
+    const listener = () => {
+      updateLightboxVisibility()
+    }
+
+    window.addEventListener('hashchange', listener)
+
+    return () => {
+      window.removeEventListener('hashchange', listener)
+    }
+  }, [])
+
+  // Handles direct navigation case (e.g. /art#Pear%20from%20Photo%20Reference)
+  useEffect(() => {
+    updateLightboxVisibility()
+  })
+
   function onLightBoxClicked(e: React.MouseEvent<HTMLDivElement>) {
     if (!(e.target instanceof HTMLAnchorElement)) {
       closeButton!.click() // AppRouterInstance.replace doesn't work properly with css :target for some reason.
     }
   }
 
+  function updateLightboxVisibility() {
+    const target = window.location.href.toString().substring(window.location.href.toString().indexOf('#') + 1)
+    setLightboxVisible(target === encodeURIComponent(entry.title))
+  }
+
   return (
     <>
       <div className={Styles.thumbnail}>
-        <a target="_self" href={`${asPath}#${entry.title}`}>
+        <a target="_self" href={`${asPath}#${entry.title}`} onClick={() => setLightboxVisible(true)}>
           <Image
             src={`/art/${entry.imageFilename}`}
             alt={entry.title}
@@ -57,12 +83,13 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
         </a>
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-      <div id={entry.title} className={Styles.lightbox} onClick={onLightBoxClicked} role="button">
+      <div id={entry.title} className={calcStyles()} onClick={onLightBoxClicked} role="button">
         <a
           ref={(e) => {
             closeButton = e!
           }}
           className={Styles.close}
+          onClick={() => setLightboxVisible(false)}
           href={`${asPath.substring(0, asPath.indexOf('#'))}#`}
         >
           X
@@ -88,4 +115,12 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
       </div>
     </>
   )
+
+  function calcStyles(): string | undefined {
+    const result = [Styles.lightbox]
+    if (lightboxVisible) {
+      result.push(Styles.targeted)
+    }
+    return result.join(' ')
+  }
 }
