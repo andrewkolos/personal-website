@@ -58,8 +58,10 @@ export const Tabs: React.FC<PropsWithChildren<TabsProps>> = ({ children, basePat
       setLoadedTabs([...loadedTabs, index])
     }
     setSelectedIndex(index)
+
+    const pathNameWithoutSlugs = router.pathname.replace(/\[.*\]/, '')
     router
-      .push(`/art/${tabs[index].props.urlSlug}`, undefined, { shallow: true })
+      .replace(`${pathNameWithoutSlugs}${tabs[index].props.urlSlug}`, undefined, { shallow: true })
       .catch((e) => console.error(`Unable to switch tab. ${e}`))
   }
 
