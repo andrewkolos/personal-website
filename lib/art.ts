@@ -95,6 +95,14 @@ export const sketchbookEntries: ArtEntry[] = [
     height: 1081,
     width: 2513,
   },
+  {
+    title: 'Sparrow',
+    media: Media.ColoredPencil,
+    imageFilename: 'sketchbook/sparrow.jpg',
+    date: '2023/07/31',
+    height: 952,
+    width: 1281,
+  },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   .reverse()
