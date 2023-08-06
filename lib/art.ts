@@ -47,8 +47,8 @@ export const galleryEntries: ArtEntry[] = [
     imageFilename: 'cardinal.jpg',
     media: Media.Graphite,
     date: '2023/05/20',
-    width: 4080,
-    height: 3072,
+    width: 2377,
+    height: 2645,
   },
   {
     title: 'Contour of a Tortoise from Photo Reference',
