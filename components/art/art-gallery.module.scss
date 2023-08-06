@@ -12,10 +12,15 @@ $time: 0.3s;
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-auto-rows: minmax(auto, 30vh);
+  grid-auto-flow: dense;
   gap: 0.25em;
 
   @media only screen and (max-width: $mobile-breakpoint) {
     grid-template-columns: repeat(2, auto);
+  }
+
+  @media only screen and (min-width: $widescreen-breakpoint) {
+    grid-template-columns: repeat(6, auto);
   }
 
   .thumbnail {
