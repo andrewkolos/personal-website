@@ -75,33 +75,36 @@ export const galleryEntries: ArtEntry[] = [
     width: 4000,
   },
   {
-    title: 'Hovering pigeon',
+    title: 'Sparrow',
+    media: Media.ColoredPencil,
+    imageFilename: 'sparrow.jpg',
+    date: '2023/07/31',
+    height: 952,
+    width: 1281,
+  },
+  {
+    title: 'Hovering cartoon pigeon',
     media: Media.Graphite,
     imageFilename: 'hovering_pigeon.jpg',
     date: '2023/07/28',
     height: 931,
     width: 1174,
   },
-]
-  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-  .reverse()
-
-export const sketchbookEntries: ArtEntry[] = [
   {
-    title: 'Closed bird wing',
+    title: `Bell's Sparrow`,
     media: Media.Graphite,
-    imageFilename: 'sketchbook/closed-bird-wing.jpg',
-    date: '2023/07/28',
-    height: 1081,
-    width: 2513,
+    imageFilename: 'bells-sparrow.jpg',
+    date: '2023/08/05',
+    height: 1690,
+    width: 1780,
   },
   {
-    title: 'Sparrow',
-    media: Media.ColoredPencil,
-    imageFilename: 'sketchbook/sparrow.jpg',
-    date: '2023/07/31',
-    height: 952,
-    width: 1281,
+    title: `Rose-breasted Grosbeak`,
+    media: Media.Graphite,
+    imageFilename: 'rose-breasted-grosbeak.jpg',
+    date: '2023/08/05',
+    height: 1690,
+    width: 1724,
   },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())

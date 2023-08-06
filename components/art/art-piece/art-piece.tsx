@@ -77,7 +77,7 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
             alt={entry.title}
             width={3907}
             height={3072}
-            fetchPriority="high"
+            loading="lazy"
             quality={QUALITY}
           />
         </a>
@@ -100,6 +100,7 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
             alt={entry.title}
             width={entry.width}
             height={entry.height}
+            loading="lazy"
             quality={QUALITY}
           />
           <div className={Styles.content}>
