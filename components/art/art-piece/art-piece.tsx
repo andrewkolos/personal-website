@@ -75,8 +75,8 @@ export const ArtPiece: React.FC<ArtGalleryProps> = ({ entry }) => {
           <Image
             src={`/art/${entry.imageFilename}`}
             alt={entry.title}
-            width={3907}
-            height={3072}
+            width={entry.width}
+            height={entry.height}
             loading="lazy"
             quality={QUALITY}
           />
