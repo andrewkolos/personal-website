@@ -7,8 +7,8 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="manifest" href="/manifest.webmanifest" />
-          <link rel="apple-touch-icon" href="/icons/icon-512x512.png" />
-          <link rel="shortcut icon" href="/icons/icon-512x512.png" />
+          <link rel="apple-touch-icon" href="/icons/icon-512x512.jpg" />
+          <link rel="shortcut icon" href="/icons/icon-512x512.jpg" />
           <meta name="theme-color" content="#fff" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
