@@ -14,7 +14,21 @@ export interface ArtEntry {
 enum Media {
   ColoredPencil = 'Colored pencil',
   Graphite = 'Graphite',
+  Charcoal = 'Charcoal',
   Digital = 'Digital',
+}
+
+namespace Media {
+  export function join(...values: string[]): string {
+    if (values.length === 0) {
+      throw Error('Need at lest two media string to join.')
+    }
+    if (values.length === 2) {
+      return `${values[0]} and ${values[1].toLowerCase()}`
+    }
+
+    return `${values.slice(0, values.length - 1).join(', ')}, and ${values[values.length - 1]}`
+  }
 }
 
 export const galleryEntries: ArtEntry[] = [
@@ -105,6 +119,14 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/08/05',
     height: 1690,
     width: 1724,
+  },
+  {
+    title: `Red-breasted Blackbird`,
+    media: Media.join(Media.Graphite, Media.Charcoal),
+    imageFilename: 'red-breasted-blackbird.jpg',
+    date: '2023/08/06',
+    height: 2208,
+    width: 2546,
   },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
