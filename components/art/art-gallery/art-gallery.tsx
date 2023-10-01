@@ -21,8 +21,8 @@ export const ArtGallery: React.FC<ArtGalleryProps> = ({ artEntries }) => (
           className={Styles.thumbnail}
           // https://www.lightgalleryjs.com/demos/captions/
           data-sub-html={`
-            <em class='${Styles.title}>'>${entry.title}. </em>
-            <em>${entry.media}. </em>
+            <div class='${Styles.title}'>${entry.title}. </div>
+            <span>${entry.media}. </span>
             <span class='${Styles.date}'>${new Date(entry.date).toLocaleDateString()}. </span>
           `}
         >

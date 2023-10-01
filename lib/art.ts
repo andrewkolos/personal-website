@@ -128,6 +128,22 @@ export const galleryEntries: ArtEntry[] = [
     height: 2208,
     width: 2546,
   },
+  {
+    title: `Chestnut-backed Chickadee`,
+    media: Media.Graphite,
+    imageFilename: 'chestnut-backed-chickadee.jpg',
+    date: '2023/09/09',
+    height: 2352,
+    width: 2917,
+  },
+  {
+    title: `Chestnut-backed Chickadee`,
+    media: Media.Graphite,
+    imageFilename: 'chestnut-backed-chickadee-2.jpg',
+    date: '2023/09/12',
+    height: 3069,
+    width: 2302,
+  },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   .reverse()
