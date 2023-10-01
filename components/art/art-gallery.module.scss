@@ -40,6 +40,9 @@ $time: 0.3s;
   }
 }
 
+.lg-backdrop {
+  background: none;
+}
 .lightbox {
   z-index: 9999;
   &.targeted {

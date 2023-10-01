@@ -1,10 +1,10 @@
-import React from 'react'
-import { useRouter } from 'next/router'
 import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
+import React from 'react'
+import { ArtGallery } from '../components/art/art-gallery/art-gallery'
 import Layout from '../components/layout/layout'
 import { ArtEntry, galleryEntries as galleryEntriesData } from '../lib/art'
 import SharedStyles from '../styles/shared-styles.module.scss'
-import { ArtGallery } from '../components/art/art-gallery/art-gallery'
 
 export interface ArtPageProps {
   galleryEntries: ArtEntry[]

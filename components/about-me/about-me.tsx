@@ -81,14 +81,7 @@ const AboutMe: React.FC<{}> = () => {
               </a>{' '}
               at Google, focused primarily on tooling.
             </li>
-            <li>
-              Learning to draw. Working through{' '}
-              <a href="https://drawabox.com/" target="blank">
-                Draw a Box <FaExternalLinkAlt />
-              </a>
-              {'. '}
-              Interested in fantastical character and creature design.
-            </li>
+            <li>Learning to draw, with a particular interest in birds and other animals.</li>
           </ul>
         </div>
       </div>

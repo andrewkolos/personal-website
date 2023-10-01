@@ -28,6 +28,7 @@
     "fs-extra": "^11.1.1",
     "gatsby-remark-vscode": "^3.3.1",
     "gray-matter": "^4.0.3",
+    "lightgallery": "^2.7.2",
     "link-preview-js": "^3.0.4",
     "next": "^13.4.9",
     "next-mdx-remote": "^4.2.0",
