@@ -1,14 +1,7 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { defaultSiteMetadata } from '../lib/default-site-metadata'
-import portrait from '../public/portrait.jpg'
+// import portrait from '../public/portrait.jpg'
 
 export interface SeoProps {
   description?: string
@@ -24,17 +17,17 @@ export interface SeoProps {
       }
   >
   title?: string
-  ogImageSrc?: string
+  // ogImageSrc?: string
   pathName?: string
   keywords?: string[]
 }
 
-function Seo({ description, lang, meta, title, ogImageSrc, pathName, keywords }: SeoProps): React.ReactElement {
+function Seo({ description, lang, meta, title, pathName, keywords }: SeoProps): React.ReactElement {
   const coalescedLang = lang ?? 'en'
   const metaDescription = description ?? defaultSiteMetadata.description
   const coalescedTitle = title ?? defaultSiteMetadata.title
   const coalescedMeta = meta ?? []
-  const coalescedImage = ogImageSrc ?? portrait.src
+  // const coalescedImage = ogImageSrc ?? portrait.src
 
   const currentUrl = `${defaultSiteMetadata.siteUrl}${pathName}`
   if (pathName) {
@@ -61,7 +54,7 @@ function Seo({ description, lang, meta, title, ogImageSrc, pathName, keywords }:
         },
         {
           name: 'keywords',
-          content: `andrew kolos, software, developer, blog${keywords ? `, ${keywords?.join(', ')}` : ''}`,
+          content: `andrew kolos, software, developer${keywords ? `, ${keywords?.join(', ')}` : ''}`,
         },
         {
           property: `og:title`,
@@ -75,17 +68,17 @@ function Seo({ description, lang, meta, title, ogImageSrc, pathName, keywords }:
           property: `og:type`,
           content: `website`,
         },
-        {
-          property: 'og:image',
-          content: defaultSiteMetadata.siteUrl + coalescedImage,
-        },
+        // {
+        //   property: 'og:image',
+        //   content: defaultSiteMetadata.siteUrl + coalescedImage,
+        // },
         {
           property: 'og:url',
           content: currentUrl,
         },
         {
           name: `twitter:card`,
-          content: `Andrew Kolos is a software engineer.`,
+          content: `Personal website of Andrew Kolos.`,
         },
         {
           name: `twitter:creator`,
@@ -111,7 +104,7 @@ Seo.defaultProps = {
   lang: undefined,
   meta: undefined,
   title: undefined,
-  ogImageSrc: undefined,
+  // ogImageSrc: undefined,
   pathName: undefined,
   keywords: undefined,
 }
