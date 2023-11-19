@@ -2,12 +2,19 @@ export interface ArtEntry {
   /** Needed in case their site's web server blocks crawler request at build time. */
   title: string
   imageFilename: string
-  media: String
+  media: string
   subtitle?: string
   date: string
   commentary?: string
   width: number
   height: number
+  reference?: Reference
+}
+
+export interface Reference {
+  url: string
+  title: string
+  providerName: string
 }
 
 // For convenience only.
@@ -41,7 +48,7 @@ export const galleryEntries: ArtEntry[] = [
     width: 2446,
   },
   {
-    title: 'Tea Kettle from Photo Reference',
+    title: 'Tea Kettle',
     media: Media.ColoredPencil,
     imageFilename: 'tea-kettle.jpg',
     date: '2023/05/13',
@@ -49,7 +56,7 @@ export const galleryEntries: ArtEntry[] = [
     width: 2808,
   },
   {
-    title: 'Hummingbird from Photo Reference',
+    title: 'Hummingbird',
     media: Media.Graphite,
     imageFilename: 'hummingbird.jpg',
     date: '2023/05/17',
@@ -103,6 +110,11 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/08/05',
     height: 1690,
     width: 1780,
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/New-World-Sparrows/Bells-Sparrow/i-RfZbhHt/A',
+      title: "Bell's Sparrow - Taft, CA, USA",
+      providerName: 'Vivek Khazode',
+    },
   },
   {
     title: `Rose-breasted Grosbeak`,
@@ -119,6 +131,11 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/08/06',
     height: 2208,
     width: 2546,
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/Troupials/Red-breasted-Blackbird/i-fxV29Q7',
+      title: 'Red-breasted Blackbird - Nariva Swamp, Trinidad',
+      providerName: 'Vivek Khazode',
+    },
   },
   {
     title: `Chestnut-backed Chickadee`,
@@ -127,6 +144,11 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/09/09',
     height: 2352,
     width: 2917,
+    reference: {
+      url: 'https://birdpixel.com/Birds/Chickadees-Tits/Chestnut-backed-Chickadee/i-P2RL6Wf',
+      title: 'Chestnut-backed Chickadee - Coyote Hills Park, Fremont, CA',
+      providerName: 'Vivek Khazode',
+    },
   },
   {
     title: `Chestnut-backed Chickadee`,
@@ -135,6 +157,11 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/09/12',
     height: 3069,
     width: 2302,
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/Chickadees-Tits/Chestnut-backed-Chickadee/i-HD7QkMJ',
+      title: 'Chestnut-backed Chickadee - Santa Cruz Mountains, CA, USA',
+      providerName: 'Vivek Khanzode',
+    },
   },
   {
     title: `Large Cuckooshrike`,
@@ -143,6 +170,11 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/11/05',
     height: 3779,
     width: 2681,
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/Cuckooshrikes/Large-Cuckooshrike/i-kFhcLjs/A',
+      title: 'Large Cuckooshrike - Record - Pench National Park, Madhya Pradesh, India',
+      providerName: 'Vivek Khanzode',
+    },
   },
   {
     title: 'Sooty-capped Bush-Tanager',
@@ -151,6 +183,11 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/11/12',
     height: 2086,
     width: 3254,
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/New-World-Sparrows/Sooty-capped-Bush-Tanager/i-ns5W7PP/A',
+      title: 'Sooty-capped Bush-Tanager - Cabanas Los Quetzales, Guadalupe, PA',
+      providerName: 'Vivek Khanzode',
+    },
   },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
