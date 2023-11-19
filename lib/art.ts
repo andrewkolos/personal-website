@@ -89,14 +89,6 @@ export const galleryEntries: ArtEntry[] = [
     width: 4000,
   },
   {
-    title: 'Sparrow',
-    media: Media.ColoredPencil,
-    imageFilename: 'sparrow.jpg',
-    date: '2023/07/31',
-    height: 952,
-    width: 1281,
-  },
-  {
     title: 'Hovering cartoon pigeon',
     media: Media.Graphite,
     imageFilename: 'hovering_pigeon.jpg',
@@ -143,6 +135,22 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/09/12',
     height: 3069,
     width: 2302,
+  },
+  {
+    title: `Large Cuckooshrike`,
+    media: Media.Graphite,
+    imageFilename: 'large-cuckooshrike.jpg',
+    date: '2023/11/05',
+    height: 3779,
+    width: 2681,
+  },
+  {
+    title: 'Sooty-capped Bush-Tanager',
+    media: Media.Graphite,
+    imageFilename: 'sooty-capped-bush-tanager.jpg',
+    date: '2023/11/12',
+    height: 2086,
+    width: 3254,
   },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
