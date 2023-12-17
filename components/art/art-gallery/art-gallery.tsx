@@ -14,7 +14,7 @@ interface ArtGalleryProps {
 
 export const ArtGallery: React.FC<ArtGalleryProps> = ({ artEntries }) => (
   <div className={Styles.galleryWrapper}>
-    <LightGallery elementClassNames={Styles.gallery} backdropDuration={150} counter={false}>
+    <LightGallery elementClassNames={Styles.gallery} backdropDuration={150} counter={false} download={false}>
       {artEntries.map((entry) => {
         let caption = `
           <div class='${Styles.title}'>${entry.title}. </div>

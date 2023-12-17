@@ -189,6 +189,19 @@ export const galleryEntries: ArtEntry[] = [
       providerName: 'Vivek Khanzode',
     },
   },
+  {
+    title: 'Long-eared owl',
+    media: Media.ColoredPencil,
+    imageFilename: 'long-eared-owl.jpg',
+    date: '2023/12/16',
+    height: 3516,
+    width: 2602,
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/Owls/Long-Eared-Owl-1/i-xFZLvXs/A',
+      title: 'Long-Eared Owl, Mercey Hot Springs, CA',
+      providerName: 'Vivek Khanzode',
+    },
+  },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   .reverse()
