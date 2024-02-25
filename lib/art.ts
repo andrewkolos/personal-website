@@ -17,15 +17,14 @@ export interface Reference {
   providerName: string
 }
 
-// For convenience only.
-enum Media {
-  ColoredPencil = 'Colored pencil',
-  Graphite = 'Graphite',
-  Charcoal = 'Charcoal',
-  Digital = 'Digital',
-}
-
 namespace Media {
+  const instrument = (media: string) => (inst?: string) => (inst == null ? media : `${media} (${inst})`)
+
+  export const ColoredPencil = instrument('Colored pencil')
+  export const Graphite = instrument('Graphite')
+  export const Charcoal = instrument('Charcoal')
+  export const Digital = instrument('Digital')
+
   export function join(...values: string[]): string {
     if (values.length === 0) {
       throw Error('Need at lest two media string to join.')
@@ -41,7 +40,7 @@ namespace Media {
 export const galleryEntries: ArtEntry[] = [
   {
     title: 'Study of Scrub Jay drawing by Brent Eviston',
-    media: Media.ColoredPencil,
+    media: Media.ColoredPencil(),
     imageFilename: 'scrub-jay.jpg',
     date: '2023/05/07',
     height: 2013,
@@ -49,7 +48,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Tea Kettle',
-    media: Media.ColoredPencil,
+    media: Media.ColoredPencil(),
     imageFilename: 'tea-kettle.jpg',
     date: '2023/05/13',
     height: 2327,
@@ -57,7 +56,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Hummingbird',
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'hummingbird.jpg',
     date: '2023/05/17',
     height: 2967,
@@ -66,14 +65,14 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Cardinal from Photo Reference',
     imageFilename: 'cardinal.jpg',
-    media: Media.Graphite,
+    media: Media.Graphite(),
     date: '2023/05/20',
     width: 2377,
     height: 2645,
   },
   {
     title: 'Contour of a Tortoise from Photo Reference',
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'tortoise.jpg',
     date: '2023/06/10',
     height: 3072,
@@ -81,7 +80,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Tortoise from Photo Reference',
-    media: Media.Digital,
+    media: Media.Digital(),
     imageFilename: 'tortoise-digital.jpg',
     date: '2023/06/18',
     height: 3367,
@@ -89,7 +88,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Pear from Photo Reference',
-    media: Media.Digital,
+    media: Media.Digital(),
     imageFilename: 'pear.jpg',
     date: '2023/07/02',
     height: 2400,
@@ -97,7 +96,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Hovering cartoon pigeon',
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'hovering_pigeon.jpg',
     date: '2023/07/28',
     height: 931,
@@ -105,7 +104,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Bell's Sparrow`,
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'bells-sparrow.jpg',
     date: '2023/08/05',
     height: 1690,
@@ -118,7 +117,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Rose-breasted Grosbeak`,
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'rose-breasted-grosbeak.jpg',
     date: '2023/08/05',
     height: 1690,
@@ -126,7 +125,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Red-breasted Blackbird`,
-    media: Media.join(Media.Graphite, Media.Charcoal),
+    media: Media.join(Media.Graphite(), Media.Charcoal()),
     imageFilename: 'red-breasted-blackbird.jpg',
     date: '2023/08/06',
     height: 2208,
@@ -139,7 +138,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Chestnut-backed Chickadee`,
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'chestnut-backed-chickadee.jpg',
     date: '2023/09/09',
     height: 2352,
@@ -152,7 +151,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Chestnut-backed Chickadee`,
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'chestnut-backed-chickadee-2.jpg',
     date: '2023/09/12',
     height: 3069,
@@ -165,7 +164,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Large Cuckooshrike`,
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'large-cuckooshrike.jpg',
     date: '2023/11/05',
     height: 3779,
@@ -178,7 +177,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Sooty-capped Bush-Tanager',
-    media: Media.Graphite,
+    media: Media.Graphite(),
     imageFilename: 'sooty-capped-bush-tanager.jpg',
     date: '2023/11/12',
     height: 2086,
@@ -191,7 +190,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Long-eared owl',
-    media: Media.ColoredPencil,
+    media: Media.ColoredPencil(),
     imageFilename: 'long-eared-owl.jpg',
     date: '2023/12/16',
     height: 3516,
