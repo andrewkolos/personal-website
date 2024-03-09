@@ -204,3 +204,16 @@ export const galleryEntries: ArtEntry[] = [
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   .reverse()
+
+export const sketchbookEntries: ArtEntry[] = [
+  {
+    title: 'Spheres',
+    media: Media.Graphite(),
+    imageFilename: 'sphere-sketch.jpg',
+    date: '2024/03/09',
+    width: 3203,
+    height: 2288,
+  },
+]
+  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+  .reverse()
