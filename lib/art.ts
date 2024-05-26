@@ -201,6 +201,40 @@ export const galleryEntries: ArtEntry[] = [
       providerName: 'Vivek Khanzode',
     },
   },
+  {
+    title: 'Chestnut-backed-chickadee',
+    media: Media.Graphite(),
+    imageFilename: 'chestnut-backed-chickadee-3.jpg',
+    date: '2024/1/22',
+    height: 3516,
+    width: 2602,
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/Chickadees-Tits/Chestnut-backed-Chickadee/i-CJgXJzZ',
+      title: 'Chestnut-backed Chickadee - Santa Cruz Mountains, CA, USA',
+      providerName: 'Vivek Khanzode',
+    },
+  },
+  {
+    title: 'Cardinal',
+    media: Media.Graphite(),
+    imageFilename: 'cardinal-in-snow.jpg',
+    date: '2024/2/25',
+    height: 2499,
+    width: 1837,
+  },
+  {
+    title: 'Chimango Caracara',
+    media: Media.Graphite(),
+    imageFilename: 'caracara.jpg',
+    date: '2024/4/25',
+    height: 3381,
+    width: 2490,
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/Falcons-Caracaras/Chimango-Caracara/i-Sh2DNgr/A',
+      title: 'Chimango Caracara - Tierra del Fuego NP, Argentina',
+      providerName: 'Vivek Khanzode'
+    }
+  },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   .reverse()

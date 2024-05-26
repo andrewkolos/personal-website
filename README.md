@@ -9,6 +9,7 @@
 You might need Visual Studio with the Desktop Development with C++ workload installed.
 
 ```bash
+# Tested on Node 20
 npm i
 npm run dev # or "npm run build & npm run start"
 ```
