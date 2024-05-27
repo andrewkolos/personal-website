@@ -44,6 +44,8 @@
 .tooltip {
   position: relative;
   text-align: center;
+  border-bottom: 1px dotted $primary-lighter;
+  cursor: pointer;
 }
 
 .tooltipText {

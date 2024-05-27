@@ -3,14 +3,18 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { ArtGallery } from '../components/art/art-gallery/art-gallery'
 import Layout from '../components/layout/layout'
-import { ArtEntry, galleryEntries as galleryEntriesData, sketchbookEntries as sketchbookEntriesData} from '../lib/art'
+import {
+  ArtEntry,
+  galleryEntries as galleryEntriesData,
+  sketchbookEntries as sketchbookEntriesData,
+} from '../lib/art/art'
 import SharedStyles from '../styles/shared-styles.module.scss'
 import { Tabs } from '../components/tabs/tabs'
 import { Tab } from '../components/tabs/tab'
 
 export interface ArtPageProps {
   galleryEntries: ArtEntry[]
-  sketchbookEntries: ArtEntry[],
+  sketchbookEntries: ArtEntry[]
 }
 
 const ArtPage: React.FC<ArtPageProps> = ({ galleryEntries, sketchbookEntries }) => {

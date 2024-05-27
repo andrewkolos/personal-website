@@ -1,8 +1,10 @@
+import { ColoredPencil, GraphiteInstrument, Instrument, Media } from './media'
+
 export interface ArtEntry {
   /** Needed in case their site's web server blocks crawler request at build time. */
   title: string
   imageFilename: string
-  media: string
+  media: Media
   subtitle?: string
   date: string
   commentary?: string
@@ -17,30 +19,10 @@ export interface Reference {
   providerName: string
 }
 
-namespace Media {
-  const instrument = (media: string) => (inst?: string) => (inst == null ? media : `${media} (${inst})`)
-
-  export const ColoredPencil = instrument('Colored pencil')
-  export const Graphite = instrument('Graphite')
-  export const Charcoal = instrument('Charcoal')
-  export const Digital = instrument('Digital')
-
-  export function join(...values: string[]): string {
-    if (values.length === 0) {
-      throw Error('Need at lest two media string to join.')
-    }
-    if (values.length === 2) {
-      return `${values[0]} and ${values[1].toLowerCase()}`
-    }
-
-    return `${values.slice(0, values.length - 1).join(', ')}, and ${values[values.length - 1]}`
-  }
-}
-
 export const galleryEntries: ArtEntry[] = [
   {
     title: 'Study of Scrub Jay drawing by Brent Eviston',
-    media: Media.ColoredPencil(),
+    media: Media.create([Instrument.ColoredPencil()]),
     imageFilename: 'scrub-jay.jpg',
     date: '2023/05/07',
     height: 2013,
@@ -48,7 +30,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Tea Kettle',
-    media: Media.ColoredPencil(),
+    media: Media.create([Instrument.ColoredPencil()]),
     imageFilename: 'tea-kettle.jpg',
     date: '2023/05/13',
     height: 2327,
@@ -56,7 +38,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Hummingbird',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite()]),
     imageFilename: 'hummingbird.jpg',
     date: '2023/05/17',
     height: 2967,
@@ -65,14 +47,14 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Cardinal from Photo Reference',
     imageFilename: 'cardinal.jpg',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     date: '2023/05/20',
     width: 2377,
     height: 2645,
   },
   {
     title: 'Contour of a Tortoise from Photo Reference',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite()]),
     imageFilename: 'tortoise.jpg',
     date: '2023/06/10',
     height: 3072,
@@ -80,7 +62,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Tortoise from Photo Reference',
-    media: Media.Digital(),
+    media: Media.create([Instrument.Digital()]),
     imageFilename: 'tortoise-digital.jpg',
     date: '2023/06/18',
     height: 3367,
@@ -88,7 +70,8 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Pear from Photo Reference',
-    media: Media.Digital(),
+    media: Media.create([Instrument.Digital()]),
+
     imageFilename: 'pear.jpg',
     date: '2023/07/02',
     height: 2400,
@@ -96,7 +79,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Hovering cartoon pigeon',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Digital()]),
     imageFilename: 'hovering_pigeon.jpg',
     date: '2023/07/28',
     height: 931,
@@ -104,7 +87,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Bell's Sparrow`,
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     imageFilename: 'bells-sparrow.jpg',
     date: '2023/08/05',
     height: 1690,
@@ -117,7 +100,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Rose-breasted Grosbeak`,
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     imageFilename: 'rose-breasted-grosbeak.jpg',
     date: '2023/08/05',
     height: 1690,
@@ -125,7 +108,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Red-breasted Blackbird`,
-    media: Media.join(Media.Graphite(), Media.Charcoal()),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     imageFilename: 'red-breasted-blackbird.jpg',
     date: '2023/08/06',
     height: 2208,
@@ -138,7 +121,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Chestnut-backed Chickadee`,
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     imageFilename: 'chestnut-backed-chickadee.jpg',
     date: '2023/09/09',
     height: 2352,
@@ -151,7 +134,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Chestnut-backed Chickadee`,
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     imageFilename: 'chestnut-backed-chickadee-2.jpg',
     date: '2023/09/12',
     height: 3069,
@@ -164,7 +147,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: `Large Cuckooshrike`,
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     imageFilename: 'large-cuckooshrike.jpg',
     date: '2023/11/05',
     height: 3779,
@@ -177,7 +160,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Sooty-capped Bush-Tanager',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     imageFilename: 'sooty-capped-bush-tanager.jpg',
     date: '2023/11/12',
     height: 2086,
@@ -190,7 +173,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Long-eared owl',
-    media: Media.ColoredPencil(),
+    media: Media.create([Instrument.ColoredPencil([ColoredPencil.FcPolychromos])]),
     imageFilename: 'long-eared-owl.jpg',
     date: '2023/12/16',
     height: 3516,
@@ -203,7 +186,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Chestnut-backed-chickadee',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
     imageFilename: 'chestnut-backed-chickadee-3.jpg',
     date: '2024/1/22',
     height: 3516,
@@ -216,7 +199,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Cardinal',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.ColoredPencil([ColoredPencil.FcPolychromos])]),
     imageFilename: 'cardinal-in-snow.jpg',
     date: '2024/2/25',
     height: 2499,
@@ -224,7 +207,7 @@ export const galleryEntries: ArtEntry[] = [
   },
   {
     title: 'Chimango Caracara',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.FcPittGraphiteMattBlack])]),
     imageFilename: 'caracara.jpg',
     date: '2024/4/25',
     height: 3381,
@@ -232,8 +215,8 @@ export const galleryEntries: ArtEntry[] = [
     reference: {
       url: 'https://www.birdpixel.com/Birds/Falcons-Caracaras/Chimango-Caracara/i-Sh2DNgr/A',
       title: 'Chimango Caracara - Tierra del Fuego NP, Argentina',
-      providerName: 'Vivek Khanzode'
-    }
+      providerName: 'Vivek Khanzode',
+    },
   },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
@@ -242,7 +225,8 @@ export const galleryEntries: ArtEntry[] = [
 export const sketchbookEntries: ArtEntry[] = [
   {
     title: 'Spheres',
-    media: Media.Graphite(),
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.FcPittGraphiteMattBlack])]),
+
     imageFilename: 'sphere-sketch.jpg',
     date: '2024/03/09',
     width: 3203,

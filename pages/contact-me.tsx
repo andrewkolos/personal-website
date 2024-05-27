@@ -35,7 +35,7 @@ const ContactMePage: React.FC = () => {
             aria-label="Mail link for andrewrkolos@gmail.com"
             target="blank"
           >
-            <span className={`${Styles.tooltip} ${Styles.tooltipTop}`} data-text="Email me">
+            <span className={`${Styles.tooltip} ${Styles.tooltipTop}`}>
               <IoMdMail />
               <span className={Styles.tooltipText}>
                 {' '}
