@@ -20,6 +20,10 @@ export const ArtGallery: React.FC<ArtGalleryProps> = ({ artEntries }) => (
       counter={false}
       download={false}
       subHtmlSelectorRelative
+      mobileSettings={{
+        showCloseIcon: true,
+        controls: false,
+      }}
     >
       {artEntries.map((entry) => (
         <a
@@ -35,6 +39,7 @@ export const ArtGallery: React.FC<ArtGalleryProps> = ({ artEntries }) => (
             width={entry.width}
             height={entry.height}
             loading="lazy"
+            style={{ objectPosition: `${entry.thumbPosition.width}% ${entry.thumbPosition.height}%` }}
           />
 
           <div style={{ display: 'none' }}>

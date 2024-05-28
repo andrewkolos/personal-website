@@ -10,6 +10,10 @@ export interface ArtEntry {
   commentary?: string
   width: number
   height: number
+  thumbPosition: {
+    width: number // e.g. 20, which will be transformed to '20%'
+    height: number
+  }
   reference?: Reference
 }
 
@@ -27,6 +31,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/05/07',
     height: 2013,
     width: 2446,
+    thumbPosition: {
+      width: 20,
+      height: 10,
+    },
   },
   {
     title: 'Tea Kettle',
@@ -35,6 +43,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/05/13',
     height: 2327,
     width: 2808,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
   {
     title: 'Hummingbird',
@@ -43,6 +55,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/05/17',
     height: 2967,
     width: 3877,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
   {
     title: 'Cardinal from Photo Reference',
@@ -51,6 +67,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/05/20',
     width: 2377,
     height: 2645,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
   {
     title: 'Contour of a Tortoise from Photo Reference',
@@ -59,6 +79,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/06/10',
     height: 3072,
     width: 3907,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
   {
     title: 'Tortoise from Photo Reference',
@@ -67,6 +91,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/06/18',
     height: 3367,
     width: 4853,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
   {
     title: 'Pear from Photo Reference',
@@ -76,6 +104,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/07/02',
     height: 2400,
     width: 4000,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
   {
     title: 'Hovering cartoon pigeon',
@@ -84,6 +116,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/07/28',
     height: 931,
     width: 1174,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
   {
     title: `Bell's Sparrow`,
@@ -92,6 +128,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/08/05',
     height: 1690,
     width: 1780,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
     reference: {
       url: 'https://www.birdpixel.com/Birds/New-World-Sparrows/Bells-Sparrow/i-RfZbhHt/A',
       title: "Bell's Sparrow - Taft, CA, USA",
@@ -105,6 +145,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/08/05',
     height: 1690,
     width: 1724,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
   {
     title: `Red-breasted Blackbird`,
@@ -113,6 +157,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/08/06',
     height: 2208,
     width: 2546,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
     reference: {
       url: 'https://www.birdpixel.com/Birds/Troupials/Red-breasted-Blackbird/i-fxV29Q7',
       title: 'Red-breasted Blackbird - Nariva Swamp, Trinidad',
@@ -126,6 +174,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/09/09',
     height: 2352,
     width: 2917,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
     reference: {
       url: 'https://birdpixel.com/Birds/Chickadees-Tits/Chestnut-backed-Chickadee/i-P2RL6Wf',
       title: 'Chestnut-backed Chickadee - Coyote Hills Park, Fremont, CA',
@@ -139,6 +191,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/09/12',
     height: 3069,
     width: 2302,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
     reference: {
       url: 'https://www.birdpixel.com/Birds/Chickadees-Tits/Chestnut-backed-Chickadee/i-HD7QkMJ',
       title: 'Chestnut-backed Chickadee - Santa Cruz Mountains, CA, USA',
@@ -152,6 +208,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/11/05',
     height: 3779,
     width: 2681,
+    thumbPosition: {
+      width: 50,
+      height: 5,
+    },
     reference: {
       url: 'https://www.birdpixel.com/Birds/Cuckooshrikes/Large-Cuckooshrike/i-kFhcLjs/A',
       title: 'Large Cuckooshrike - Record - Pench National Park, Madhya Pradesh, India',
@@ -165,6 +225,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/11/12',
     height: 2086,
     width: 3254,
+    thumbPosition: {
+      width: 40,
+      height: 50,
+    },
     reference: {
       url: 'https://www.birdpixel.com/Birds/New-World-Sparrows/Sooty-capped-Bush-Tanager/i-ns5W7PP/A',
       title: 'Sooty-capped Bush-Tanager - Cabanas Los Quetzales, Guadalupe, PA',
@@ -178,6 +242,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2023/12/16',
     height: 3516,
     width: 2602,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
     reference: {
       url: 'https://www.birdpixel.com/Birds/Owls/Long-Eared-Owl-1/i-xFZLvXs/A',
       title: 'Long-Eared Owl, Mercey Hot Springs, CA',
@@ -191,6 +259,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2024/1/22',
     height: 3516,
     width: 2602,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
     reference: {
       url: 'https://www.birdpixel.com/Birds/Chickadees-Tits/Chestnut-backed-Chickadee/i-CJgXJzZ',
       title: 'Chestnut-backed Chickadee - Santa Cruz Mountains, CA, USA',
@@ -204,6 +276,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2024/2/25',
     height: 2499,
     width: 1837,
+    thumbPosition: {
+      width: 50,
+      height: 30,
+    },
   },
   {
     title: 'Chimango Caracara',
@@ -212,6 +288,10 @@ export const galleryEntries: ArtEntry[] = [
     date: '2024/4/25',
     height: 3381,
     width: 2490,
+    thumbPosition: {
+      width: 10,
+      height: 10,
+    },
     reference: {
       url: 'https://www.birdpixel.com/Birds/Falcons-Caracaras/Chimango-Caracara/i-Sh2DNgr/A',
       title: 'Chimango Caracara - Tierra del Fuego NP, Argentina',
@@ -231,6 +311,10 @@ export const sketchbookEntries: ArtEntry[] = [
     date: '2024/03/09',
     width: 3203,
     height: 2288,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
   },
 ]
   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
