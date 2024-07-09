@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -14,10 +15,10 @@ import { Tab } from '../components/tabs/tab'
 
 export interface ArtPageProps {
   galleryEntries: ArtEntry[]
-  sketchbookEntries: ArtEntry[]
+  /* sketchbookEntries: ArtEntry[] */
 }
 
-const ArtPage: React.FC<ArtPageProps> = ({ galleryEntries, sketchbookEntries }) => {
+const ArtPage: React.FC<ArtPageProps> = ({ galleryEntries /*, sketchbookEntries*/ }) => {
   const router = useRouter()
   return (
     <Layout pathName={router.pathname} noSideMargins>
@@ -29,9 +30,9 @@ const ArtPage: React.FC<ArtPageProps> = ({ galleryEntries, sketchbookEntries }) 
           <Tab title="Gallery" selected key="gallery_tab">
             <ArtGallery artEntries={galleryEntries} />
           </Tab>
-          <Tab title="Sketchbook" key="sketchbook_tab">
+          {/* <Tab title="Sketchbook" key="sketchbook_tab">
             <ArtGallery artEntries={sketchbookEntries} />
-          </Tab>
+          </Tab> */}
         </Tabs>
       </div>
     </Layout>

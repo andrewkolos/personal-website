@@ -293,8 +293,25 @@ export const galleryEntries: ArtEntry[] = [
       height: 10,
     },
     reference: {
-      url: 'https://www.birdpixel.com/Birds/Falcons-Caracaras/Chimango-Caracara/i-Sh2DNgr/A',
+      url: 'https://www.birdpixel.com/Birds/Falcons-Caracaras/Chimango-Caracara/i-ThqLsqJ/A',
       title: 'Chimango Caracara - Tierra del Fuego NP, Argentina',
+      providerName: 'Vivek Khanzode',
+    },
+  },
+  {
+    title: 'Rock Wren',
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.FcPittGraphiteMattBlack])]),
+    imageFilename: 'rock-wren.jpg',
+    date: '2024/6/23',
+    height: 2356,
+    width: 3295,
+    thumbPosition: {
+      width: 10,
+      height: 10,
+    },
+    reference: {
+      url: 'https://www.birdpixel.com/Birds/Wrens/Rock-Wren/i-hH2B79w/A',
+      title: 'Rock Wren - San Jose, CA, USA',
       providerName: 'Vivek Khanzode',
     },
   },

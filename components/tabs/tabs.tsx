@@ -63,13 +63,10 @@ export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
 
 function asTabs(children: React.ReactNode): ReactElement<PropsWithChildren<TabProps>>[] {
   if (typeof children !== 'object' || children == null) {
-    throw Error()
-  }
-  if (!(Symbol.iterator in children)) {
-    throw Error()
+    throw Error('children was unexpected null or not an object')
   }
 
-  const asArray = Array.from(children)
+  const asArray = Array.from(Array.isArray(children) ? children : [children])
 
   const validChildren: ReactElement<TabProps>[] = asArray.filter((e) =>
     React.isValidElement<TabProps>(e),
