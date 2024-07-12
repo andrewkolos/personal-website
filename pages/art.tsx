@@ -24,7 +24,12 @@ const ArtPage: React.FC<ArtPageProps> = ({ galleryEntries /*, sketchbookEntries*
     <Layout pathName={router.pathname} noSideMargins>
       <div className={SharedStyles.card}>
         <h1>Art</h1>
-        <p>I started drawing in 2023. Here is some of my work. Select an image for a better view.</p>
+        <p>
+          I took up drawing as a hobby in mid-2023. It&apos;s something I like to do every once in a while as a way to
+          create stuff—stuff that&apos;s tangible and doesn&apos;t involve a computer 😛.
+        </p>
+
+        <p>Here is some of my work. Select an image for a better view.</p>
 
         <Tabs>
           <Tab title="Gallery" selected key="gallery_tab">

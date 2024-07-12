@@ -79,7 +79,7 @@ const AboutMe: React.FC<{}> = () => {
               <a href="https://github.com/flutter/flutter#readme" target="blank">
                 Flutter <FaExternalLinkAlt />
               </a>{' '}
-              at Google, focused primarily on tooling.
+              at Google, focused primarily on the Flutter command-line tool.
             </li>
             <li>Learning to draw, with a particular interest in birds and other animals.</li>
           </ul>
