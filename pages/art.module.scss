@@ -1,0 +1,21 @@
+@import '../styles/shared-styles.module.scss';
+
+.filterControlsOutter {
+  padding: 0.5em;
+  margin: 0.5em;
+  display: flex;
+  justify-content: center;
+}
+
+.filterControlsInner {
+  display: inline-block;
+  padding: 1em;
+  border-style: ridge;
+  border-width: 1px;
+  border-color: var(--primary);
+
+  :not(:first-child) {
+    margin-left: 1em;
+  }
+}
+

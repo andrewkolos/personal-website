@@ -1,12 +1,19 @@
-import { ColoredPencil, GraphiteInstrument, Instrument, Media } from './media'
+import { ColoredPencil, GraphiteInstrument, Instrument, Media, Paper } from './media'
 
+export enum ArtEntryType {
+  Normal,
+  Sketch,
+  Experiment,
+}
 export interface ArtEntry {
   /** Needed in case their site's web server blocks crawler request at build time. */
   title: string
   imageFilename: string
+  type: ArtEntryType
   media: Media
   subtitle?: string
   date: string
+  page?: number
   commentary?: string
   width: number
   height: number
@@ -18,14 +25,16 @@ export interface ArtEntry {
 }
 
 export interface Reference {
-  url: string
-  title: string
+  url: string | null,
+  title: string | null,
   providerName: string
 }
 
+// Filtered galleryEntries - excluding ArtEntryType.Experiment
 export const galleryEntries: ArtEntry[] = [
   {
     title: 'Study of Scrub Jay drawing by Brent Eviston',
+    type: ArtEntryType.Normal,
     media: Media.create([Instrument.ColoredPencil()]),
     imageFilename: 'scrub-jay.jpg',
     date: '2023/05/07',
@@ -39,6 +48,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Tea Kettle',
     media: Media.create([Instrument.ColoredPencil()]),
+    type: ArtEntryType.Normal,
     imageFilename: 'tea-kettle.jpg',
     date: '2023/05/13',
     height: 2327,
@@ -51,6 +61,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Hummingbird',
     media: Media.create([Instrument.Graphite()]),
+    type: ArtEntryType.Normal,
     imageFilename: 'hummingbird.jpg',
     date: '2023/05/17',
     height: 2967,
@@ -64,6 +75,7 @@ export const galleryEntries: ArtEntry[] = [
     title: 'Cardinal from Photo Reference',
     imageFilename: 'cardinal.jpg',
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     date: '2023/05/20',
     width: 2377,
     height: 2645,
@@ -75,6 +87,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Contour of a Tortoise from Photo Reference',
     media: Media.create([Instrument.Graphite()]),
+    type: ArtEntryType.Normal,
     imageFilename: 'tortoise.jpg',
     date: '2023/06/10',
     height: 3072,
@@ -87,6 +100,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Tortoise from Photo Reference',
     media: Media.create([Instrument.Digital()]),
+    type: ArtEntryType.Normal,
     imageFilename: 'tortoise-digital.jpg',
     date: '2023/06/18',
     height: 3367,
@@ -99,7 +113,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Pear from Photo Reference',
     media: Media.create([Instrument.Digital()]),
-
+    type: ArtEntryType.Normal,
     imageFilename: 'pear.jpg',
     date: '2023/07/02',
     height: 2400,
@@ -112,6 +126,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Hovering cartoon pigeon',
     media: Media.create([Instrument.Digital()]),
+    type: ArtEntryType.Normal,
     imageFilename: 'hovering_pigeon.jpg',
     date: '2023/07/28',
     height: 931,
@@ -124,6 +139,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: `Bell's Sparrow`,
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'bells-sparrow.jpg',
     date: '2023/08/05',
     height: 1690,
@@ -141,6 +157,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: `Rose-breasted Grosbeak`,
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'rose-breasted-grosbeak.jpg',
     date: '2023/08/05',
     height: 1690,
@@ -153,6 +170,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: `Red-breasted Blackbird`,
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'red-breasted-blackbird.jpg',
     date: '2023/08/06',
     height: 2208,
@@ -170,6 +188,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: `Chestnut-backed Chickadee`,
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'chestnut-backed-chickadee.jpg',
     date: '2023/09/09',
     height: 2352,
@@ -187,6 +206,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: `Chestnut-backed Chickadee`,
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'chestnut-backed-chickadee-2.jpg',
     date: '2023/09/12',
     height: 3069,
@@ -204,6 +224,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: `Large Cuckooshrike`,
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'large-cuckooshrike.jpg',
     date: '2023/11/05',
     height: 3779,
@@ -221,6 +242,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Sooty-capped Bush-Tanager',
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'sooty-capped-bush-tanager.jpg',
     date: '2023/11/12',
     height: 2086,
@@ -238,6 +260,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Long-eared owl',
     media: Media.create([Instrument.ColoredPencil([ColoredPencil.FcPolychromos])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'long-eared-owl.jpg',
     date: '2023/12/16',
     height: 3516,
@@ -255,6 +278,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Chestnut-backed-chickadee',
     media: Media.create([Instrument.Graphite([GraphiteInstrument.SteadlerMarsLumograph])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'chestnut-backed-chickadee-3.jpg',
     date: '2024/1/22',
     height: 3516,
@@ -272,6 +296,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Cardinal',
     media: Media.create([Instrument.ColoredPencil([ColoredPencil.FcPolychromos])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'cardinal-in-snow.jpg',
     date: '2024/2/25',
     height: 2499,
@@ -282,8 +307,22 @@ export const galleryEntries: ArtEntry[] = [
     },
   },
   {
+    title: 'Spheres',
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.FcPittGraphiteMattBlack])]),
+    type: ArtEntryType.Sketch,
+    imageFilename: 'sphere-sketch.jpg',
+    date: '2024/03/09',
+    width: 3203,
+    height: 2288,
+    thumbPosition: {
+      width: 50,
+      height: 50,
+    },
+  },
+  {
     title: 'Chimango Caracara',
     media: Media.create([Instrument.Graphite([GraphiteInstrument.FcPittGraphiteMattBlack])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'caracara.jpg',
     date: '2024/4/25',
     height: 3381,
@@ -301,6 +340,7 @@ export const galleryEntries: ArtEntry[] = [
   {
     title: 'Rock Wren',
     media: Media.create([Instrument.Graphite([GraphiteInstrument.FcPittGraphiteMattBlack])]),
+    type: ArtEntryType.Normal,
     imageFilename: 'rock-wren.jpg',
     date: '2024/6/23',
     height: 2356,
@@ -315,24 +355,178 @@ export const galleryEntries: ArtEntry[] = [
       providerName: 'Vivek Khanzode',
     },
   },
-]
-  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-  .reverse()
-
-export const sketchbookEntries: ArtEntry[] = [
   {
-    title: 'Spheres',
-    media: Media.create([Instrument.Graphite([GraphiteInstrument.FcPittGraphiteMattBlack])]),
-
-    imageFilename: 'sphere-sketch.jpg',
-    date: '2024/03/09',
-    width: 3203,
-    height: 2288,
+    title: 'Chautauqua Trail, Boulder, CO',
+    media: Media.create([Instrument.Watercolor([])]),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-07-11-boulder-co.jpg',
+    height: 2727,
+    width: 3610,
+    date: '2024/7/11',
+    reference: {
+      url: 'https://photos.google.com/share/AF1QipM0j5ajwqf6Rjwr7mo1GOgfrbwOs8R52Q07KLYcfJ3nczxBuqgSEB3iZ8Fsc7NVyg/photo/AF1QipNnHOkJwFQbLtt9W2-pE3J5P9SM4juhbXcnxT8J?key=SXpQVEFRNG9xNGQyVE1feUZzZkF2ZEV0ZEQxdXBn',
+      title: 'Chautauqua Trail, Boulder, CO',
+      providerName: 'Andrew Kolos',
+    },
     thumbPosition: {
-      width: 50,
-      height: 50,
+      width: 0,
+      height: 0,
+    },
+  },
+  {
+    title: 'Black cat',
+    media: Media.create([Instrument.Watercolor([])]),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-08-01-black-cat.jpg',
+    date: '2024/08/01',
+    page: 1,
+    width: 2724,
+    height: 3662,
+    thumbPosition: {
+      width: 10,
+      height: 20,
+    },
+  },
+  {
+    title: 'Rose',
+    media: Media.create([Instrument.Watercolor()]),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-07-18-1-rose.jpg',
+    date: '2024/07/18',
+    page: 1,
+    width: 3470,
+    height: 2600,
+    thumbPosition: {
+      width: 10,
+      height: 20,
+    },
+  },
+  {
+    title: 'Tanager (line drawing provided by John Muir Laws)',
+    media: Media.create([Instrument.Watercolor()]),
+    type: ArtEntryType.Sketch,
+    imageFilename: '2024-07-25-1-tanager.jpg',
+    date: '2024/07/25',
+    page: 1,
+    width: 2537,
+    height: 2723,
+    thumbPosition: {
+      width: 10,
+      height: 20,
+    },
+  },
+  {
+    title: 'Black cat',
+    media: Media.create([Instrument.Watercolor([])]),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-08-01-2-black-cat.jpg',
+    date: '2024/08/01',
+    page: 2,
+    width: 2656,
+    height: 3552,
+    thumbPosition: {
+      width: 10,
+      height: 10,
+    },
+  },
+  {
+    title: 'Goldfish',
+    media: Media.create([Instrument.Graphite([GraphiteInstrument.FcPittGraphiteMattBlack])]),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-08-19-1-goldfish.jpg',
+    date: '2024/08/19',
+    width: 3812,
+    height: 2824,
+    thumbPosition: {
+      width: 25,
+      height: 15,
+    },
+  },
+  {
+    title: 'Goldfish',
+    media: Media.create([Instrument.Watercolor()]),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-08-23-1-goldfish.jpg',
+    date: '2024/08/23',
+    page: 1,
+    width: 3549,
+    height: 2692,
+    thumbPosition: {
+      width: 10,
+      height: 10,
+    },
+  },
+  {
+    title: 'Goldfish',
+    media: Media.create([Instrument.Watercolor()]),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-08-25-1-goldfish.jpg',
+    date: '2024/08/25',
+    page: 1,
+    width: 3722,
+    height: 2814,
+    thumbPosition: {
+      width: 10,
+      height: 10,
+    },
+  },
+  {
+    title: 'Bunny',
+    media: Media.create([Instrument.Graphite()], Paper.LegionStonehenge250gsm),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-09-10-1-bunny.jpg',
+    date: '2024/09/10',
+    width: 3421,
+    height: 2637,
+    thumbPosition: {
+      width: 10,
+      height: 10
+    },
+    reference: {
+      url: null,
+      title: null,
+      providerName: 'Esi Grunhagen',
+    }
+  },
+  {
+    title: 'Fruit',
+    media: Media.create([Instrument.Watercolor()]),
+    type: ArtEntryType.Normal,
+    imageFilename: '2024-09-21-1-fruit.jpg',
+    date: '2024/09/21',
+    page: 1,
+    width: 3776,
+    height: 2804,
+    thumbPosition: {
+      width: 10,
+      height: 10,
+    },
+  },
+  {
+    title: 'Apples',
+    media: Media.create([Instrument.Watercolor()]),
+    type: ArtEntryType.Sketch,
+    imageFilename: '2024-09-25-1-apples.jpg',
+    date: '2024/09/25',
+    page: 1,
+    width: 3550,
+    height: 2745,
+    thumbPosition: {
+      width: 10,
+      height: 10,
+    },
+  },
+  {
+    title: 'Pumpkin',
+    media: Media.create([Instrument.ColoredPencil()], Paper.LegionStonehenge250gsm),
+    type: ArtEntryType.Sketch,
+    imageFilename: '2024-10-3-1-pumpkin.jpg',
+    date: '2024/10/03',
+    width: 2400,
+    height: 3183,
+    thumbPosition: {
+      width: 5,
+      height: 5,
     },
   },
 ]
-  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-  .reverse()

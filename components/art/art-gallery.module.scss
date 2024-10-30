@@ -1,5 +1,4 @@
 @import '../../styles/shared-styles.module.scss';
-@import '../../styles/variables.scss';
 
 $time: 0.3s;
 
@@ -14,11 +13,11 @@ $time: 0.3s;
   grid-auto-flow: dense;
   gap: 0.25em;
 
-  @media only screen and (max-width: $mobile-breakpoint) {
+  @media only screen and (max-width: var(--mobile-breakpoint)) {
     grid-template-columns: repeat(2, auto);
   }
 
-  @media only screen and (min-width: $widescreen-breakpoint) {
+  @media only screen and (min-width: var(--widescreen-breakpoint)) {
     grid-template-columns: repeat(6, auto);
   }
 
@@ -37,7 +36,7 @@ $time: 0.3s;
     height: 100%;
     left: 0;
     top: 0;
-    transition: all $time/2 ease(downhill);
+    transition: all calc($time/2) ease(downhill);
     display: block; // https://stackoverflow.com/a/54020931/8412850
     position: relative;
     margin: 0;

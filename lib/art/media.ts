@@ -17,6 +17,7 @@ export class Instrument {
   static Graphite = (items?: string[]) => new Instrument('Graphite', items)
   static Charcoal = (items?: string[]) => new Instrument('Charcoal', items)
   static Digital = (items?: string[]) => new Instrument('Digital', items)
+  static Watercolor = (items?: string[]) => new Instrument('Watercolor', items)
 
   toShortString(): string {
     return this.#type
@@ -37,8 +38,12 @@ export enum GraphiteInstrument {
   SteadlerMarsLumograph = 'Steadler Mars Lumograph pencils',
 }
 
-enum Paper {
-  ArchesAquarelle = 'Arches Aquarelle hot pressed watercolor paper',
+export enum Paper {
+  ArchesHotPressed300gsm = 'Arches hot pressed watercolor paper, 300gsm',
+  ArchesColdPressed300gsm = 'Arches cold pressed watercolor paper, 300gsm',
+  SaundersWaterford190gsm = 'Saunders Waterford watercolor paper, 190gsm',
+  SaundersWaterford300gsm = 'Saunders Waterford watercolor paper, 300gsm',
+  LegionStonehenge250gsm = 'Legion Stonehenge paper, 250gsm',
 }
 
 export interface Media {

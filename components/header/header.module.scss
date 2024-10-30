@@ -1,5 +1,4 @@
 @import '../../styles/shared-styles.module.scss';
-@import '../../styles/variables.scss';
 
 .container {
   margin: 0 auto;
@@ -10,7 +9,7 @@
   flex-wrap: wrap;
 }
 
-@media only screen and (max-width: $mobile-breakpoint) {
+@media only screen and (max-width: var(--mobile-breakpoint)) {
   .container {
     align-items: center;
     flex-direction: column;
@@ -33,7 +32,7 @@
 
 .title {
   text-decoration: none;
-  color: $primary-text !important;
+  color: var(--primary-text) !important;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -60,7 +59,7 @@
   transition: background-color 0.2s ease;
 }
 
-@media only screen and (max-width: $mobile-breakpoint) {
+@media only screen and (max-width: var(--mobile-breakpoint)) {
   .navLinkContainer {
     display: grid;
     grid-template-columns: auto auto;
@@ -76,7 +75,7 @@
 .navLinkContainer li {
   margin-bottom: 0;
   text-decoration: none;
-  color: $primary-text;
+  color: var(--primary-text);
 }
 
 .navLinkContainer a {
@@ -92,9 +91,9 @@
 }
 
 .navLinkContainer a:hover {
-  background-color: $primary-dark;
+  background-color: var(--primary-dark);
 }
 
 .navLinkActive {
-  background-color: $primary-dark;
+  background-color: var(--primary-dark);
 }

@@ -1,10 +1,13 @@
-@import './variables.scss';
-
 .innerCard {
   padding: 20px;
   margin-top: 20px;
   border: 1px solid #dfdfdf;
-  border-left: 2px solid $accent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .innerCard {
+    border: 1px solid hsla(0, 0%, 0%, 0.5);
+  }
 }
 
 .card {
@@ -13,13 +16,21 @@
   margin-top: 20px;
   margin-left: 10px;
   margin-right: 10px;
-  background-color: white;
+  background-color: var(--background);
 }
 
 .boxShadow {
   box-shadow:
     0 1.6px 3.6px 0 hsla(0, 0%, 0%, 0.132),
     0 0.3px 0.9px 0 hsla(0, 0%, 0%, 0.108);
+}
+
+@media (prefers-color-scheme: dark) {
+  .boxShadow {
+    box-shadow:
+      0 3.2px 7.2px 0 hsla(0, 0%, 0%, 0.264),
+      0 0.6px 1.8px 0 hsla(0, 0%, 0%, 0.216);
+  }
 }
 
 .boxShadowHeavy {
@@ -29,22 +40,22 @@
 }
 
 .iconLink {
-  color: $primary;
+  color: var(--primary);
   animation: 0.1s linear;
 }
 
 .iconLink:visited {
-  color: $primary;
+  color: var(--primary);
 }
 
 .iconLink:hover {
-  color: $accent;
+  color: var(--accent);
 }
 
 .tooltip {
   position: relative;
   text-align: center;
-  border-bottom: 1px dotted $primary-lighter;
+  border-bottom: 1px dotted var(--primary-lighter);
   cursor: pointer;
 }
 
@@ -62,8 +73,8 @@
   min-width: 150px;
   padding: 10px;
   border-radius: 3px;
-  background: $primary;
-  color: #dfdfdf;
+  background: var(--primary);
+  color: var(--accent-text);
   opacity: 0;
   z-index: 9999;
   transition: opacity 0.2s;
@@ -93,9 +104,9 @@
   top: 0%;
 
   /* the arrow */
-  border: 9px solid $primary;
+  border: 9px solid var(--primary);
   transition: opacity 0.2s;
-  border-color: $primary transparent transparent transparent;
+  border-color: var(--primary) transparent transparent transparent;
 }
 
 .tooltip:hover:before {
@@ -111,9 +122,9 @@
 }
 
 a.light {
-  color: $primary-lighter;
+  color: var(--primary-lighter);
 }
 
 a.light:hover {
-  color: $primary-lightest;
+  color: var(--primary-lightest);
 }

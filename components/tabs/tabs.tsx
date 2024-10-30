@@ -27,13 +27,14 @@ export const Tabs: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <>
+      {tabs.length > 1 &&
       <div className={Styles.tabsContainer}>
         {tabs.map((t, i) => (
           <button type="button" className={calcClassNameForTab(i)} onClick={() => selectTab(i)} key={t.key}>
             {t.props.title}
           </button>
         ))}
-      </div>
+      </div>}
       {tabs.map((t, i) =>
         selectedTabIndex !== i ? undefined : (
           <div className={classNameForTabContent(i)} key={t.key}>

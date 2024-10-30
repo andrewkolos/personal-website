@@ -1,4 +1,3 @@
-@import '../../styles/variables.scss';
 @import '../../styles/shared-styles.module.scss';
 
 .portrait {
@@ -16,17 +15,17 @@
 }
 
 .showMoreButton {
-  border: 1px solid $primary;
+  border: 1px solid var(--primary);
   padding: 8px 14px 8px 14px;
   border-radius: 5px;
-  color: $primary;
+  color: var(--primary);
   background: none;
   cursor: pointer;
 }
 
 .showMoreButton:hover {
-  border: 1px solid $accent;
-  color: $accent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
 }
 
 .additionalContent {

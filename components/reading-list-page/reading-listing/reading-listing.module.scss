@@ -1,14 +1,13 @@
-@import '../../../styles/variables.scss';
 @import '../../../styles/shared-styles.module.scss';
 
-$containerPadding: 20px;
-$imageWidth: 128px;
+--containerPadding: 20px;
+--imageWidth: 128px;
 
 .container {
   border-top: 1px solid #d0d0d0;
-  padding: $containerPadding;
+  padding: var(--containerPadding);
   overflow: hidden;
-  min-height: $containerPadding * 2 + $imageWidth;
+  min-height: var(--containerPadding) * 2 + var(--imageWidth);
 }
 
 .content {
@@ -17,19 +16,19 @@ $imageWidth: 128px;
 }
 
 .image {
-  height: $imageWidth;
-  width: $imageWidth;
+  height: var(--imageWidth);
+  width: var(--imageWidth);
   object-fit: cover;
 }
 
 .imageContainer {
-  height: $imageWidth;
-  width: $imageWidth;
+  height: var(--imageWidth);
+  width: var(--imageWidth);
   margin-right: 10px;
   margin-left: 20px;
 }
 
-@media only screen and (max-width: $mobile-breakpoint) {
+@media only screen and (max-width: var(--mobile-breakpoint)) {
   .imageContainer {
     display: none;
   }
@@ -55,11 +54,11 @@ $imageWidth: 128px;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
-  color: $body-text-light;
+  color: var(--body-text-light);
 }
 
 .textContent {
-  max-height: $imageWidth;
+  max-height: var(--imageWidth);
   min-width: 0;
   flex-grow: 1;
 }

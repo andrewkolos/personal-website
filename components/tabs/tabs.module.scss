@@ -1,5 +1,4 @@
 @import '../../styles/shared-styles.module.scss';
-@import '../../styles/variables.scss';
 
 .tabsContainer {
   border-bottom: 1px solid #ccc;
@@ -19,8 +18,8 @@
 
   button.active {
     transition: none;
-    color: $primary;
-    border-bottom: 3px solid $primary;
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
   }
 }
 

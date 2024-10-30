@@ -55,12 +55,6 @@ const AboutMe: React.FC<{}> = () => {
           quality={100}
         />
       </div>
-      <p className={Styles.content}>
-        Hello! I enjoy programming. Topics that interest me include software architecture, code/API design, and
-        developer productivity/happiness. Outside of work and hobby programming, I spend most of my time playing video
-        games, particularly smaller single-player titles or team-based multiplayer games.
-      </p>
-
       <button
         hidden={aboutMeExpanded}
         type="button"

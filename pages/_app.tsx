@@ -1,6 +1,7 @@
 import 'gatsby-remark-vscode/styles.css'
 import { AppProps } from 'next/app'
 import React from 'react'
+import '../styles/variables.css';
 import '../styles/global-styles.scss'
 
 // eslint-disable-next-line react/jsx-props-no-spreading -- pageProps is of type any. Can't do anything here.
