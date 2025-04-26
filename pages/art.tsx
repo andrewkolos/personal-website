@@ -54,14 +54,15 @@ const ArtPage: React.FC<ArtPageProps> = ({ galleryEntries}) => {
 
         <div className={Styles.filterControlsOutter}>
           <div className={Styles.filterControlsInner}>
-            <label htmlFor="showSketchesCheckbox">
+            <label htmlFor="showSketchesCheckbox" className={Styles.showSketchesCheckboxLabel}>
               <input
                 id="showSketchesCheckbox"
                 type="checkbox"
                 checked={showSketches}
                 onChange={(e) => setShowSketches(e.target.checked)}
+                className={Styles.showSketchesCheckbox}
               />
-              &nbsp; Show sketches
+              Show sketches
             </label>
           </div>
         </div>

@@ -10,12 +10,52 @@
 .filterControlsInner {
   display: inline-block;
   padding: 1em;
-  border-style: ridge;
-  border-width: 1px;
-  border-color: var(--primary);
 
   :not(:first-child) {
     margin-left: 1em;
+  }
+}
+
+
+.showSketchesCheckboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+}
+
+.showSketchesCheckbox {
+  appearance: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+  margin-right: 0.5em;
+  background: var(--background);
+  position: relative;
+  cursor: pointer;
+
+
+  &:checked {
+    background: var(--primary);
+  }
+
+  &:checked::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0.35em;
+    top: 0.1em;
+    width: 0.35em;
+    height: 0.7em;
+    border: solid var(--accent-text);
+    border-width: 0 0.18em 0.18em 0;
+    transform: rotate(45deg);
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

@@ -529,4 +529,58 @@ export const galleryEntries: ArtEntry[] = [
       height: 5,
     },
   },
+  {
+    title: 'European Robin',
+    media: Media.create([Instrument.Watercolor()], Paper.ArchesColdPressed300gsm),
+    type: ArtEntryType.Normal,
+    imageFilename: '2025-02-07-european-robin.jpg',
+    date: '2025-02-07',
+    width: 2141,
+    height: 3070,
+    thumbPosition: {
+      width: 5,
+      height: 5,
+    },
+    reference: {
+      url: 'https://pixabay.com/photos/robin-bird-animal-european-robin-7816199/',
+      title: null,
+      providerName: 'Jon Pauling',
+    }
+  },
+  {
+    title: 'Western Bluebird',
+    media: Media.create([Instrument.Watercolor()], Paper.ArchesColdPressed300gsm),
+    type: ArtEntryType.Normal,
+    imageFilename: '2025-02-12-western-bluebird.jpg',
+    date: '2025-02-07',
+    width: 2963,
+    height: 2184,
+    thumbPosition: {
+      width: 5,
+      height: 5,
+    },
+    reference: {
+      url: null,
+      title: null,
+      providerName: 'Linda Anderson on PaintMyPhoto',
+    }
+  },
+  {
+    title: 'Austrailian Green Tree Frog',
+    media: Media.create([Instrument.Watercolor()], Paper.ArchesColdPressed300gsm),
+    type: ArtEntryType.Normal,
+    imageFilename: '2025-02-22-austrailian-green-tree-frog.jpg',
+    date: '2025-02-07',
+    width: 2141,
+    height: 3070,
+    thumbPosition: {
+      width: 5,
+      height: 5,
+    },
+    reference: {
+      url: 'https://wildlifereferencephotos.com/media.details.php?mediaID=58405',
+      title: 'Austrailian Green Tree Frog',
+      providerName: 'Wendy Sinclair',
+    }
+  },
 ]

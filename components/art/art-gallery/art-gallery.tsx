@@ -44,7 +44,7 @@ export const ArtGallery: React.FC<ArtGalleryProps> = ({ artEntries }) => (
 
           <div style={{ display: 'none' }}>
             <div className="caption">
-              <div className={Styles.title}>{entry.title}. </div>
+              <div className={Styles.title}>{entry.title} </div>
               <div>
                 {entry.media.detailsString != null ? (
                   <span className={`${Styles.tooltip} ${Styles.tooltipTop}`}>
@@ -55,7 +55,7 @@ export const ArtGallery: React.FC<ArtGalleryProps> = ({ artEntries }) => (
                   <span>{entry.media.shortString}. </span>
                 )}
 
-                <span className={Styles.date}>. {new Date(entry.date).toLocaleDateString()}. </span>
+                <span className={Styles.date}> {new Date(entry.date).toLocaleDateString()}. </span>
               </div>
               {entry.reference && (
                 <span>

@@ -69,11 +69,11 @@ const AboutMe: React.FC<{}> = () => {
           <h2>What I&#39;m up to</h2>
           <ul>
             <li>
-              Working on{' '}
+              Working on {' '}
               <a href="https://github.com/flutter/flutter#readme" target="blank">
                 Flutter <FaExternalLinkAlt />
               </a>{' '}
-              at Google, focused primarily on the Flutter command-line tool.
+              at Google.
             </li>
             <li>Learning to draw, with a particular interest in birds and other animals.</li>
           </ul>
