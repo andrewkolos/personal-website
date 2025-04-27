@@ -60,7 +60,7 @@ export const ArtGallery: React.FC<ArtGalleryProps> = ({ artEntries }) => (
               {entry.reference && (
                 <span>
                   Reference:{' '}
-                  <a href={entry.reference.url} target="_blank" rel="noreferrer" className={Styles.reference}>
+                  <a href={entry.reference.url ?? undefined} target="_blank" rel="noreferrer" className={Styles.reference}>
                     {entry.reference.title}
                   </a>{' '}
                   by {entry.reference.providerName}
